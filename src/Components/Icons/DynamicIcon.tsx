@@ -78,14 +78,14 @@ interface DynamicIconProps {
 
 const DynamicIcon: React.FC<DynamicIconProps> = ({
   name,
-  color = "black",
+  color = "",        // can be Tailwind class or hex string
   size = 15,
   className,
 }) => {
-  // Lookup the icon component
   const Icon = iconPacks[name as keyof typeof iconPacks] as React.ComponentType<{
     color?: string;
     size?: number;
+    className?:string;
   }>;
 
   if (!Icon) {
@@ -96,10 +96,16 @@ const DynamicIcon: React.FC<DynamicIconProps> = ({
     );
   }
 
-  // Wrap in span to safely apply className
+  // Check if the color is a Tailwind class (starts with "text-")
+  const isTailwind = color.startsWith("text-");
+
   return (
     <span className={className}>
-      <Icon color={color} size={size} />
+      <Icon
+        size={size}
+        color={isTailwind ? undefined : color} // hex/string color
+        className={isTailwind ? color : ""}   // Tailwind class
+      />
     </span>
   );
 };

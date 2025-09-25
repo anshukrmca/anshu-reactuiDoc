@@ -25,7 +25,7 @@ const html1 = `<div className="flex items-center gap-4 rounded-lg p-6 shadow-md 
       </div>
 </div>`
 
-export const colorUtilityColumns = [
+const colorUtilityColumns = [
   {
     key: "utility",
     header: "Utility",
@@ -38,7 +38,7 @@ export const colorUtilityColumns = [
   },
 ];
 
-export const colorUtilities = [
+const colorUtilities = [
   { utility: "bg-*", description: "Sets the background color of an element" },
   { utility: "text-*", description: "Sets the text color of an element" },
   { utility: "decoration-*", description: "Sets the text decoration color of an element" },
@@ -63,10 +63,9 @@ export function BackgroundColors() {
 
   return (
     <Card
-      className="my-2 p-2 md:p-4 border"
+      className="my-2 p-2 md:p-4 border bg-white dark:bg-slate-900 text-black dark:text-white"
       style={{
         backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
-        color: CommonSave_GlobalValStore.TextColors
       }}
     >
       <h2 className="text-xl font-semibold mb-4">Colors</h2>
@@ -74,43 +73,67 @@ export function BackgroundColors() {
       <p>Tailwind CSS includes a vast, beautiful color palette out of the box, carefully crafted by expert designers and suitable for a wide range of
         different design styles.</p>
 
-      <Card className="flex my-4 p-4 flex-col items-center shadow-none hover:shadow-none"
+      <Card
+        className="my-4 items-center shadow-none hover:shadow-none overflow-hidden"
         style={{
           backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
-          color: CommonSave_GlobalValStore.TextColors
         }}
       >
-        {/* Shades row */}
-        <div className="w-full flex gap-1 md:gap-8 pl-10 md:pl-32">
-          {colorShades.map((c) => (
-            <div key={c} className="text-[10px] md:text-sm lg:text-base -rotate-90 md:rotate-none">{c}</div>
-          ))}
-        </div>
-        {/* All colors */}
-        <div className="w-full">
-          {allColors.map((color, i) => (
-            <div key={i} className="flex my-1">
-              <div className="md:w-32 w-10 text-[8px] md:text-sm lg:text-base capitalize">{color}</div>
-              <div className="flex gap-1 md:gap-3 lg:gap-4">
-                {colorShades.map((c) => (
-                  <div
-                    key={c}
-                    className={`bg-${color}-${c} sm:h-4 md:h-10 w-4 md:w-10 rounded`}
-                  ></div>
-                ))}
+        <div className="w-full flex-1">
+          <div className="flex overflow-x-auto">
+            <div className="flex-1">
+              <div className="min-w-max ">
+                <div className="flex gap-2">
+                  <div className="flex-shrink-0 w-20 md:w-32"></div>
+                  <div className="flex gap-1">
+                    {colorShades.map((shade) => (
+                      <div
+                        key={shade}
+                        className="h-10 w-10 md:w-20 text-[12px] flex items-center justify-center"
+                      >
+                        {shade}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  {allColors.map((color) => (
+                    <div key={color} className="flex gap-2 items-center my-1">
+                      {/* Fixed left color label */}
+                      <div className="flex-shrink-0 w-20 md:w-32 h-10 flex items-center text-[12px] md:text-sm capitalize">
+                        {color}
+                      </div>
+
+                      {/* Scrollable shades row */}
+                      <div className="flex gap-1">
+                        {colorShades.map((shade) => (
+                          <div
+                            key={shade}
+                            className={`h-10 w-10 md:w-20 text-[12px] flex items-center justify-center bg-${color}-${shade}`}
+                          >
+                            {/* {shade} */}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </Card>
 
-      <p className="my-5">Every color in the default palette includes 11 steps, with 50 being the lightest, and 950 being the darkest:</p>
+      <p className="my-5 outline-red-300">Every color in the default palette includes 11 steps, with 50 being the lightest, and 950 being the darkest:</p>
+
+      <div className="outline outline-red-500 p-4 m-4">Outline Test</div>
+      <div className="ring-2 ring-red-500 p-4 m-4">Ring Test</div>
+      <label className="accent-green-500"><input type="checkbox" className="accent-green-500" /> Accent Test</label>
 
       <Card
-        className="w-full px-8 mx-auto flex flex-col items-center shadow-none hover:shadow-none my-4"
+        className="w-full px-8 mx-auto flex flex-col items-center shadow-none hover:shadow-none my-4 bg-white dark:bg-slate-900 text-black dark:text-white"
         style={{
           backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
-          color: CommonSave_GlobalValStore.TextColors
         }}
       >
 
@@ -151,7 +174,6 @@ export function BackgroundColors() {
         className="w-full px-8 mx-auto flex flex-col items-center shadow-none hover:shadow-none my-4"
         style={{
           backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
-          color: CommonSave_GlobalValStore.TextColors
         }}
       >
 
@@ -198,7 +220,6 @@ export function BackgroundColors() {
         className="w-full px-8 mx-auto flex flex-col items-center shadow-none hover:shadow-none my-4"
         style={{
           backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
-          color: CommonSave_GlobalValStore.TextColors
         }}
       >
 
@@ -213,10 +234,13 @@ export function BackgroundColors() {
             )
           })}
         </div>
+
         {/* Code samples */}
         <div className="w-full rounded overflow-hidden">
           <CodeViewer code={`<div>\n${opacitiesSnippets.join("\n")}\n</div`} />
         </div>
+
+
       </Card>
     </Card>
   );

@@ -29,12 +29,10 @@ const DashBoardLayout: React.FC = () => {
 
   // Theme values
   const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9) || "white";
-  const textColor = CommonSave_GlobalValStore?.TextColor || "#000000";
-
   return (
     <div
       className="overflow-x-hidden"
-      style={{ backgroundColor: bgColor, color: textColor }}
+      style={{ backgroundColor: bgColor}}
     >
       {/* Sidebar */}
       <div
@@ -45,7 +43,6 @@ const DashBoardLayout: React.FC = () => {
           width: (size.width ?? window.innerWidth) >= 769 ? (isSidebarExpand ? "270px" : "70px") : "270px",
           transition: "all 0.3s ease-in-out",
           backgroundColor: bgColor,
-          color: textColor,
         }}
       >
         <SideBarMenu />
@@ -74,7 +71,6 @@ const DashBoardLayout: React.FC = () => {
                 : "100%",
             transition: "all 0.3s ease-in-out",
             backgroundColor: bgColor,
-            color: textColor,
           }}
         >
           <App_Header />
@@ -86,7 +82,6 @@ const DashBoardLayout: React.FC = () => {
           key={location.pathname}
           style={{
             paddingTop: isHeaderFixed ? "64px" : "0px",
-            color: textColor,
           }}
         >
           <div className="flex-1 p-2" style={{ minHeight: "100vh" }}>

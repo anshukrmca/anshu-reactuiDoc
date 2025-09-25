@@ -29,7 +29,7 @@ function App() {
           element: <Home />,
         },
          {
-          path: "/full-calendar",
+          path: "/doc",
           element: <Home />,
         },
       ],

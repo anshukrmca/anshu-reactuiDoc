@@ -12,6 +12,7 @@ import { AnimationExamples } from "../Components/UI/AnimationExamples";
 import { ResponsiveExamples } from "../Components/UI/ResponsiveExamples";
 import { FooterNote } from "../Components/UI/FooterNote";
 import { ScaleClasses } from "../Components/UI/ScaleClasses";
+import { useAppSelector } from "../CustomeHooks/Hooks";
 
 
 /* ------------------- config arrays and helper functions actually used ------------------- */
@@ -109,10 +110,13 @@ const borderStyleClasses = generateBorderStyleClasses(borderStyles);
 
 /* ------------------- main component ------------------- */
 export default function TailwindDocPlayground(): JSX.Element {
+  const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
   return (
-    <div className="p-2 w-full space-y-8">
-      <h1 className="text-3xl font-bold mb-2">Tailwind Comprehensive Playground</h1>
-      <p className="text-sm text-slate-600 dark:text-slate-300">
+    <div 
+    style={{background:CommonSave_GlobalValStore?.ThemeBackground}}
+    className="p-2 w-full space-y-8 bg-white dark:bg-slate-900 text-black dark:text-white">
+      <h1 className="text-3xl font-bold mb-2 ">Tailwind Comprehensive Playground</h1>
+      <p className="text-sm text-slate-800 dark:text-red-300">
         Auto-generated examples for the utilities from your config. Tokens like <span className="font-mono">10vh</span> or <span className="font-mono">100%</span> are shown as inline-style previews because they aren't valid Tailwind token names by default — add them to <code>theme.extend</code> to make real utilities.
       </p>
 

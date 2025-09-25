@@ -4,14 +4,11 @@ import { MenuCategories, menuData } from "../../Data/MenuData.tsx";
 import useWindowSize from "../../CustomeHooks/useWindowSize";
 import { setisSidebarExpand, setisSidebarOpen } from "../../Store/CommonStore/CommonGlobalValSlice";
 import { SidebarMenu } from "anshu-reactui";
-import DynamicIcon from "../Icons/DynamicIcon.tsx";
-
+import DynamicIcon from "../Icons/DynamicIcon";
 const SideBarMenu: React.FC = () => {
   const { CommonSave_GlobalValStore, CommonGlobalValStore } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
   const size = useWindowSize();
-
-
   return (
     <>
       {(size.width ?? window.innerWidth) < 769 && 
@@ -26,12 +23,10 @@ const SideBarMenu: React.FC = () => {
         <DynamicIcon name="IoMdClose" size={18}/>
       </div>
       }
-
       <SidebarMenu
         CategoryData={MenuCategories}
         MenuData={menuData}
-        Theme={CommonSave_GlobalValStore?.ThemePrimary}
-        TextColor={CommonSave_GlobalValStore?.MenuTextColor}
+        ThemeColor={CommonSave_GlobalValStore?.ThemePrimary}
         isSidebarExpand={CommonGlobalValStore?.isSidebarExpand}
         SidebarExpandWidth={270}
         style={{
@@ -39,8 +34,8 @@ const SideBarMenu: React.FC = () => {
           width: "100%",
           height:'100vh'
         }}
-        ClassName=""
-        SideBarDetails={["Meow DashBoard", <i className="fa-solid fa-cat"></i>, "/"]}
+        ClassName="bg-white dark:bg-slate-900 text-black dark:text-white"
+        SideBarDetails={["Meow DashBoard", <DynamicIcon name="FaCat" size={22} color={CommonSave_GlobalValStore?.ThemePrimary}/>, "/"]}
       />
 
     </>

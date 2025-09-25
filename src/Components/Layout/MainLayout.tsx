@@ -6,14 +6,13 @@ import DashBoardLayout from "./DashBoardLayout";
 import ThemeSetting from "./ThemeSetting";
 import HorizontalMenu from "./HorizontalMenu";
 import { useAppSelector } from "../../CustomeHooks/Hooks";
-import { hexToRgba, ModalStack, OffCanvace, ToastContainer, toggleOffCanvace } from "anshu-reactui";
+import { hexToRgba, OffCanvace, ToastContainer, toggleOffCanvace,ModalStack } from "anshu-reactui";
 import DynamicIcon from "../Icons/DynamicIcon";
 
 const MainLayout: React.FC = () => {
   const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
   const isHorizontal = CommonSave_GlobalValStore?.NavigationStyles === "Horizontal";
   const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9) || "white";
-  const textColor = CommonSave_GlobalValStore?.TextColor || "#000000";
   const padding = CommonSave_GlobalValStore?.HeaderPositions === 'Scrollable' ? '10px' : '120px';
 
   return (
@@ -27,7 +26,6 @@ const MainLayout: React.FC = () => {
         style={{
           zIndex: 999999,
           backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
-          color: CommonSave_GlobalValStore.TextColor
         }}
       >
         <ThemeSetting />
@@ -37,13 +35,12 @@ const MainLayout: React.FC = () => {
         className="rounded-md"
         style={{
           backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
-          color: CommonSave_GlobalValStore.TextColor
         }}
       />
       {/* Settings Floating Button */}
       <div
-        className="fixed top-1/2 right-0 z-50 flex items-center justify-center w-12 h-12 shadow-lg rounded-l-xl cursor-pointer transform -translate-y-1/2 transition-all hover:scale-105"
-        style={{ backgroundColor: bgColor, color: textColor }}
+        className="fixed bg-white dark:bg-slate-900 text-black dark:text-white top-1/2 right-0 z-50 flex items-center justify-center w-12 h-12 shadow-lg rounded-l-xl cursor-pointer transform -translate-y-1/2 transition-all hover:scale-105"
+        style={{ backgroundColor: bgColor }}
         onClick={() => toggleOffCanvace("ThemeSettingOffCanvace")}
       >
         <span className="animate-spin">
@@ -56,10 +53,9 @@ const MainLayout: React.FC = () => {
       {/* Layout Wrapper */}
       {isHorizontal ? (
         <div
-          className=""
-          style={{ backgroundColor: bgColor, color: textColor }}
+          className="bg-white dark:bg-slate-900 text-black dark:text-white"
+          style={{ backgroundColor: bgColor}}
         >
-          {/* Header (fixed or scrollable depending on your setup) */}
           <div
             className={`${CommonSave_GlobalValStore?.MenuPositions === "Scrollable" ||
               CommonSave_GlobalValStore?.HeaderPositions === "Scrollable"
@@ -73,7 +69,7 @@ const MainLayout: React.FC = () => {
 
           {/* Main content (flex-grow pushes footer down) */}
           <main
-            className="max-w-7xl mx-auto p-2 w-full"
+            className="max-w-screen p-2 w-full "
             style={{ paddingTop: padding, minHeight: "100vh" }}
           >
             <Outlet />

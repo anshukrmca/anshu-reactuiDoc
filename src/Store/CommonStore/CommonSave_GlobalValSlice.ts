@@ -37,17 +37,11 @@ export function getContrastText(bgColor: string): string {
 /* ---------- State Type ---------- */
 export interface CommonSaveGlobalValState {
   ActiveModuleID: string;
-  ThemeColorMode: "Light" | "Dark";
+  ThemeColorMode: "light" | "dark";
   ThemeBackground: string;
   ThemePrimary: string;
-
-  TextColor: string;
-
   HeaderColors: string;
-  HeaderTextColor: string;
   MenuColors: string;
-  MenuTextColor: string;
-
   HeaderCustom: boolean;
   MenuCustom: boolean;
 
@@ -58,30 +52,18 @@ export interface CommonSaveGlobalValState {
   MenuPositions: string;
   HeaderPositions: string;
   MenuStyles: string;
-
-  ActiveMenuGroups: number | null;
-  ActiveMenuSubGroup: number | null;
-  ActiveMenuSubOfSubGroup: number  | null;
-  ActiveMenu: number | null;
 }
 
 /* ---------- Initial State ---------- */
 const initialState: CommonSaveGlobalValState = {
   ActiveModuleID: "",
-  ThemeColorMode: "Light",
+  ThemeColorMode: "light",
   ThemeBackground: "white",
   ThemePrimary: "gray",
-
-  TextColor: "",
-
   HeaderColors: "white",
-  HeaderTextColor: "#000000",
   MenuColors: "white",
-  MenuTextColor: "#000000",
-
   HeaderCustom: false,
   MenuCustom: false,
-
   NavigationStyles: "Vertical",
   Directions: "LTR",
   PageStyles: "Regular",
@@ -89,26 +71,9 @@ const initialState: CommonSaveGlobalValState = {
   MenuPositions: "Fixed",
   HeaderPositions: "Fixed",
   MenuStyles: "Menu Click",
-
-  ActiveMenuGroups:null ,
-  ActiveMenuSubGroup: null,
-  ActiveMenuSubOfSubGroup: null,
-  ActiveMenu:null,
 };
 
 /* ---------- Derived helpers ---------- */
-function deriveTextAndIconFromBackground(state: CommonSaveGlobalValState) {
-  const contrast = getContrastText(state.ThemeBackground);
-  state.TextColor = contrast;
-}
-
-function deriveHeaderText(state: CommonSaveGlobalValState) {
-  state.HeaderTextColor = getContrastText(state.HeaderColors || "#ffffff");
-}
-
-function deriveMenuText(state: CommonSaveGlobalValState) {
-  state.MenuTextColor = getContrastText(state.MenuColors || "#ffffff");
-}
 
 /* ---------- Auto-fix ThemePrimary conflicts ---------- */
 function autoFixPrimary(state: CommonSaveGlobalValState) {
@@ -157,29 +122,23 @@ const CommonSave_GlobalValSlice = createSlice({
     },
 
     /* ---------- Theme mode ---------- */
-    setThemeColorMode: (state, action: PayloadAction<"Light" | "Dark">) => {
+    setThemeColorMode: (state, action: PayloadAction<"light" | "dark">) => {
       state.ThemeColorMode = action.payload;
 
-      if (action.payload === "Light") {
+      if (action.payload === "light") {
         state.ThemeBackground = "white";
-        state.TextColor = "#071c30";
         state.ThemePrimary = "#071c30";
       } else {
         state.ThemeBackground = "#071c30";
-        state.TextColor = "white";
         state.ThemePrimary = "white";
       }
 
       if (!state.HeaderCustom) state.HeaderColors = state.ThemeBackground;
       if (!state.MenuCustom) state.MenuColors = state.ThemeBackground;
-
-      state.HeaderTextColor = getContrastText(state.HeaderColors);
-      state.MenuTextColor = getContrastText(state.MenuColors);
-
       if (typeof document !== "undefined") {
         document.documentElement.classList.toggle(
           "dark",
-          action.payload === "Dark"
+          action.payload === "dark"
         );
       }
     },
@@ -188,33 +147,25 @@ const CommonSave_GlobalValSlice = createSlice({
     setHeaderColors: (state, action: PayloadAction<string>) => {
       state.HeaderColors = action.payload;
       state.HeaderCustom = true;
-      deriveHeaderText(state);
       autoFixPrimary(state);
-      deriveTextAndIconFromBackground(state);
     },
 
     setMenuColors: (state, action: PayloadAction<string>) => {
       state.MenuColors = action.payload;
       state.MenuCustom = true;
-      deriveMenuText(state);
       autoFixPrimary(state);
-      deriveTextAndIconFromBackground(state);
     },
 
     resetHeaderToTheme: (state) => {
       state.HeaderCustom = false;
       state.HeaderColors = state.ThemeBackground;
-      deriveHeaderText(state);
       autoFixPrimary(state);
-      deriveTextAndIconFromBackground(state);
     },
 
     resetMenuToTheme: (state) => {
       state.MenuCustom = false;
       state.MenuColors = state.ThemeBackground;
-      deriveMenuText(state);
       autoFixPrimary(state);
-      deriveTextAndIconFromBackground(state);
     },
 
     setThemeBackground: (state, action: PayloadAction<string>) => {
@@ -223,9 +174,6 @@ const CommonSave_GlobalValSlice = createSlice({
       state.MenuColors = action.payload;
       state.HeaderCustom = false;
       state.MenuCustom = false;
-      deriveTextAndIconFromBackground(state);
-      deriveHeaderText(state);
-      deriveMenuText(state);
       autoFixPrimary(state);
     },
 
@@ -244,31 +192,7 @@ const CommonSave_GlobalValSlice = createSlice({
       }
 
       state.ThemePrimary = action.payload;
-      deriveTextAndIconFromBackground(state);
     },
-
-    /* ---------- Direct overrides ---------- */
-    setTextColor: (state, action: PayloadAction<string>) => {
-      state.TextColor = action.payload;
-      state.HeaderTextColor = action.payload;
-      state.MenuTextColor = action.payload;
-    },
-    /* ---------- Active menu markers ---------- */
-    setActiveMenuGroups: (state, action: PayloadAction<number  | null>) => {
-      state.ActiveMenuGroups = action.payload;
-    },
-    setActiveMenuSubGroup: (state, action: PayloadAction<number  | null>) => {
-      state.ActiveMenuSubGroup = action.payload;
-    },
-    setActiveMenuSubOfSubGroup: (state, action: PayloadAction<number  | null>) => {
-      state.ActiveMenuSubOfSubGroup = action.payload;
-    },
-    setActiveMenu: (state, action: PayloadAction<number | null>) => {
-  state.ActiveMenu = action.payload;
-}
-
-    ,
-
     resetCommonSaveGlobalVal: () => initialState,
   },
 });
@@ -290,11 +214,6 @@ export const {
   resetMenuToTheme,
   setThemeBackground,
   setThemePrimary,
-  setTextColor,
-  setActiveMenuGroups,
-  setActiveMenuSubGroup,
-  setActiveMenuSubOfSubGroup,
-  setActiveMenu,
   resetCommonSaveGlobalVal,
 } = CommonSave_GlobalValSlice.actions;
 

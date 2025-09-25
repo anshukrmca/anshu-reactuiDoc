@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../CustomeHooks/Hooks";
-import { menuData } from "../../Data/MenuData.tsx";
+import { HorizontalmenuData, } from "../../Data/MenuData.tsx";
 import { HorizontalBarMenu } from 'anshu-reactui'
 
 
@@ -8,13 +8,10 @@ export default function HorizontalMenu() {
   return (
     <>
       <HorizontalBarMenu
-        data={menuData}
-        Theme={CommonSave_GlobalValStore?.ThemePrimary}
-        TextColor={CommonSave_GlobalValStore?.MenuTextColor} // default top-bar text
-        fontSize="13px"          // entire menu font
+        data={HorizontalmenuData}
+       ThemeColor={CommonSave_GlobalValStore?.ThemePrimary}
         dropdownBg={CommonSave_GlobalValStore?.MenuColors} // dropdown panel
-        dropdownText={CommonSave_GlobalValStore?.MenuTextColor}   // dropdown text
-        className="shadow-sm bg-white"
+        className="shadow-sm bg-white dark:bg-slate-900 text-black dark:text-white"
         style={{
           backgroundColor: CommonSave_GlobalValStore?.MenuColors,
         }}
