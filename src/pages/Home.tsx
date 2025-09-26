@@ -1,12 +1,108 @@
-import { Card, toast } from "anshu-reactui";
+import { Alert, Badge, Card, toast } from "anshu-reactui";
 import React from "react";
 import { AiFillInfoCircle } from "react-icons/ai";
 import ProgressBarTestCases from "../Components/ProgressBar/ProgressBarTestCases";
 import TailwindDocPlayground from "./TailwindDocPlayground";
+import SwitchTest from "../Components/UI/SwitchTest";
+import BreadcrumbDemo from "../Components/UI/BreadcrumbDemo";
+import TooltipDemo from "../Components/UI/TooltipDemo";
+import TextareaDemo from "../Components/UI/TextareaDemo";
+import SpinnerDemo from "../Components/UI/SpinnerDemo";
 
 const Home: React.FC = () => {
   return (
     <>
+    <SpinnerDemo/>
+    <TextareaDemo/>
+    <TooltipDemo/>
+    <BreadcrumbDemo/>
+      <Badge type="primary">Primary</Badge>
+      <Badge type="secondary">Secondary</Badge>
+      <Badge type="success">Success</Badge>
+      <Badge type="danger">Danger</Badge>
+      <Badge type="warning">Warning</Badge>
+      <Badge type="info">Info</Badge>
+      <Badge type="dark">Dark</Badge>
+      <Badge type="orange">Orange</Badge>
+      <Badge type="teal">Teal</Badge>
+      <Badge type="purple">Purple</Badge>
+
+      <Badge type="primary" light>Primary</Badge>
+      <Badge type="secondary" light>Secondary</Badge>
+      <Badge type="success" light>Success</Badge>
+      <Badge type="danger" light>Danger</Badge>
+      <Badge type="warning" light>Warning</Badge>
+      <Badge type="info" light>Info</Badge>
+      <Badge type="dark" light>Dark</Badge>
+      <Badge type="orange" light>Orange</Badge>
+      <Badge type="teal" light>Teal</Badge>
+      <Badge type="purple" light>Purple</Badge>
+
+      <Badge type="primary" pill>Primary</Badge>
+      <Badge type="secondary" pill>Secondary</Badge>
+      <Badge type="success" pill>Success</Badge>
+      <Badge type="danger" pill>Danger</Badge>
+      <Badge type="warning" pill>Warning</Badge>
+      <Badge type="info" pill>Info</Badge>
+      <Badge type="dark" pill>Dark</Badge>
+      <Badge type="orange" pill>Orange</Badge>
+      <Badge type="teal" pill>Teal</Badge>
+      <Badge type="purple" pill>Purple</Badge>
+
+      <Badge type="primary" light pill>Primary</Badge>
+      <Badge type="secondary" light pill>Secondary</Badge>
+      <Badge type="success" light pill>Success</Badge>
+      <Badge type="danger" light pill>Danger</Badge>
+      <Badge type="warning" light pill>Warning</Badge>
+      <Badge type="info" light pill>Info</Badge>
+      <Badge type="dark" light pill>Dark</Badge>
+      <Badge type="orange" light pill>Orange</Badge>
+      <Badge type="teal" light pill>Teal</Badge>
+      <Badge type="purple" light pill>Purple</Badge>
+
+      <Badge type="primary" gradient>Primary</Badge>
+      <Badge type="secondary" gradient>Secondary</Badge>
+      <Badge type="success" gradient>Success</Badge>
+      <Badge type="danger" gradient>Danger</Badge>
+      <Badge type="warning" gradient>Warning</Badge>
+      <Badge type="info" gradient>Info</Badge>
+      <Badge type="dark" gradient>Dark</Badge>
+      <Badge type="orange" gradient>Orange</Badge>
+      <Badge type="teal" gradient>Teal</Badge>
+      <Badge type="purple" gradient>Purple</Badge>
+
+      <Badge type="primary" gradient pill>Primary</Badge>
+      <Badge type="secondary" gradient pill>Secondary</Badge>
+      <Badge type="success" gradient pill>Success</Badge>
+      <Badge type="danger" gradient pill>Danger</Badge>
+      <Badge type="warning" gradient pill>Warning</Badge>
+      <Badge type="info" gradient pill>Info</Badge>
+      <Badge type="dark" gradient pill>Dark</Badge>
+      <Badge type="orange" gradient pill>Orange</Badge>
+      <Badge type="teal" gradient pill>Teal</Badge>
+      <Badge type="purple" gradient pill>Purple</Badge>
+
+      <Alert className='bg-green-600 text-white' CloseIconColor='white' dismissible AlertIcon={'IoInformationCircleOutline'}>
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      </Alert>
+      <Alert className='alert-warning' dismissible AlertIcon={'CiWarning'}>
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      </Alert>
+      <Alert className='bg-red-600 text-white rounded-full' CloseIconColor='white' dismissible AlertIcon={'MdOutlineDangerous'}>
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      </Alert>
+      <Alert className='text-red-600 border-red-600' dismissible AlertIcon={'FaDAndD'}>
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      </Alert>
+      <Alert className='bg-blue-400 text-white rounded-none rounded-tr-2xl rounded-bl-2xl' CloseIconColor='white' dismissible AlertIcon={'IoMdPeople'}>
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      </Alert>
+      <Alert className='text-blue-400 border-blue-400 rounded-full' dismissible AlertIcon={'FaHome'}>
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      </Alert>
+
+
+      <SwitchTest />
       <div className="w-full box-border">
         <TailwindDocPlayground />
       </div>
