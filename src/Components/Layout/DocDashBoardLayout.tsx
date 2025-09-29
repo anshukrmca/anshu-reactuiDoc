@@ -8,8 +8,9 @@ import SideBarMenu from "./SideBarMenu";
 import { useAppDispatch, useAppSelector } from "../../CustomeHooks/Hooks";
 import { hexToRgba } from "anshu-reactui/lib";
 import { setisSidebarOpen } from "../../Store/CommonStore/CommonGlobalValSlice";
+import { DocMenuCategories, DocSidebarMenuData } from "../../Data/MenuData";
 
-const DashBoardLayout: React.FC = () => {
+const DocDashBoardLayout: React.FC = () => {
   const size = useWindowSize();
   const location = useLocation();
   const dispatch = useAppDispatch();
@@ -45,7 +46,7 @@ const DashBoardLayout: React.FC = () => {
           backgroundColor: bgColor,
         }}
       >
-        <SideBarMenu />
+        <SideBarMenu MenuData={DocSidebarMenuData} CategoriesData={DocMenuCategories} />
       </div>
 
       {/* Main content area */}
@@ -94,4 +95,4 @@ const DashBoardLayout: React.FC = () => {
   );
 };
 
-export default DashBoardLayout;
+export default DocDashBoardLayout;

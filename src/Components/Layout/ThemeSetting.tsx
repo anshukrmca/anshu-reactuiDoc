@@ -17,6 +17,7 @@ import {
 } from "../../Store/CommonStore/CommonSave_GlobalValSlice";
 import { useAppDispatch, useAppSelector } from "../../CustomeHooks/Hooks";
 import DynamicIcon from "../Icons/DynamicIcon";
+import { ThemeSettingData } from "../../Data/MenuData";
 
 interface TabItem {
   id: number;
@@ -24,31 +25,9 @@ interface TabItem {
   icon: string;
 }
 
-interface SettingGroup {
-  id: number;
-  ThameSettingTypeId: number;
-  type: "radio" | "color";
-  title: string;
-  items: string[];
-}
-
 const Tabs: TabItem[] = [
   { id: 1, name: "Theme Styles", icon: "CiSettings" },
   { id: 2, name: "Theme Colors", icon: "CiPalette" },
-];
-
-const ThemeSettingData: SettingGroup[] = [
-  { id: 1, ThameSettingTypeId: 1, type: "radio", title: "Theme Color Mode", items: ["light", "dark"] },
-  { id: 2, ThameSettingTypeId: 1, type: "radio", title: "Directions", items: ["LTR", "RTL"] },
-  { id: 3, ThameSettingTypeId: 1, type: "radio", title: "Navigation Styles", items: ["Vertical", "Horizontal"] },
-  { id: 5, ThameSettingTypeId: 1, type: "radio", title: "Page Styles", items: ["Regular", "Classic", "Modern"] },
-  { id: 6, ThameSettingTypeId: 1, type: "radio", title: "Layout Width Styles", items: ["Full Width", "Boxed"] },
-  { id: 7, ThameSettingTypeId: 1, type: "radio", title: "Menu Positions", items: ["Fixed", "Scrollable"] },
-  { id: 8, ThameSettingTypeId: 1, type: "radio", title: "Header Positions", items: ["Fixed", "Scrollable"] },
-  { id: 9, ThameSettingTypeId: 2, type: "color", title: "Menu Colors", items: ["#2998f2", "#20f7d3"] },
-  { id: 10, ThameSettingTypeId: 2, type: "color", title: "Header Colors", items: ["#2998f2", "#20f7d3"] },
-  { id: 11, ThameSettingTypeId: 2, type: "color", title: "Theme Primary", items: ["white", "black", "#773cd3", "red", "#0bcfd9", "#810cf5", "#07f59e", "#a4ba3f"] },
-  { id: 12, ThameSettingTypeId: 2, type: "color", title: "Theme Background", items: ["#05666b", "#1E293B", "#202164", "#02613e"] },
 ];
 
 const radioActions: Record<string, any> = {
@@ -94,6 +73,7 @@ const ThemeSetting: React.FC = () => {
     if (title === "Theme Color Mode") {
       dispatch(setHeaderColors(""))
       dispatch(setMenuColors(""))
+      dispatch(setThemeBackground(""))
     }
     if (action) dispatch(action(value));
   };

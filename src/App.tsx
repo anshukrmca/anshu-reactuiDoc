@@ -1,20 +1,18 @@
-import 'anshu-reactui/dist/styles.css'
+import "anshu-reactui/dist/styles.css";
 import { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./Components/Layout/MainLayout";
-import { Loading } from 'anshu-reactui';
-import Home from './pages/Home';
-// import UnknownPage from "./Components/Routes/UnknownPage";
-
-
+import { Loading } from "anshu-reactui";
+import Home from "./pages/Home/Home";
+import { BackgroundColors } from "./pages/Doc/BackgroundColors";
+import ButtonList from "./pages/UiElement/ButtonList";
 
 function App() {
-
   // Define the router
   const router = createBrowserRouter([
     {
       path: "*",
-      element: <p> No page</p>,
+      element: <p>No page</p>,
     },
     {
       path: "/",
@@ -25,12 +23,25 @@ function App() {
           element: <Home />,
         },
         {
-          path: "/home",
+          path: "home",
           element: <Home />,
         },
-         {
-          path: "/doc",
-          element: <Home />,
+        {
+          path: "colors",
+          element: <BackgroundColors />,
+        },
+        {
+          path: "components", // ✅ /components
+          children: [
+            {
+              index: true,
+              element: <p>Default components page</p>,
+            },
+            {
+              path: "buttons",
+              element: <ButtonList/>,
+            },
+          ],
         },
       ],
     },
@@ -41,8 +52,6 @@ function App() {
       <RouterProvider router={router} />
     </Suspense>
   );
-
 }
 
 export default App;
-

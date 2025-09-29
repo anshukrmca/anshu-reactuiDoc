@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../CustomeHooks/Hooks";
 import {
   setHeaderColors,
   setMenuColors,
+  setThemeBackground,
   setThemeColorMode,
 } from "../../Store/CommonStore/CommonSave_GlobalValSlice";
 import { setisSidebarExpand, setisSidebarOpen } from "../../Store/CommonStore/CommonGlobalValSlice";
@@ -22,13 +23,13 @@ const App_Header: React.FC = () => {
   const getSystemTheme = () =>
     window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 
-  // Initialize theme once on mount
+  // Initialize theme on mount
   useEffect(() => {
     const savedTheme = CommonSave_GlobalValStore?.ThemeColorMode;
     const initialTheme = savedTheme || getSystemTheme();
     dispatch(setThemeColorMode(initialTheme));
     document.documentElement.classList.toggle("dark", initialTheme === "dark");
-  }, []); // run once on mount
+  }, []);
 
   // Apply theme class on Redux changes
   useEffect(() => {
@@ -44,7 +45,6 @@ const App_Header: React.FC = () => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handler = (e: MediaQueryListEvent) => {
       const currentTheme = CommonSave_GlobalValStore?.ThemeColorMode;
-      // Only update if user has not set manual theme
       if (!currentTheme) {
         dispatch(setThemeColorMode(e.matches ? "dark" : "light"));
       }
@@ -54,13 +54,11 @@ const App_Header: React.FC = () => {
   }, [dispatch, CommonSave_GlobalValStore?.ThemeColorMode]);
 
   // Header styles
-  const headerStyles = useMemo(
-    () => ({
-      backgroundColor: CommonSave_GlobalValStore?.HeaderColors,
-    }),
-    [CommonSave_GlobalValStore?.HeaderColors]
-  );
-  const iconColor = CommonSave_GlobalValStore?.ThemePrimary || "#000";
+  const headerStyles = useMemo(() => ({
+    backgroundColor: CommonSave_GlobalValStore?.HeaderColors,
+  }), [CommonSave_GlobalValStore?.HeaderColors]);
+
+  const iconColor = CommonSave_GlobalValStore?.ThemePrimary;
 
   // Sidebar toggle
   const toggleSidebar = useCallback(() => {
@@ -93,13 +91,14 @@ const App_Header: React.FC = () => {
   const toggleTheme = useCallback(() => {
     const nextTheme = CommonSave_GlobalValStore?.ThemeColorMode === "light" ? "dark" : "light";
     dispatch(setThemeColorMode(nextTheme));
-    dispatch(setHeaderColors(''))
-    dispatch(setMenuColors(''))
+    dispatch(setHeaderColors(""));
+    dispatch(setMenuColors(""));
+    dispatch(setThemeBackground(""));
   }, [CommonSave_GlobalValStore?.ThemeColorMode, dispatch]);
 
   return (
     <div
-      className="w-full flex sm:flex-row items-center h-14 z-50 shadow-lg p-0 m-0 bg-white dark:bg-slate-900 text-black dark:text-white overflow-hidden"
+      className="w-full flex sm:flex-row items-center h-14 z-50 shadow-lg p-0 m-0 bg-white dark:bg-slate-900 text-black dark:text-white overflow-hidden transition-colors"
       style={headerStyles}
     >
       {/* Sidebar / Logo */}
