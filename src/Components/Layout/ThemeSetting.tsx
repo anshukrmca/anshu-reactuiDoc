@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import type { AppState } from "../../Store/Store";
 import {
   setThemeColorMode,
@@ -69,50 +69,63 @@ const ThemeSetting: React.FC = () => {
   const [activeTab, setActiveTab] = useState<number>(1);
 
   const handleRadioChange = (title: string, value: string) => {
-    const action = radioActions[title];
-    if (title === "Theme Color Mode") {
-      dispatch(setHeaderColors(""))
-      dispatch(setMenuColors(""))
-      dispatch(setThemeBackground(""))
-    }
-    if (action) dispatch(action(value));
-  };
+  const action = radioActions[title];
 
-  const handleColorChange = (title: string, color: string) => {
-    const action = colorActions[title];
-    if (!action) return;
-    const ThemeColorMode = store.ThemeColorMode?.toLowerCase() === "light";
-    const ThemeBackground = store.ThemeBackground?.toLowerCase() === "white";
-    const colorLower = color.toLowerCase();
-    if (title === "Theme Primary") {
-      if (colorLower === "white" && (ThemeColorMode) && ThemeBackground) {
-        return;
-      } else if (colorLower === "black" && !ThemeColorMode) {
-        return
-      }
+  if (title === "Theme Color Mode") {
+    // reset dependent colors
+    dispatch(setHeaderColors(""));
+    dispatch(setMenuColors(""));
+    dispatch(setThemeBackground(""));
+    if (value === "light") {
+      dispatch(setThemePrimary("black")); // white not allowed
+    } else if (value === "dark") {
+      dispatch(setThemePrimary("white")); // black not allowed
     }
-    dispatch(action(color));
-  };
+  }
+  if (action) dispatch(action(value));
+};
+
+
+const handleColorChange = (title: string, color: string) => {
+  const action = colorActions[title];
+  if (!action) return;
+  const themeMode = store.ThemeColorMode?.toLowerCase(); // "light" | "dark"
+  const selected = color.toLowerCase();
+  // ❌ White not allowed in light mode
+  if (themeMode === "light" && selected === "white") {
+    console.warn("⚠️ White is not allowed in light mode");
+    return;
+  }
+  // ❌ Black or "dark" not allowed in dark mode
+  if (themeMode === "dark" && (selected === "black" || selected === "dark")) {
+    console.warn("⚠️ Black/Dark colors are not allowed in dark mode");
+    return;
+  }
+  // ❌ White background not allowed in dark mode
+  if (themeMode === "dark" && title === "Theme Background" && selected === "white") {
+    console.warn("⚠️ White background is not allowed in dark mode");
+    return;
+  }
+  // ✅ Safe update
+  dispatch(action(color));
+};
+
+
 
   const isChecked = (title: string, value: string) => {
     const key = storeKeyMap[title];
     return store[key] === value;
   };
 
-  // Tailwind dark mode toggle
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", store.ThemeColorMode === "dark");
-  }, [store.ThemeColorMode]);
-
   return (
     <div
-      className="flex flex-col h-screen bg-white dark:bg-slate-900 text-black dark:text-white"
+      className="flex flex-col h-screen my-Background pt-4"
       style={{
-        backgroundColor: store.ThemeBackground,
+        background: store.ThemeBackground,
       }}
     >
       {/* Header */}
-      <header className="px-4 text-lg font-semibold shrink-0">
+      <header className="px-4 text-sm md:text-lg font-semibold shrink-0">
         Switcher
       </header>
 
@@ -122,31 +135,30 @@ const ThemeSetting: React.FC = () => {
           <button
             key={item.id}
             onClick={() => setActiveTab(item.id)}
-            className={`w-full p-2 px-6 cursor-pointer font-semibold flex gap-2 items-center justify-center
-            ${activeTab === item.id ? "bg-red-500/20 text-red-600 border" : ""}`}
+            className={`text-[12px] md:text-sm w-full p-2 px-6 cursor-pointer font-semibold flex gap-2 items-center justify-center
+            ${activeTab === item.id ? "my-Border  text-red-400" : ""}`}
           >
             {item.name}
           </button>
         ))}
       </div>
       {/* Body (scrollable) */}
-      <main className="flex-1 overflow-y-auto px-4 mt-2 pb-20">
+      <main className="flex-1 overflow-y-auto px-4 mt-3 pb-20">
         {/* Body Content */}
         {ThemeSettingData.filter((g) => g.ThameSettingTypeId === activeTab).map((group) => (
           <div key={group.id} className="mb-2">
-            <p className="text-[14px] font-semibold mb-2 px-4">{group.title} :</p>
-
-            <div className="flex flex-wrap gap-6 px-4 py-3 rounded-md border">
+            <p className="text-[12px] md:text-sm font-semibold mb-2">{group.title} :</p>
+            <div className="flex flex-wrap gap-4 px-4 py-3 rounded-md my-Border">
               {group.type === "color"
                 ? group.items.map((color, idx) => (
                   <div
                     key={idx}
                     onClick={() => handleColorChange(group.title, color)}
-                    className={`flex items-center justify-center rounded-full w-10 h-10 border-2 cursor-pointer transition-all ${isChecked(group.title, color)
+                    className={`flex items-center justify-center rounded-full w-8 h-8 my-Border cursor-pointer transition-all ${isChecked(group.title, color)
                       ? "ring-2 ring-offset-1 ring-green-500 scale-100"
                       : "hover:scale-105 hover:shadow"
                       }`}
-                    style={{ backgroundColor: color }}
+                    style={{ background: color }}
                     title={color}
                   >
                     {isChecked(group.title, color) && (
@@ -161,9 +173,9 @@ const ThemeSetting: React.FC = () => {
                       name={group.title}
                       checked={isChecked(group.title, option)}
                       onChange={() => handleRadioChange(group.title, option)}
-                      className="accent-green-500"
+                      className="accent-red-500 dark:accent-green-500"
                     />
-                    <span className="text-sm">{option}</span>
+                    <span className="text-[12px] uppercase">{option}</span>
                   </label>
                 ))}
             </div>
@@ -172,7 +184,7 @@ const ThemeSetting: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="p-2 mb-4 shadow-2xl border-t-2 flex justify-center items-center gap-4 shrink-0">
+      <footer className="p-2 shadow-2xl my-Border flex justify-center items-center gap-4 shrink-0">
         <a className="py-1 px-8 bg-green-500 text-white rounded-md">Portfolio</a>
         <button
           onClick={() => dispatch(resetCommonSaveGlobalVal())}

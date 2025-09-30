@@ -1,6 +1,5 @@
-import { HorizontalBarMenu } from "anshu-reactui/lib";
+import { HorizontalBarMenu, type MenuNode } from "anshu-reactui";
 import { useAppSelector } from "../../CustomeHooks/Hooks";
-import type { MenuNode } from "../../Data/MenuTypes";
 
 interface HorizontalMenuBarProps {
   Data: MenuNode[];
@@ -14,9 +13,9 @@ const HorizontalMenuBar: React.FC<HorizontalMenuBarProps> = ({ Data }) => {
         data={Data}
         ThemeColor={CommonSave_GlobalValStore?.ThemePrimary}
         dropdownBg={CommonSave_GlobalValStore?.MenuColors}
-        className="shadow-sm bg-white dark:bg-slate-900 text-black dark:text-white"
+        className="shadow-sm my-Background border-none"
         style={{
-          backgroundColor: CommonSave_GlobalValStore?.MenuColors,
+          background: CommonSave_GlobalValStore?.MenuColors,
         }}
       />
       <div id="menu-portal" />

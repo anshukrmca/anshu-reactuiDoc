@@ -1,8 +1,7 @@
 import { useState, type ReactNode } from 'react'
 import CheatsheetCard from '../../Components/Box/CheatsheetCard';
 import { useAppSelector } from '../../CustomeHooks/Hooks';
-import { Button, Card } from 'anshu-reactui';
-import ButtonTestPage from '../../Components/UI/ButtonTestPage';
+import { Button, Card, hexToRgba } from 'anshu-reactui';
 import DynamicIcon from '../../Components/Icons/DynamicIcon';
 
 // Define types for button data
@@ -18,6 +17,7 @@ interface ButtonData {
 
 const ButtonList = () => {
     const CommonSave_GlobalValStore = useAppSelector((state) => state.CommonSave_GlobalValStore);
+    const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9) || "white";
     const [CheatsheetOpen, setCheatsheetOpen] = useState<string | null>(null);
     const code = `
 import DynamicIcon from "../Icon/DynamicIcon";
@@ -414,12 +414,12 @@ className="btn btn-orange-gradient rounded-2xl"`,
                     <Button className="btn btn-warning-light rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
                     <Button className="btn btn-info-light rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
 
-                    <Button className="btn btn-outline-primary rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
-                    <Button className="btn btn-outline-secondary rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
-                    <Button className="btn btn-outline-success rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
-                    <Button className="btn btn-outline-danger rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
-                    <Button className="btn btn-outline-warning rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
-                    <Button className="btn btn-outline-info rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
+                    <Button className="btn btn-primary-outline rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
+                    <Button className="btn btn-secondary-outline rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
+                    <Button className="btn btn-success-outline rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
+                    <Button className="btn btn-danger-outline rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
+                    <Button className="btn btn-warning-outline rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
+                    <Button className="btn btn-info-outline rounded-full h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser' />} iconColor="" iconSize={13}></Button>
                 </>
             ),
             jsxCode: `<Button className="btn btn-primary h-10 w-10 p-1" iconName={<DynamicIcon name='FaUser'/>} iconColor="" iconSize={13}></Button>
@@ -498,12 +498,12 @@ className="btn btn-danger bg-red-400 h-10 w-10 p-1"
 
     return (
         <>
-            <div className='bg-white dark:bg-slate-900 text-black dark:text-white'>
-                {/* <ButtonTestPage/> */}
+            <div className='my-Background'
+                style={{ background: CommonSave_GlobalValStore.ThemeBackground && bgColor }}>
                 <Card
-                    className="my-2 p-2 md:p-4 border bg-white dark:bg-slate-900 text-black dark:text-white"
+                    className="my-2 p-2 md:p-4 my-Border my-Background"
                     style={{
-                        backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
+                        backgroundColor: CommonSave_GlobalValStore.ThemeBackground && bgColor,
                     }}
                 >
                     <div className="flex justify-between mb-4 items-center">
@@ -540,7 +540,7 @@ className="btn btn-danger bg-red-400 h-10 w-10 p-1"
                 {ButtondataArray.map((items) => (
                     <Card
                         key={items.ID}
-                        className="my-2 p-2 md:p-4 border bg-white dark:bg-slate-900 text-black dark:text-white"
+                        className="my-2 p-2 md:p-4 my-Border my-Background"
                         style={{
                             backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
                         }}

@@ -1,5 +1,5 @@
 import  { type JSX } from "react";
-import { BackgroundColors } from "../Components/UI/BackgroundColors";
+import { BackgroundColors } from "../pages/Doc/BackgroundColors";
 import { TextColors } from "../Components/UI/TextColors";
 import { BorderColors } from "../Components/UI/BorderColors";
 import { BorderWidthsAndStyles } from "../Components/UI/BorderWidthsAndStyles";
@@ -9,7 +9,7 @@ import { GridExamples } from "../Components/UI/GridExamples";
 import { FlexUtilities } from "../Components/UI/FlexUtilities";
 import { TypographyFontWeights } from "../Components/UI/TypographyFontWeights";
 import { AnimationExamples } from "../Components/UI/AnimationExamples";
-import { ResponsiveExamples } from "../Components/UI/ResponsiveExamples";
+import { ResponsiveExamples } from "./Doc/ResponsiveExamples";
 import { FooterNote } from "../Components/UI/FooterNote";
 import { ScaleClasses } from "../Components/UI/ScaleClasses";
 import { useAppSelector } from "../CustomeHooks/Hooks";
@@ -114,7 +114,7 @@ export default function TailwindDocPlayground(): JSX.Element {
   return (
     <div 
     style={{background:CommonSave_GlobalValStore?.ThemeBackground}}
-    className="p-2 w-full space-y-8 bg-white dark:bg-slate-900 text-black dark:text-white">
+    className="p-2 w-full space-y-8 my-Background">
       <h1 className="text-3xl font-bold mb-2 ">Tailwind Comprehensive Playground</h1>
       <p className="text-sm text-slate-800 dark:text-red-300">
         Auto-generated examples for the utilities from your config. Tokens like <span className="font-mono">10vh</span> or <span className="font-mono">100%</span> are shown as inline-style previews because they aren't valid Tailwind token names by default — add them to <code>theme.extend</code> to make real utilities.

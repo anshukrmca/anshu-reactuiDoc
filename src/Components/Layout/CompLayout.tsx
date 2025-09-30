@@ -7,6 +7,7 @@ import { hexToRgba} from "anshu-reactui";
 import CompDashBoardLayout from "./CompDashBoardLayout";
 import { CompHorizontalMenuData } from "../../Data/MenuData";
 import HorizontalMenuBar from "./HorizontalMenuBar";
+import BreadcrumbContainer from "./BreadcrumbContainer";
 
 const MainLayout: React.FC = () => {
   const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
@@ -16,16 +17,16 @@ const MainLayout: React.FC = () => {
 
   return (
     <>
-    <div className="bg-white dark:bg-slate-900 text-black dark:text-white">
+    <div className="my-Background"
+    style={{ background: CommonSave_GlobalValStore?.ThemeBackground && bgColor}}
+    >
 
       {/* Layout Wrapper */}
       {isHorizontal ? (
         <div
-          // className="bg-white dark:bg-slate-900 text-black dark:text-white"
-          // style={{ backgroundColor: bgColor}}
         >
           <div
-            className={`${CommonSave_GlobalValStore?.MenuPositions === "Scrollable" ||
+            className={`my-Border ${CommonSave_GlobalValStore?.MenuPositions === "Scrollable" ||
               CommonSave_GlobalValStore?.HeaderPositions === "Scrollable"
               ? "z-10"
               : "fixed z-20"
@@ -37,9 +38,10 @@ const MainLayout: React.FC = () => {
 
           {/* Main content (flex-grow pushes footer down) */}
           <main
-            className="max-w-screen p-2 w-full "
+            className="max-w-screen p-2 w-full"
             style={{ paddingTop: padding, minHeight: "100vh" }}
           >
+            <BreadcrumbContainer Data={CompHorizontalMenuData}/>
             <Outlet />
           </main>
           <App_Footer />

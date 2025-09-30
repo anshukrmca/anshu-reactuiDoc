@@ -1,7 +1,10 @@
-import { Card, DataTable } from "anshu-reactui";
+import { Card, DataTable, hexToRgba } from "anshu-reactui";
 import { CodeViewer } from "../../Components/CodeViewer/CodeViewer";
 import { useAppSelector } from "../../CustomeHooks/Hooks";
 import DynamicIcon from "../../Components/Icons/DynamicIcon";
+import colors from "tailwindcss/colors";
+import { TextColors } from "./TextColors";
+
 
 const allColors = [
   "red", "orange", "amber", "yellow", "lime", "green", "emerald", "teal", "cyan",
@@ -11,6 +14,7 @@ const allColors = [
 
 const colorShades = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "950"];
 const opacities = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100"];
+
 
 const html1 = `<div className="flex items-center gap-4 rounded-lg p-6 shadow-md border-2 bg-red-400">
        <span className="inline-flex shrink-0 rounded-full border border-pink-300 bg-pink-100 p-2 dark:border-pink-300/10 dark:bg-pink-400/10">
@@ -55,17 +59,16 @@ const colorUtilities = [
 ];
 
 
-
 export function BackgroundColors() {
   const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
   const shadeSnippets = colorShades.map((shade) => ` <div className="bg-sky-${shade}"></div>`);
   const opacitiesSnippets = opacities.map((opacity) => ` <div className="bg-red-500/${opacity}"></div>`);
-
+  const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9);
   return (
     <Card
-      className="my-2 p-2 md:p-4 border bg-white dark:bg-slate-900 text-black dark:text-white"
+      className="my-2 p-2 md:p-4 my-Border my-Background"
       style={{
-        backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
+        background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
       }}
     >
       <h2 className="text-xl font-semibold mb-4">Colors</h2>
@@ -74,22 +77,21 @@ export function BackgroundColors() {
         different design styles.</p>
 
       <Card
-        className="my-4 items-center shadow-none hover:shadow-none overflow-hidden"
+        className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Background"
         style={{
-          backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
+          background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
         }}
       >
-        <div className="w-full flex-1">
+        <div className="w-full flex-1 ">
           <div className="flex overflow-x-auto">
             <div className="flex-1">
               <div className="min-w-max ">
                 <div className="flex gap-2">
-                  <div className="flex-shrink-0 w-20 md:w-32"></div>
+                  <div className="flex-shrink-0 w-14 sm:w-20 md:w-32"></div>
                   <div className="flex gap-1">
                     {colorShades.map((shade) => (
-                      <div
-                        key={shade}
-                        className="h-10 w-10 md:w-20 text-[12px] flex items-center justify-center"
+                      <div key={shade}
+                        className="h-6 sm:h-10 w-6 sm:w-10 md:w-20 text-[12px] flex items-center justify-center"
                       >
                         {shade}
                       </div>
@@ -97,26 +99,32 @@ export function BackgroundColors() {
                   </div>
                 </div>
                 <div>
-                  {allColors.map((color) => (
-                    <div key={color} className="flex gap-2 items-center my-1">
-                      {/* Fixed left color label */}
-                      <div className="flex-shrink-0 w-20 md:w-32 h-10 flex items-center text-[12px] md:text-sm capitalize">
-                        {color}
+                  {allColors.map(color => {
+                    const colorObj = colors[color as keyof typeof colors] as Record<string, string> | undefined;
+                    if (!colorObj) return null;
+                    return (
+                      <div key={color} className="flex gap-2 items-center my-1">
+                        {/* Fixed left color label */}
+                        <div className="flex-shrink-0 w-14 sm:w-20 md:w-32 h-10 flex items-center text-[12px] md:text-sm capitalize">
+                          {color}
+                        </div>
+                        <div className="flex gap-1">
+                          {colorShades.map(shade => {
+                            const hex = colorObj[shade];
+                            if (!hex) return null;
+                            return (
+                              <div
+                                key={shade}
+                                className="h-6 sm:h-10 w-6 sm:w-10 md:w-20 flex items-center justify-center text-[10px] md:text-sm text-white"
+                                style={{ background: hex }}
+                              >
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
-
-                      {/* Scrollable shades row */}
-                      <div className="flex gap-1">
-                        {colorShades.map((shade) => (
-                          <div
-                            key={shade}
-                            className={`h-10 w-10 md:w-20 text-[12px] flex items-center justify-center bg-${color}-${shade}`}
-                          >
-                            {/* {shade} */}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -124,27 +132,33 @@ export function BackgroundColors() {
         </div>
       </Card>
 
+      <TextColors/>
+
       <p className="my-5 outline-red-300">Every color in the default palette includes 11 steps, with 50 being the lightest, and 950 being the darkest:</p>
 
-      <div className="outline outline-red-500 p-4 m-4">Outline Test</div>
-      <div className="ring-2 ring-red-500 p-4 m-4">Ring Test</div>
-      <label className="accent-green-500"><input type="checkbox" className="accent-green-500" /> Accent Test</label>
-
       <Card
-        className="w-full px-8 mx-auto flex flex-col items-center shadow-none hover:shadow-none my-4 bg-white dark:bg-slate-900 text-black dark:text-white"
+        className="w-full px-8 mx-auto flex flex-col items-center shadow-none hover:shadow-none my-4 my-Background"
         style={{
-          backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
+          background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
         }}
       >
 
         {/* Sky shade palette */}
         <div className="w-full flex gap-1 my-auto md:gap-2 justify-center p-2 bg-slate-100/20">
-          {colorShades.map((shade) => (
-            <div key={shade} className="text-center">
-              <div className={`h-4 md:h-10 w-4 md:w-10 bg-sky-${shade}`}></div>
-              <span className="text-[8px] md:text-sm lg:text-base">{shade}</span>
-            </div>
-          ))}
+          {colorShades.map(shade => {
+            const skyColors = colors.sky as Record<string, string>;
+            const hex = skyColors[shade];
+            if (!hex) return null;
+            return (
+              <div key={shade} className="text-center">
+                <div
+                  className="h-4 md:h-10 w-4 md:w-10"
+                  style={{ background: hex }}
+                ></div>
+                <span className="text-[8px] md:text-sm lg:text-base">{shade}</span>
+              </div>
+            );
+          })}
         </div>
 
         {/* Code samples */}
@@ -171,9 +185,9 @@ export function BackgroundColors() {
 
 
       <Card
-        className="w-full px-8 mx-auto flex flex-col items-center shadow-none hover:shadow-none my-4"
+        className="my-Background w-full px-8 mx-auto flex flex-col items-center shadow-none hover:shadow-none my-4"
         style={{
-          backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
+          background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
         }}
       >
 
@@ -197,8 +211,6 @@ export function BackgroundColors() {
         <div className="w-full rounded overflow-hidden">
           <CodeViewer code={html1} />
         </div>
-
-
       </Card>
       <p>Here's a full list of utilities that use your color palette:</p>
 
@@ -217,25 +229,32 @@ export function BackgroundColors() {
         <code className="font-semibold"> `75`</code> sets the alpha channel of the color to 75%:</p>
 
       <Card
-        className="w-full px-8 mx-auto flex flex-col items-center shadow-none hover:shadow-none my-4"
+        className="my-Background w-full px-8 mx-auto flex flex-col items-center shadow-none hover:shadow-none my-4"
         style={{
-          backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
+          background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
         }}
       >
-
-        {/* Sky shade palette */}
-        <div className="w-full flex gap-1 my-auto md:gap-2 justify-center p-2 bg-slate-100/20">
-          {opacities.map((shade) => {
-            return (
-              <div key={shade} className="text-center">
-                <div className={`h-4 md:h-10 w-4 md:w-10 bg-red-500/${shade}`}></div>
-                <span className="text-[8px] md:text-sm lg:text-base">{shade}</span>
+        <div className="w-full flex flex-col items-center gap-2 p-4 bg-slate-100/20">
+          <div className="flex gap-1 justify-center flex-wrap">
+            <div className="h-10 w-10 bg-red-500/10"></div>
+            <div className="h-10 w-10 bg-red-500/20"></div>
+            <div className="h-10 w-10 bg-red-500/30"></div>
+            <div className="h-10 w-10 bg-red-500/40"></div>
+            <div className="h-10 w-10 bg-red-500/50"></div>
+            <div className="h-10 w-10 bg-red-500/60"></div>
+            <div className="h-10 w-10 bg-red-500/70"></div>
+            <div className="h-10 w-10 bg-red-500/80"></div>
+            <div className="h-10 w-10 bg-red-500/90"></div>
+            <div className="h-10 w-10 bg-red-500/100"></div>
+          </div>
+          <div className="flex gap-1 justify-center flex-wrap mt-1">
+            {opacities.map(shade => (
+              <div key={shade} className="text-center w-10 text-[8px] md:text-sm lg:text-base">
+                {shade}
               </div>
-            )
-          })}
+            ))}
+          </div>
         </div>
-
-        {/* Code samples */}
         <div className="w-full rounded overflow-hidden">
           <CodeViewer code={`<div>\n${opacitiesSnippets.join("\n")}\n</div`} />
         </div>

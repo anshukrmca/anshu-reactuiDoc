@@ -1,8 +1,7 @@
 import { useState, type ReactNode } from "react";
-// import { useSelector } from "react-redux";
-import Alert from "../../Components/UiElement/Alert";
-import Card from "../../Components/Box/Card";
 import CheatsheetCard from "../../Components/Box/CheatsheetCard";
+import { Alert, Card, hexToRgba } from "anshu-reactui";
+import { useAppSelector } from "../../CustomeHooks/Hooks";
 
 
 interface ButtonData {
@@ -15,7 +14,8 @@ interface ButtonData {
 }
 
 const AlertList: React.FC = () => {
-
+  const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
+  const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9);
   const [CheatsheetOpen, setCheatsheetOpen] = useState<string | null>(null);
 
   const code = `
@@ -67,7 +67,7 @@ export default Alert;
   `;
 
   const ButtondataArray: ButtonData[] = [
-   {
+    {
       ID: 1,
       Tittle: "Basic Alert with Class",
       jsxExample: (
@@ -374,20 +374,16 @@ className="text-red-600 border-red-600"
 className="bg-blue-600 text-white rounded-none rounded-tr-2xl rounded-bl-2xl"
 className="text-blue-600 border-blue-600 rounded-full"`,
     },
-    
+
   ];
 
   return (
     <>
       <Card
-        padding="p-6"
-        rounded="rounded-lg"
-        shadow="shadow-md"
-        className="border h-fit my-2"
-        // style={{
-        //   backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
-        //   color: CommonSave_GlobalValStore.HeaderTextColor,
-        // }}
+        className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background"
+        style={{
+          background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
+        }}
       >
         <div className="flex justify-between mb-4 items-center">
           <h2 className="text-xl font-semibold underline uppercase">
@@ -410,10 +406,9 @@ className="text-blue-600 border-blue-600 rounded-full"`,
         {/* Smooth expandable panel */}
         <div
           className={`transition-all duration-500 ease-in-out overflow-hidden dark:bg-slate-500 bg-slate-100
-            ${
-              CheatsheetOpen === "Button Component"
-                ? "opacity-100"
-                : "max-h-0 opacity-0"
+            ${CheatsheetOpen === "Button Component"
+              ? "opacity-100"
+              : "max-h-0 opacity-0"
             }`}
         >
           <div className="p-3 rounded-md">
@@ -427,14 +422,10 @@ className="text-blue-600 border-blue-600 rounded-full"`,
       {ButtondataArray.map((items) => (
         <Card
           key={items.ID}
-          padding="p-6"
-          rounded="rounded-lg"
-          shadow="shadow-md"
-          className="border h-fit my-2"
-        //   style={{
-        //     backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
-        //     color: CommonSave_GlobalValStore.HeaderTextColor,
-        //   }}
+          className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background"
+          style={{
+            background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
+          }}
         >
           <div className="flex justify-between mb-4 items-center">
             <h2 className="text-xl font-semibold">{items.Tittle}</h2>

@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from "../../CustomeHooks/Hooks";
 import { hexToRgba } from "anshu-reactui/lib";
 import { setisSidebarOpen } from "../../Store/CommonStore/CommonGlobalValSlice";
 import { DocMenuCategories, DocSidebarMenuData } from "../../Data/MenuData";
+import BreadcrumbContainer from "./BreadcrumbContainer";
 
 const DocDashBoardLayout: React.FC = () => {
   const size = useWindowSize();
@@ -18,7 +19,7 @@ const DocDashBoardLayout: React.FC = () => {
 
   const { isSidebarExpand, isSidebarOpen } = CommonGlobalValStore;
   const isHeaderFixed = CommonSave_GlobalValStore?.HeaderPositions === "Fixed";
-
+ const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9) || "white";
   // Responsive sidebar open/close
   useEffect(() => {
     if ((size.width ?? window.innerWidth) < 769) {
@@ -28,12 +29,10 @@ const DocDashBoardLayout: React.FC = () => {
     }
   }, [size.width, dispatch]);
 
-  // Theme values
-  const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9) || "white";
   return (
     <div
-      className="overflow-x-hidden"
-      style={{ backgroundColor: bgColor}}
+      className="overflow-x-hidden my-Background"
+      style={{ background: CommonSave_GlobalValStore?.ThemeBackground && bgColor}}
     >
       {/* Sidebar */}
       <div
@@ -43,7 +42,6 @@ const DocDashBoardLayout: React.FC = () => {
           marginLeft: (size.width ?? window.innerWidth) < 769 ? (isSidebarOpen ? "0px" : "-100%") : "0px",
           width: (size.width ?? window.innerWidth) >= 769 ? (isSidebarExpand ? "270px" : "70px") : "270px",
           transition: "all 0.3s ease-in-out",
-          backgroundColor: bgColor,
         }}
       >
         <SideBarMenu MenuData={DocSidebarMenuData} CategoriesData={DocMenuCategories} />
@@ -71,7 +69,7 @@ const DocDashBoardLayout: React.FC = () => {
                 ? `calc(100% - ${isSidebarExpand ? "270px" : "70px"})`
                 : "100%",
             transition: "all 0.3s ease-in-out",
-            backgroundColor: bgColor,
+            background: bgColor,
           }}
         >
           <App_Header />
@@ -86,6 +84,7 @@ const DocDashBoardLayout: React.FC = () => {
           }}
         >
           <div className="flex-1 p-2" style={{ minHeight: "100vh" }}>
+             <BreadcrumbContainer Data={DocSidebarMenuData}/>
             <Outlet />
           </div>
           <App_Footer />

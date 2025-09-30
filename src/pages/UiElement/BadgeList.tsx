@@ -1,9 +1,8 @@
 import { useState, type ReactNode } from "react";
-// import { useSelector } from "react-redux";
-import Badge from "../../Components/UiElement/Badge";
-import Card from "../../Components/Box/Card";
 import CheatsheetCard from "../../Components/Box/CheatsheetCard";
-import Button from "../../Components/Button/Button";
+import { Badge, Button, Card, hexToRgba } from "anshu-reactui";
+import { useAppSelector } from "../../CustomeHooks/Hooks";
+import DynamicIcon from "../../Components/Icons/DynamicIcon";
 
 // Define types for button data
 interface ButtonData {
@@ -15,18 +14,10 @@ interface ButtonData {
   cssCode: string;
 }
 
-// interface RootState {
-//   CommonSave_GlobalValStore: {
-//     ThemeBackground: string;
-//     HeaderTextColor: string;
-//   };
-// }
 
 const BadgeList: React.FC = () => {
-//   const { CommonSave_GlobalValStore } = useSelector(
-//     (store: RootState) => store
-//   );
-
+  const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
+  const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9);
   const [CheatsheetOpen, setCheatsheetOpen] = useState<string | null>(null);
 
   const code = `
@@ -70,7 +61,7 @@ export default Badge;
 
   // Data array with examples
   const BadgedataArray: ButtonData[] = [
-        {
+    {
       ID: 1,
       Tittle: "Default Badges",
       jsxExample: (
@@ -411,17 +402,17 @@ className="badge badge-outline-purple badge-pill"`,
             Notification
             <Badge type="warning">1</Badge>
           </Button>
-          <Button className="btn btn-outline-info" iconName={"FaPlus"}>
+          <Button className="btn btn-outline-info" iconName={<DynamicIcon name="FaPlus"/>}>
             Notification
-            <Badge type="danger" icon={'FaPlus'} iconPosition={'right'}>1</Badge>
+            <Badge type="danger" icon={<DynamicIcon name='FaPlus'/>} iconPosition={'right'}>1</Badge>
           </Button>
           <Button className="btn btn-outline-dark">
             Notification
-            <Badge type="danger" icon={'CiStar'} iconPosition={'left'}>1</Badge>
+            <Badge type="danger" icon={<DynamicIcon name='CiStar'/>} iconPosition={'left'}>1</Badge>
           </Button>
           <Badge type="success" pill count={10}>Secondary</Badge>
-          <Badge type="orange" icon={'FaRegGrinStars'}>Orange</Badge>
-          <Badge type="teal" pill icon={'FaRegFaceGrinHearts'} iconPosition='right'>Teal </Badge>
+          <Badge type="orange" icon={<DynamicIcon name='FaRegGrinStars'/>}>Orange</Badge>
+          <Badge type="teal" pill icon={<DynamicIcon name='FaRegFaceGrinHearts'/>} iconPosition='right'>Teal </Badge>
         </>
       ),
       jsxCode: `<Button className="btn btn-primary">
@@ -459,14 +450,10 @@ className="badge badge-outline-purple badge-pill"`,
   return (
     <>
       <Card
-        padding="p-6"
-        rounded="rounded-lg"
-        shadow="shadow-md"
-        className="border h-fit my-2"
-        // style={{
-        //   backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
-        //   color: CommonSave_GlobalValStore.HeaderTextColor,
-        // }}
+        className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background"
+        style={{
+          background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
+        }}
       >
         <div className="flex justify-between mb-4 items-center">
           <h2 className="text-xl font-semibold underline uppercase">
@@ -503,14 +490,10 @@ className="badge badge-outline-purple badge-pill"`,
       {BadgedataArray.map((items) => (
         <Card
           key={items.ID}
-          padding="p-6"
-          rounded="rounded-lg"
-          shadow="shadow-md"
-          className="border h-fit my-2"
-        //   style={{
-        //     backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
-        //     color: CommonSave_GlobalValStore.HeaderTextColor,
-        //   }}
+          className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Background my-Border p-4"
+          style={{
+            background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
+          }}
         >
           <div className="flex justify-between mb-4 items-center">
             <h2 className="text-xl font-semibold">{items.Tittle}</h2>

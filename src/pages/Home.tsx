@@ -3,11 +3,11 @@ import React from "react";
 import { AiFillInfoCircle } from "react-icons/ai";
 import ProgressBarTestCases from "../Components/ProgressBar/ProgressBarTestCases";
 import TailwindDocPlayground from "./TailwindDocPlayground";
-import SwitchTest from "../Components/UI/SwitchTest";
-import BreadcrumbDemo from "../Components/UI/BreadcrumbDemo";
+import SwitchTest from "./UiElement/SwitchTest";
 import TooltipDemo from "../Components/UI/TooltipDemo";
 import TextareaDemo from "../Components/UI/TextareaDemo";
-import SpinnerDemo from "../Components/UI/SpinnerDemo";
+import BreadcrumbDemo from "./UiElement/BreadcrumbDemo";
+import SpinnerDemo from "./UiElement/SpinnerDemo";
 
 const Home: React.FC = () => {
   return (

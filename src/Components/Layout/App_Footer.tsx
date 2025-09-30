@@ -6,9 +6,9 @@ const App_Footer: React.FC = () => {
 
   return (
     <footer
-      className="w-full p-4 text-center shadow-lg border-t bg-white dark:bg-slate-900 text-black dark:text-white"
+      className="w-full p-4 text-center shadow-lg my-Border my-Background"
       style={{
-        backgroundColor: CommonSave_GlobalValStore?.HeaderColors,
+        background: CommonSave_GlobalValStore?.HeaderColors,
       }}
     >
       <p className="text-sm">

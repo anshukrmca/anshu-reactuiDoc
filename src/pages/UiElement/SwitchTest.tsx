@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Card,Switch } from 'anshu-reactui';
+import { Card } from 'anshu-reactui';
 import { useAppSelector } from '../../CustomeHooks/Hooks';
+import Switch from './Switch';
 
 const SwitchDemo: React.FC = () => {
     const [controlledChecked, setControlledChecked] = useState(false);
@@ -12,9 +13,9 @@ const SwitchDemo: React.FC = () => {
     return (
         <>
             <Card
-                className="my-2 p-2 md:p-4 border bg-white dark:bg-slate-900 text-black dark:text-white"
+                className="my-2 p-2 md:p-4 my-Border my-Background"
                 style={{
-                    backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
+                    background: CommonSave_GlobalValStore.ThemeBackground,
                 }}
             >
                 <h2 className="text-xl font-semibold mb-4">Switch Component Demo</h2>

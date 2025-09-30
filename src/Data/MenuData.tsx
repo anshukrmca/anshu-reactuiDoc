@@ -1,11 +1,12 @@
+import type { CategoryNode, MenuNode } from "anshu-reactui";
 import DynamicIcon from "../Components/Icons/DynamicIcon";
-import type { CategoryNode, MenuNode, SettingGroup } from "./MenuTypes";
+import type { SettingGroup } from "./MenuTypes";
 
 export const DocMenuCategories: CategoryNode[] = [
   { id: 1, label: "", lebel1id: ['1', "2"] },
   { id: 2, label: "Getting started", lebel1id: ['3'] },
   { id: 3, label: "Core concepts", lebel1id: ['4', '5', '6', '7'] },
-  { id: 4, label: "Layout", lebel1id: ['8', '9', '10',] },
+  { id: 4, label: "Layout", lebel1id: ['8', '9', '10', '11', '12', '13'] },
   { id: 5, label: "Flexbox & Grid", lebel1id: [] },
   { id: 6, label: "Spacing", lebel1id: [] },
   { id: 7, label: "Sizing", lebel1id: [] },
@@ -26,19 +27,20 @@ export const DocSidebarMenuData: MenuNode[] = [
     id: 4, icon: <DynamicIcon name="GoDot" />, label: "Colors", link: '/colors'
   },
   {
-    id: 5, icon: <DynamicIcon name="GoDot" />, label: "Styling with utility classes", link: '/a'
+    id: 5, icon: <DynamicIcon name="GoDot" />, label: "Styling with utility classes", link: '/styling-with-utility-classes'
   },
   {
     id: 6, icon: <DynamicIcon name="GoDot" />, label: "Hover, focus, and other states", link: '/s'
   },
   {
-    id: 7, icon: <DynamicIcon name="GoDot" />, label: "Responsive design", link: '/f'
+    id: 7, icon: <DynamicIcon name="GoDot" />, label: "Responsive design", link: '/responsive-design'
   },
-  {
-    id: 8, icon: <DynamicIcon name="GoDot" />, label: "Columns", link: '/columns'
-  },
+  { id: 8, icon: <DynamicIcon name="GoDot" />, label: "Columns", link: '/columns' },
   { id: 9, icon: <DynamicIcon name="GoDot" />, label: "Display", link: '/display' },
   { id: 10, icon: <DynamicIcon name="GoDot" />, label: "Float", link: '/float' },
+  { id: 11, icon: <DynamicIcon name="GoDot" />, label: "Break Utilities", link: '/break-utilities' },
+  { id: 12, icon: <DynamicIcon name="GoDot" />, label: "Box Decoration Break", link: '/box-decoration-break' },
+  { id: 13, icon: <DynamicIcon name="GoDot" />, label: "Break Utilities", link: '/break-utilities' },
 
 ];
 
@@ -74,8 +76,6 @@ export const DocHorizontalMenuData: MenuNode[] = [
   { id: 13, icon: <DynamicIcon name="GoDot" />, label: "Charts & Carts", link: '/s' },
 
 ];
-
-
 
 export const CompMenuCategories: CategoryNode[] = [
   { id: 1, label: "Main", lebel1id: ['1'] },
@@ -261,6 +261,8 @@ export const CompSidebarMenuData: MenuNode[] = [
       { id: 801, label: "Button", link: "components/buttons" },
       { id: 802, label: "Alert", link: "components/alerts" },
       { id: 803, label: "Badge", link: "components/badges" },
+      { id: 804, label: "Breadcrumb & Spinner", link: "components/breadcrumb" },
+      { id: 805, label: "Switch", link: "components/switch" },
     ],
   },
   {
@@ -476,9 +478,11 @@ export const CompHorizontalMenuData: MenuNode[] = [
     icon: <DynamicIcon name="BsHddStack" />,
     label: "UI Elements",
     children: [
-      { id: 801, label: "Button", link: "components/components/buttons" },
+      { id: 801, label: "Button", link: "components/buttons" },
       { id: 802, label: "Alert", link: "components/alerts" },
       { id: 803, label: "Badge", link: "components/badges" },
+      { id: 804, label: "Breadcrumb & Spinner", link: "components/breadcrumb" },
+      { id: 805, label: "Switch", link: "components/switch" },
     ],
   },
   {
@@ -523,9 +527,6 @@ export const CompHorizontalMenuData: MenuNode[] = [
 ];
 
 
-
-
-
 export const ThemeSettingData: SettingGroup[] = [
   { id: 1, ThameSettingTypeId: 1, type: "radio", title: "Theme Color Mode", items: ["light", "dark"] },
   { id: 2, ThameSettingTypeId: 1, type: "radio", title: "Directions", items: ["LTR", "RTL"] },
@@ -536,8 +537,34 @@ export const ThemeSettingData: SettingGroup[] = [
   { id: 8, ThameSettingTypeId: 1, type: "radio", title: "Header Positions", items: ["Fixed", "Scrollable"] },
   { id: 9, ThameSettingTypeId: 2, type: "color", title: "Menu Colors", items: ["#2998f2", "#20f7d3"] },
   { id: 10, ThameSettingTypeId: 2, type: "color", title: "Header Colors", items: ["#2998f2", "#20f7d3"] },
-  { id: 11, ThameSettingTypeId: 2, type: "color", title: "Theme Primary", items: ["white", "black", "#773cd3", "red", "#0bcfd9", "#810cf5", "#07f59e", "#a4ba3f"] },
-  { id: 12, ThameSettingTypeId: 2, type: "color", title: "Theme Background", items: ["#05666b", "#1E293B", "#202164", "#02613e"] },
+  {
+    id: 11, ThameSettingTypeId: 2, type: "color", title: "Theme Primary",
+    items: [
+      "white",               // classic
+      "black",               // classic
+      "#4B5563",             // Cool Gray 600
+      "#2563EB",             // Blue 600
+      "#10B981",             // Emerald 500
+      "#F59E0B",             // Amber 500
+      "#7C3AED",             // Violet 600
+      "#EF4444",             // Red 500
+      "#0BCFD9",             // Cyan-ish accent
+      "#773CD3",             // Purple accent
+    ]
+  },
+  {
+    id: 12, ThameSettingTypeId: 2, type: "color", title: "Theme Background",
+    items: [
+      "linear-gradient(135deg, #1E293B 0%, #0F172A 100%)",   // dark slate gradient
+      "linear-gradient(135deg, #0F172A 0%, #2563EB 100%)",
+      "linear-gradient(to right, #283c86, #45a247)",
+      "linear-gradient(to right, #666600, #999966)",
+      "#1E293B",  // Slate 800 solid
+      "#334155",  // Slate 700 solid
+      "#0F172A",  // Slate 900 solid
+      "linear-gradient(135deg, #10B981 0%, #06B6D4 100%)",   // subtle teal gradient
+    ]
+  },
 ];
 
 

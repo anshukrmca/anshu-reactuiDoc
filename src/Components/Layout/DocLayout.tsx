@@ -6,6 +6,7 @@ import App_Footer from './App_Footer';
 import DocDashBoardLayout from './DocDashBoardLayout';
 import HorizontalMenuBar from './HorizontalMenuBar';
 import { DocHorizontalMenuData } from '../../Data/MenuData';
+import BreadcrumbContainer from './BreadcrumbContainer';
 
 const DocLayout = () => {
      const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
@@ -17,8 +18,8 @@ const DocLayout = () => {
      {/* Layout Wrapper */}
       {isHorizontal ? (
         <div
-          className="bg-white dark:bg-slate-900 text-black dark:text-white"
-          style={{ backgroundColor: bgColor}}
+          className="my-Background"
+          style={{ background: CommonSave_GlobalValStore?.ThemeBackground && bgColor}}
         >
           <div
             className={`${CommonSave_GlobalValStore?.MenuPositions === "Scrollable" ||
@@ -36,6 +37,7 @@ const DocLayout = () => {
             className="max-w-screen p-2 w-full "
             style={{ paddingTop: padding, minHeight: "100vh" }}
           >
+             <BreadcrumbContainer Data={DocHorizontalMenuData}/>
             <Outlet />
           </main>
           {/* Footer (sticks to bottom) */}

@@ -9,17 +9,18 @@ import { useAppDispatch, useAppSelector } from "../../CustomeHooks/Hooks";
 import { hexToRgba } from "anshu-reactui/lib";
 import { setisSidebarOpen } from "../../Store/CommonStore/CommonGlobalValSlice";
 import { CompMenuCategories, CompSidebarMenuData } from "../../Data/MenuData";
+import BreadcrumbContainer from "./BreadcrumbContainer";
 
 const CompDashBoardLayout: React.FC = () => {
   const size = useWindowSize();
   const location = useLocation();
   const dispatch = useAppDispatch();
   const { CommonSave_GlobalValStore, CommonGlobalValStore } = useAppSelector((state) => state);
-
   const { isSidebarExpand, isSidebarOpen } = CommonGlobalValStore;
   const isHeaderFixed = CommonSave_GlobalValStore?.HeaderPositions === "Fixed";
+  const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9);
 
-  // Responsive sidebar open/close
+
   useEffect(() => {
     if ((size.width ?? window.innerWidth) < 769) {
       dispatch(setisSidebarOpen(false));
@@ -27,12 +28,14 @@ const CompDashBoardLayout: React.FC = () => {
       dispatch(setisSidebarOpen(true));
     }
   }, [size.width, dispatch]);
-
-
   return (
     <div
-      className="overflow-x-hidden"
+      className="overflow-x-hidden my-Background"
+      style={{
+        background: CommonSave_GlobalValStore?.ThemeBackground && bgColor,
+      }}
     >
+
       {/* Sidebar */}
       <div
         className="sidebar relative border-r border-white"
@@ -48,7 +51,7 @@ const CompDashBoardLayout: React.FC = () => {
 
       {/* Main content area */}
       <div
-        className="main-container flex flex-col min-h-screen"
+        className="main-container flex flex-col min-h-screen "
         style={{
           marginLeft: (size.width ?? window.innerWidth) >= 769 ? (isSidebarExpand ? "270px" : "70px") : "0px",
           width:
@@ -75,6 +78,7 @@ const CompDashBoardLayout: React.FC = () => {
 
         {/* Content */}
         <div
+
           className="flex flex-col flex-1"
           key={location.pathname}
           style={{
@@ -82,6 +86,7 @@ const CompDashBoardLayout: React.FC = () => {
           }}
         >
           <div className="flex-1 p-2" style={{ minHeight: "100vh" }}>
+            <BreadcrumbContainer Data={CompSidebarMenuData}/>
             <Outlet />
           </div>
           <App_Footer />

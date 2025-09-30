@@ -1,5 +1,6 @@
 import { TabCard } from "anshu-reactui";
 import React from "react";
+import { CodeViewer } from "../CodeViewer/CodeViewer";
 
 interface CheatsheetCardProps {
   htmlCode: string;
@@ -7,22 +8,12 @@ interface CheatsheetCardProps {
   jsxCode: string;
 }
 
-// interface RootState {
-//   CommonSave_GlobalValStore: {
-//     ThemeBackground: string;
-//     HeaderTextColor: string;
-//   };
-// }
 
 const CheatsheetCard: React.FC<CheatsheetCardProps> = ({
   htmlCode,
   cssCode,
   jsxCode,
 }) => {
-
-//   const { CommonSave_GlobalValStore } = useSelector(
-//     (store: RootState) => store
-//   );
 
 
   return (
@@ -32,38 +23,22 @@ const CheatsheetCard: React.FC<CheatsheetCardProps> = ({
           {
             id: "html",
             label: "HTML",
-            content: (
-              <pre className="p-3 rounded text-sm overflow-x-auto">
-                {htmlCode}
-              </pre>
-            ),
+            content: (<CodeViewer code={htmlCode}/>),
           },
           {
             id: "css",
             label: "CSS",
-            content: (
-              <pre className="p-3 rounded text-sm overflow-x-auto">
-                {cssCode}
-              </pre>
-            ),
+            content: (<CodeViewer code={cssCode}/>),
           },
           {
             id: "jsx",
             label: "JSX",
-            content: (
-              <pre className="p-3 rounded text-sm overflow-x-auto">
-                {jsxCode}
-              </pre>
-            ),
+            content: (<CodeViewer code={jsxCode}/>),
           },
         ]}
         initialTab="html"
         panelClass="dark:bg-slate-500 bg-slate-100 max-h-72 overflow-y-auto"
         className="p-2 shadow-none"
-        // style={{
-        //   backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
-        //   color: CommonSave_GlobalValStore.HeaderTextColor,
-        // }}
       />
     </div>
   );

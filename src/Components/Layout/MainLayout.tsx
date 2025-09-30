@@ -23,11 +23,12 @@ const MainLayout: React.FC = () => {
       {/* Settings OffCanvas */}
       <OffCanvace
         id={"ThemeSettingOffCanvace"}
-        size="400px"
+        size="320px"
+        className="my-Background"
         Theme={CommonSave_GlobalValStore?.ThemePrimary}
         style={{
           zIndex: 999999,
-          backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
+          background: CommonSave_GlobalValStore.ThemeBackground,
         }}
       >
         <ThemeSetting />
@@ -37,14 +38,14 @@ const MainLayout: React.FC = () => {
         Theme={CommonSave_GlobalValStore?.ThemePrimary}
         className="rounded-md"
         style={{
-          backgroundColor: CommonSave_GlobalValStore.ThemeBackground,
+          background: CommonSave_GlobalValStore.ThemeBackground,
         }}
       />
 
       {/* Settings Floating Button */}
       <div
-        className="fixed bg-white dark:bg-slate-900 text-black dark:text-white top-1/2 right-0 z-50 flex items-center justify-center w-12 h-12 shadow-lg rounded-l-xl cursor-pointer transform -translate-y-1/2 transition-all hover:scale-105"
-        style={{ backgroundColor: CommonSave_GlobalValStore.ThemeBackground }}
+        className="fixed my-Background top-1/2 right-0 z-50 flex items-center justify-center w-12 h-12 shadow-lg rounded-l-xl cursor-pointer transform -translate-y-1/2 transition-all hover:scale-105"
+        style={{ background: CommonSave_GlobalValStore.ThemeBackground }}
         onClick={() => toggleOffCanvace("ThemeSettingOffCanvace")}
       >
         <span className="animate-spin">
