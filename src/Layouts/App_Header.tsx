@@ -1,6 +1,5 @@
 import React, { useMemo, useCallback, useEffect } from "react";
 import { Link } from "react-router-dom";
-import useWindowSize from "../CustomeHooks/useWindowSize";
 import { useAppDispatch, useAppSelector } from "../CustomeHooks/Hooks";
 import {
   setHeaderColors,
@@ -12,22 +11,15 @@ import {
 import { setisSidebarExpand, setisSidebarOpen } from "../Store/CommonStore/CommonGlobalValSlice";
 import DynamicIcon from "../Components/Icons/DynamicIcon";
 import GlobalSearch from "../pages/GlobalSearch";
-import { toggleOffCanvace, ModalStackManager } from "anshu-reactui";
+import { toggleOffCanvace, ModalStackManager, useWindowSize } from "anshu-reactui";
+import { useThemeSync } from "../CustomeHooks/useThemeSync";
 
 const App_Header: React.FC = () => {
   const size = useWindowSize();
   const dispatch = useAppDispatch();
-  const { CommonSave_GlobalValStore, CommonGlobalValStore } = useAppSelector(
-    (state) => state
-  );
+  const { CommonSave_GlobalValStore, CommonGlobalValStore } = useAppSelector((state) => state);
   const { isSidebarExpand, isSidebarOpen } = CommonGlobalValStore;
-
-  // Initialize theme on mount
-  useEffect(() => {
-    const theme = CommonSave_GlobalValStore?.ThemeColorMode || "light";
-    if (theme === "dark") document.getElementById('root')?.classList.add("dark");
-    else document.getElementById('root')?.classList.remove("dark");
-  }, [CommonSave_GlobalValStore?.ThemeColorMode]);
+  useThemeSync();
 
   // Header styles
   const headerStyles = useMemo(
@@ -78,9 +70,9 @@ const App_Header: React.FC = () => {
     dispatch(setMenuColors(""));
     dispatch(setThemeBackground(""));
     if (nextTheme === "light") {
-      dispatch(setThemePrimary("black")); // white not allowed
+      dispatch(setThemePrimary("black"));
     } else if (nextTheme === "dark") {
-      dispatch(setThemePrimary("white")); // black not allowed
+      dispatch(setThemePrimary("white")); 
     }
   }, [CommonSave_GlobalValStore?.ThemeColorMode, dispatch]);
 
@@ -94,7 +86,7 @@ const App_Header: React.FC = () => {
         <Link to={"/"} className="flex gap-2 items-center p-2">
           <DynamicIcon name="FaCat" size={22} color={iconColor} />
           <span className="font-bold text-[clamp(0.75rem,2vw,1.25rem)] whitespace-nowrap">
-            Meow Dashboard
+             Anshu React UI
           </span>
         </Link>
       ) : (
@@ -106,7 +98,7 @@ const App_Header: React.FC = () => {
             <Link to={"/"} className="flex gap-2 items-center p-2">
               <DynamicIcon name="FaCat" size={22} color={iconColor} />
               <span className="font-bold text-[clamp(0.75rem,2vw,1.25rem)] whitespace-nowrap">
-                Meow Dashboard
+                Anshu React UI
               </span>
             </Link>
           </span>

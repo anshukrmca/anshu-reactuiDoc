@@ -27,7 +27,7 @@ export function CodeViewer({
         style={style}
         wrapLines={wrapLines}
         showLineNumbers={showLineNumbers}
-        customStyle={{ minHeight: "100%", minWidth: "100%" }}
+        customStyle={{ minHeight: "100%", minWidth: "100%",fontSize:'12px' }}
       >
         {code}
       </SyntaxHighlighter>

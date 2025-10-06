@@ -19,7 +19,7 @@ const DocLayout = () => {
       {isHorizontal ? (
         <div
           className="my-Background"
-          style={{ backgroundColor: CommonSave_GlobalValStore?.ThemeBackground && bgColor}}
+          style={{ background: CommonSave_GlobalValStore?.ThemeBackground && bgColor}}
         >
           <div
             className={`${CommonSave_GlobalValStore?.MenuPositions === "Scrollable" ||

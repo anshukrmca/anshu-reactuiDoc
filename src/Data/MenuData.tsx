@@ -190,6 +190,7 @@ export const DocSidebarMenuData: MenuNode[] = [
       { id: 803, label: "Badge", link: "badges" },
       { id: 804, label: "Breadcrumb & Spinner", link: "breadcrumb" },
       { id: 805, label: "Switch", link: "switch" },
+      { id: 806, label: "Progressbar", link: "progressbar" },
     ],
   },
   {
@@ -410,6 +411,7 @@ export const DocHorizontalMenuData: MenuNode[] = [
       { id: 803, label: "Badge", link: "badges" },
       { id: 804, label: "Breadcrumb & Spinner", link: "breadcrumb" },
       { id: 805, label: "Switch", link: "switch" },
+      { id: 806, label: "Progressbar", link: "progressbar" },
     ],
   },
   {

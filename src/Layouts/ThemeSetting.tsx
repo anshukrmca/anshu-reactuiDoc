@@ -68,47 +68,33 @@ const ThemeSetting: React.FC = () => {
   const store = useAppSelector((s) => s.CommonSave_GlobalValStore);
   const [activeTab, setActiveTab] = useState<number>(1);
 
+
   const handleRadioChange = (title: string, value: string) => {
-  const action = radioActions[title];
-
-  if (title === "Theme Color Mode") {
-    // reset dependent colors
-    dispatch(setHeaderColors(""));
-    dispatch(setMenuColors(""));
-    dispatch(setThemeBackground(""));
-    if (value === "light") {
-      dispatch(setThemePrimary("black")); // white not allowed
-    } else if (value === "dark") {
-      dispatch(setThemePrimary("white")); // black not allowed
+    if (title === "Theme Color Mode") {
+      dispatch(setHeaderColors(""));
+      dispatch(setMenuColors(""));
+      dispatch(setThemeBackground(""));
+      dispatch(setThemePrimary(value === "light" ? "black" : "white"));
     }
-  }
-  if (action) dispatch(action(value));
-};
+    const action = radioActions[title];
+    if (action) dispatch(action(value));
+  };
 
-
-const handleColorChange = (title: string, color: string) => {
-  const action = colorActions[title];
-  if (!action) return;
-  const themeMode = store.ThemeColorMode?.toLowerCase(); // "light" | "dark"
-  const selected = color.toLowerCase();
-  // ❌ White not allowed in light mode
-  if (themeMode === "light" && selected === "white") {
-    console.warn("⚠️ White is not allowed in light mode");
-    return;
-  }
-  // ❌ Black or "dark" not allowed in dark mode
-  if (themeMode === "dark" && (selected === "black" || selected === "dark")) {
-    console.warn("⚠️ Black/Dark colors are not allowed in dark mode");
-    return;
-  }
-  // ❌ White background not allowed in dark mode
-  if (themeMode === "dark" && title === "Theme Background" && selected === "white") {
-    console.warn("⚠️ White background is not allowed in dark mode");
-    return;
-  }
-  // ✅ Safe update
-  dispatch(action(color));
-};
+  const handleColorChange = (title: string, color: string) => {
+    const action = colorActions[title];
+    if (!action) return;
+    const themeMode = store.ThemeColorMode?.toLowerCase();
+    const selected = color.toLowerCase();
+    const isInvalid =
+      (themeMode === "light" && selected === "white") ||
+      (themeMode === "dark" && (selected === "black" || selected === "dark")) ||
+      (themeMode === "dark" && title === "Theme Background" && selected === "white");
+    if (isInvalid) {
+      console.warn(`⚠️ Invalid color selection for ${themeMode} mode: ${color}`);
+      return;
+    }
+    dispatch(action(color));
+  };
 
 
 
@@ -119,7 +105,7 @@ const handleColorChange = (title: string, color: string) => {
 
   return (
     <div
-      className="flex flex-col h-screen my-Background pt-4"
+      className="flex flex-col h-screen pt-4"
       style={{
         background: store.ThemeBackground,
       }}

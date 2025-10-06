@@ -7,7 +7,7 @@ import {
   createTransform,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-// import CryptoJS from "crypto-js";
+import CryptoJS from "crypto-js";
 
 // Slice imports
 import CommonGlobalValSlice, { type CommonGlobalValState } from "./CommonStore/CommonGlobalValSlice";
@@ -17,29 +17,29 @@ import type { AnyAction } from "redux";
 // ==============================|| ENCRYPTION TRANSFORM ||============================== //
 const secretKey = "MY_SECRET_KEY_123";
 
-// const encryptDecryptTransform = createTransform<any, any>(
-//   (inboundState: unknown) => {
-//     try {
-//       const stringified = JSON.stringify(inboundState);
-//       const encrypted = CryptoJS.AES.encrypt(stringified, secretKey).toString();
-//       return encrypted;
-//     } catch (e) {
-//       console.error("Encryption error:", e);
-//       return inboundState;
-//     }
-//   },
-//   (outboundState: unknown) => {
-//     try {
-//       if (typeof outboundState !== "string") return outboundState;
-//       const bytes = CryptoJS.AES.decrypt(outboundState, secretKey);
-//       const decrypted = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-//       return decrypted;
-//     } catch (e) {
-//       console.error("Decryption error:", e);
-//       return outboundState;
-//     }
-//   }
-// );
+const encryptDecryptTransform = createTransform<any, any>(
+  (inboundState: unknown) => {
+    try {
+      const stringified = JSON.stringify(inboundState);
+      const encrypted = CryptoJS.AES.encrypt(stringified, secretKey).toString();
+      return encrypted;
+    } catch (e) {
+      console.error("Encryption error:", e);
+      return inboundState;
+    }
+  },
+  (outboundState: unknown) => {
+    try {
+      if (typeof outboundState !== "string") return outboundState;
+      const bytes = CryptoJS.AES.decrypt(outboundState, secretKey);
+      const decrypted = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+      return decrypted;
+    } catch (e) {
+      console.error("Decryption error:", e);
+      return outboundState;
+    }
+  }
+);
 
 // ==============================|| ROOT REDUCER ||============================== //
 export interface RootState {
@@ -58,7 +58,7 @@ const persistConfig: PersistConfig<RootState> = {
   key: "root",
   storage,
   whitelist: ["CommonSave_GlobalValStore"], // only persist this slice
- // transforms: [encryptDecryptTransform],
+ transforms: [encryptDecryptTransform],
 };
 
 const persistedReducer = persistReducer<RootState>(persistConfig, rootReducer);

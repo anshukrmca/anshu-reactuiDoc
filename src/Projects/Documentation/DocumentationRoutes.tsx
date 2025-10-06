@@ -10,6 +10,7 @@ const SpinnerList = lazy(() => import("./Components/SpinnerList"));
 const SwitchList = lazy(() => import("./pages/SwitchList"));
 const BreadandSpin = lazy(() => import("./pages/BreadandSpin"));
 const TableList = lazy(() => import("./pages/TableList"));
+const ProgressBar = lazy(() => import("./pages/ProgressBarList"));
 
 export const DocumentationRoutes = [
   {
@@ -27,6 +28,7 @@ export const DocumentationRoutes = [
       { path: "switch", element: <SwitchList />, label: "Switch" },
       { path: "nested-2.2.2", element: <SpinnerList />, label: "Nested-2.2.2" },
       { path: "table", element: <TableList />, label: "Table" },
+      { path: "progressbar", element: <ProgressBar />, label: "ProgressBar" },
     ],
   },
 ];

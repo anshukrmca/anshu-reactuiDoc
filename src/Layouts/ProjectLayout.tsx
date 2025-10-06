@@ -1,12 +1,13 @@
 import React from "react"
 import { Outlet } from "react-router-dom"
 import ThemeSetting from "./ThemeSetting"
-import { OffCanvace, ToastContainer, ModalStack, toggleOffCanvace } from "anshu-reactui"
+import { OffCanvace, ToastContainer, ModalStack, toggleOffCanvace, hexToRgba } from "anshu-reactui"
 import DynamicIcon from "../Components/Icons/DynamicIcon"
 import { useAppSelector } from "../CustomeHooks/Hooks"
 
 const ProjectLayout: React.FC = () => {
   const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
+  const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9);
   return (
     <>
       <ToastContainer />
@@ -14,12 +15,12 @@ const ProjectLayout: React.FC = () => {
       <OffCanvace
         id={"ThemeSettingOffCanvace"}
         size="320px"
-        className="my-Background"
-        Theme={CommonSave_GlobalValStore?.ThemePrimary}
+        ThemeColor={CommonSave_GlobalValStore?.ThemePrimary}
         style={{
           zIndex: 999999,
-          background: CommonSave_GlobalValStore.ThemeBackground,
+          background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
         }}
+        ClassName="my-Background"
       >
         <ThemeSetting />
       </OffCanvace>

@@ -30,8 +30,8 @@ const Home = () => {
                 </p>
             ),
             code: `npm create vite@latest my-project
-    cd my-project
-    npm install`,
+cd my-project
+npm install`,
         },
 
         {
@@ -54,7 +54,7 @@ const Home = () => {
                 </p>
             ),
             code: `/* your CSS (e.g. src/index.css) */
-    import "anshu-reactui/dist/styles.css";`,
+import "anshu-reactui/dist/styles.css";`,
         },
 
         {
@@ -88,7 +88,7 @@ const Home = () => {
                 </p>
             ),
             code: `/* your CSS (e.g. src/index.css) */
-    @import "tailwindcss";`,
+@import "tailwindcss";`,
         },
     ];
 

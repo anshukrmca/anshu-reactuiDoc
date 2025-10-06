@@ -57,7 +57,7 @@ export interface CommonSaveGlobalValState {
 /* ---------- Initial State ---------- */
 const initialState: CommonSaveGlobalValState = {
   ActiveModuleID: "",
-  ThemeColorMode: "light",
+  ThemeColorMode: "dark",
   ThemeBackground: "",
   ThemePrimary: "gray",
   HeaderColors: "",
@@ -124,14 +124,6 @@ const CommonSave_GlobalValSlice = createSlice({
     /* ---------- Theme mode ---------- */
     setThemeColorMode: (state, action: PayloadAction<"light" | "dark">) => {
       state.ThemeColorMode = action.payload;
-      // if (action.payload === "light") {
-      //   state.ThemeBackground = "white";
-      //   state.ThemePrimary = "#071c30";
-      // } else {
-      //   state.ThemeBackground = "#071c30";
-      //   state.ThemePrimary = "white";
-      // }
-
       if (!state.HeaderCustom) state.HeaderColors = state.ThemeBackground;
       if (!state.MenuCustom) state.MenuColors = state.ThemeBackground;
       if (typeof document !== "undefined") {
