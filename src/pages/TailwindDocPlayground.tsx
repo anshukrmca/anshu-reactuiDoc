@@ -1,6 +1,5 @@
 import  { type JSX } from "react";
 import { BackgroundColors } from "../pages/Doc/BackgroundColors";
-import { TextColors } from "../Components/UI/TextColors";
 import { BorderColors } from "../Components/UI/BorderColors";
 import { BorderWidthsAndStyles } from "../Components/UI/BorderWidthsAndStyles";
 import { RoundedCorners } from "../Components/UI/RoundedCorners";
@@ -13,6 +12,7 @@ import { ResponsiveExamples } from "./Doc/ResponsiveExamples";
 import { FooterNote } from "../Components/UI/FooterNote";
 import { ScaleClasses } from "../Components/UI/ScaleClasses";
 import { useAppSelector } from "../CustomeHooks/Hooks";
+import { TextColors } from "./Doc/TextColors";
 
 
 /* ------------------- config arrays and helper functions actually used ------------------- */
@@ -58,34 +58,6 @@ function generateBorderStyleClasses(styles: string[], sides = borderSides) {
 }
 
 /* ------------------- utility checks ------------------- */
-const likelyInvalidToken = (token: string) => {
-  return token.includes("%") || token.includes("vh") || token.includes("vw");
-};
-
-const makeExampleFor = (cls: string) => {
-  if (cls.startsWith("w-") || cls.startsWith("h-") || cls.startsWith("min-w-") || cls.startsWith("max-w-")) {
-    const token = cls.split("-").slice(1).join("-");
-    if (likelyInvalidToken(token)) {
-      const styleKey = cls.startsWith("h-") ? "height" : "width";
-      return (
-        <div style={{ [styleKey]: token as any, backgroundColor: "rgba(99,102,241,0.15)" }} className="flex items-center justify-center text-sm border rounded">
-          {`${styleKey}: ${token} (inline-style preview)`}
-        </div>
-      );
-    }
-  }
-
-  const animationClasses = [
-    "animate-spin", "animate-ping", "animate-pulse", "animate-bounce",
-    "animate-slide-in-left", "animate-slide-in-right", "animate-slide-in-top", "animate-slide-in-bottom", "animate-progressBar"
-  ];
-  if (animationClasses.includes(cls)) {
-    return <div className={`${cls} inline-block p-3 bg-indigo-100 rounded`}>animation — {cls}</div>;
-  }
-
-  return <div className={`${cls} inline-block p-3 text-sm`}>.{cls}</div>;
-};
-
 /* ------------------- build classes ------------------- */
 const bgColorClasses = generateColorClasses("bg", allColors, colorShades);
 const textColorClasses = generateColorClasses("text", allColors, colorShades);
@@ -121,7 +93,7 @@ export default function TailwindDocPlayground(): JSX.Element {
       </p>
 
       <BackgroundColors/>
-      <TextColors textColorClasses={textColorClasses} />
+      <TextColors />
       <BorderColors borderColorClasses={borderColorClasses} />
       <BorderWidthsAndStyles borderWidthClasses={borderWidthClasses} borderStyleClasses={borderStyleClasses} />
       <RoundedCorners />
