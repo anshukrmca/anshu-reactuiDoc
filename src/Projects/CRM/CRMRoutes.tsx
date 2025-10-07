@@ -10,6 +10,7 @@ export const CRMRoutes = [
     path: "crm",
     label: "CRM",
     element: <CrmLayout />, // 👈 should render layout, not dashboard
+    //  element: <MaintenancePage />,
     children: [
       { index: true, element: <CrmDashboard />, label: "Dashboard" }, // 👈 default route
       { path: "contacts", label: "Contacts", element: <Contacts /> },

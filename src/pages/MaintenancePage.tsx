@@ -722,9 +722,9 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
               <button onClick={() => navigate(-1)} className="green flex mt-4 w-[220px]">
                 ← Go Back
               </button>
-              <Link to="/" className="green mt-4 w-[150px]">
+               <button onClick={() => { window.location.href = "/" }} className="w-full md:w-auto green rounded-lg text-center whitespace-nowrap">
                 HOME
-              </Link>
+              </button>
             </span>
           </div>
         </div>

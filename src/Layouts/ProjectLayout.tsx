@@ -26,10 +26,10 @@ const ProjectLayout: React.FC = () => {
       </OffCanvace>
 
       <ModalStack
-        Theme={CommonSave_GlobalValStore?.ThemePrimary}
-        className="rounded-md"
+        ThemeColor={CommonSave_GlobalValStore?.ThemePrimary}
+        className="rounded-md bg-white dark:bg-gray-400 text-black dark:text-white"
         style={{
-          background: CommonSave_GlobalValStore.ThemeBackground,
+          background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
         }}
       />
 

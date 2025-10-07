@@ -1,13 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import '../assets/CSS/UnknownPage.css'
 
-const UnknownPage = () => {
+const Unauthorised = () => {
   const navigate = useNavigate();
   return (
     <>
-      <main className="flex justify-center">
+      <main className="h-[500px] flex justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="flex items-center justify-center h-full">
+          <div className="flex items-center justify-center">
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
@@ -711,34 +711,33 @@ const UnknownPage = () => {
           </div>
           <div className="flex flex-col justify-center">
             {/* 404 Code */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-red-500">
-              404
+            <h1 className="text-xl sm:text-2xl font-extrabold text-red-500">
+              Access Denied
             </h1>
 
             {/* Subtitle */}
-            <h2 className="text-xl sm:text-2xl md:text-3xl mt-2 text-gray-700 dark:text-gray-200">
+            <h2 className="text-lg mt-2 text-gray-700 dark:text-gray-200">
               UH OH! You're lost.
             </h2>
 
             {/* Description */}
-            <p className="mt-4 text-sm sm:text-base md:text-lg">
-              The page you are looking for does not exist. How you got here is a
+            <p className="mt-4 text-sm sm:text-base text-gray-500 dark:text-gray-300">
+              You do not have permission to view this page. How you got here is a
               mystery. But you can click the buttons below to go back to the
               homepage or your previous page.
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-2 mt-2 w-full max-w-sm sm:max-w-md">
+            <div className="flex flex-col-reverse sm:flex-row gap-2 mt-2 w-full max-w-sm sm:max-w-md">
               <button
                 onClick={() => navigate(-1)}
-                className="w-full md:w-auto green rounded-lg text-center whitespace-nowrap"
+                className="w-full md:w-auto green p-1 rounded-lg text-center whitespace-nowrap"
               >
                 ← Go Back
               </button>
-
-              <Link to="/" className="w-full md:w-auto green rounded-lg text-center whitespace-nowrap"
-              >
-                HOME</Link>
+              <button onClick={() => { window.location.href = "/" }} className="w-full md:w-auto green rounded-lg text-center whitespace-nowrap">
+                HOME
+              </button>
             </div>
           </div>
         </div>
@@ -747,4 +746,4 @@ const UnknownPage = () => {
   );
 };
 
-export default UnknownPage;
+export default Unauthorised;
