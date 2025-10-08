@@ -18,7 +18,7 @@ const DirectAccessURLGuard: React.FC = () => {
       isOpen={isOpen}
       onClose={handleClose}
       ThemeColor={CommonSave_GlobalValStore?.ThemePrimary}
-      className="rounded-md bg-white dark:bg-gray-700 text-black dark:text-white"
+      className="rounded-md my-Background p-0"
       style={{ background: CommonSave_GlobalValStore.ThemeBackground && bgColor }}
     >
       <Unauthorised />

@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import App_Header from "../../Layouts/App_Header";
 import App_Footer from "../../Layouts/App_Footer";
 import "../../assets/CSS/DashBoardLayout.css";
 import SideBarMenu from "../../Components/Menu/SideBarMenu";
 import { useAppDispatch, useAppSelector } from "../../CustomeHooks/Hooks";
-import { hexToRgba,useWindowSize } from "anshu-reactui/lib";
+import { hexToRgba, Loading, useWindowSize } from "anshu-reactui/lib";
 import { setisSidebarOpen } from "../../Store/CommonStore/CommonGlobalValSlice";
 import { DocMenuCategories, DocSidebarMenuData } from "../../Data/MenuData";
-import BreadcrumbContainer from "./BreadcrumbContainer";
+import BreadcrumbContainer from "../../Layouts/BreadcrumbContainer";
 
 const DocDashBoardLayout: React.FC = () => {
   const size = useWindowSize();
@@ -35,7 +35,7 @@ const DocDashBoardLayout: React.FC = () => {
     >
       {/* Sidebar */}
       <div
-        className="sidebar relative border-r border-white"
+        className="sidebar relative border-r border-slate-200 dark:border-slate-600"
         style={{
           zIndex: 999,
           marginLeft: (size.width ?? window.innerWidth) < 769 ? (isSidebarOpen ? "0px" : "-100%") : "0px",
@@ -84,7 +84,9 @@ const DocDashBoardLayout: React.FC = () => {
         >
           <div className="flex-1 p-2" style={{ minHeight: "100vh" }}>
             <div className="my-2"><BreadcrumbContainer Data={DocSidebarMenuData} /></div>
-            <Outlet />
+            <Suspense fallback={<Loading />}>
+              <Outlet />
+            </Suspense>
           </div>
           <App_Footer />
         </div>

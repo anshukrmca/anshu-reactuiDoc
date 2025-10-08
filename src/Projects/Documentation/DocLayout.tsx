@@ -1,12 +1,13 @@
 import { useAppSelector } from '../../CustomeHooks/Hooks';
-import { hexToRgba } from 'anshu-reactui';
+import { hexToRgba, Loading } from 'anshu-reactui';
 import App_Header from '../../Layouts/App_Header';
 import { Outlet } from 'react-router-dom';
 import App_Footer from '../../Layouts/App_Footer';
 import DocDashBoardLayout from './DocDashBoardLayout';
 import HorizontalMenuBar from '../../Components/Menu/HorizontalMenuBar';
 import { DocHorizontalMenuData, DocSidebarMenuData } from '../../Data/MenuData';
-import BreadcrumbContainer from './BreadcrumbContainer';
+import { Suspense } from 'react';
+import BreadcrumbContainer from '../../Layouts/BreadcrumbContainer';
 
 const DocLayout = () => {
      const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
@@ -38,7 +39,9 @@ const DocLayout = () => {
             style={{ paddingTop: padding, minHeight: "100vh" }}
           >
             <div className="my-2"><BreadcrumbContainer Data={DocSidebarMenuData} /></div>
-            <Outlet />
+            <Suspense fallback={<Loading />}>
+              <Outlet />
+           </Suspense>
           </main>
           {/* Footer (sticks to bottom) */}
           <App_Footer />

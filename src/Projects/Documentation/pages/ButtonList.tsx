@@ -494,6 +494,47 @@ className="btn btn-danger h-10 w-10 p-1"
 className="btn btn-danger bg-red-400 h-10 w-10 p-1"
             `
         },
+        {
+            ID: 11,
+            Tittle: "Animated Buttons",
+            jsxExample: (
+                <>
+                    <Button className="btn-animate btn-animate-primary" variant='primary'>Primary</Button>
+                    <Button className="btn-animate btn-animate-success" variant='success'>Success</Button>
+                    <Button className="btn-animate btn-animate-danger" variant='danger'>Danger</Button>
+                    <Button className="btn-animate btn-animate-teal" variant='teal'>Teal</Button>
+                    <Button className="btn-animate btn-animate-pink" variant='pink'>Pink</Button>
+                    <Button className="btn-animate btn-animate-purple" variant='purple'>Purple</Button>
+                    <Button className="btn-animate btn-animate-warning" variant='warning'>Warning</Button>
+                    <Button className="btn-animate btn-animate-gray" variant='dark'>Gray</Button>
+                </>
+            ),
+            jsxCode: `<Button className="btn-animate btn-animate-primary" variant='primary'>Primary</Button>
+<Button className="btn-animate btn-animate-success" variant='success'>Success</Button>
+<Button className="btn-animate btn-animate-danger" variant='danger'>Danger</Button>
+<Button className="btn-animate btn-animate-teal" variant='teal'>Teal</Button>
+<Button className="btn-animate btn-animate-pink" variant='pink'>Pink</Button>
+<Button className="btn-animate btn-animate-purple" variant='purple'>Purple</Button>
+<Button className="btn-animate btn-animate-warning" variant='warning'>Warning</Button>
+<Button className="btn-animate btn-animate-gray" variant='dark'>Gray</Button>`,
+            htmlCode: `<button class="btn-animate btn-animate-primary">Primary</button>
+<button class="btn-animate btn-animate-success">Success</button>
+<button class="btn-animate btn-animate-danger">Danger</button>
+<button class="btn-animate btn-animate-teal">Teal</button>
+<button class="btn-animate btn-animate-pink">Pink</button>
+<button class="btn-animate btn-animate-purple">Purple</button>
+<button class="btn-animate btn-animate-warning">Warning</button>
+<button class="btn-animate btn-animate-gray">Gray</button>`,
+            cssCode: `className="btn-animate btn-animate-primary"
+className="btn-animate btn-animate-success"
+className="btn-animate btn-animate-danger"
+className="btn-animate btn-animate-teal"
+className="btn-animate btn-animate-pink"
+className="btn-animate btn-animate-purple"
+className="btn-animate btn-animate-warning"
+className="btn-animate btn-animate-gray"`,
+        }
+
     ];
 
     return (

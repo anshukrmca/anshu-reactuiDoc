@@ -1,7 +1,7 @@
 import { lazy } from "react";
-import DocLayout from "./DocLayout";
 
 // 🔹 Lazy imports for all pages
+const DocLayout = lazy(() => import("./DocLayout"));
 const Home = lazy(() => import("./pages/Home"));
 const ButtonList = lazy(() => import("./pages/ButtonList"));
 const AlertList = lazy(() => import("./pages/AlertList"));
@@ -11,6 +11,7 @@ const SwitchList = lazy(() => import("./pages/SwitchList"));
 const BreadandSpin = lazy(() => import("./pages/BreadandSpin"));
 const TableList = lazy(() => import("./pages/TableList"));
 const ProgressBar = lazy(() => import("./pages/ProgressBarList"));
+const InputTypes = lazy(() => import("./pages/InputTypes"));
 
 export const DocumentationRoutes = [
   {
@@ -29,6 +30,7 @@ export const DocumentationRoutes = [
       { path: "nested-2.2.2", element: <SpinnerList />, label: "Nested-2.2.2" },
       { path: "table", element: <TableList />, label: "Table" },
       { path: "progressbar", element: <ProgressBar />, label: "ProgressBar" },
+      { path: "input-types", element: <InputTypes />, label: "Input Types" },
     ],
   },
 ];

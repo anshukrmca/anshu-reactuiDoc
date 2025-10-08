@@ -13,7 +13,7 @@ export const DocMenuCategories: CategoryNode[] = [
 ];
 
 export const DocSidebarMenuData: MenuNode[] = [
-  { id: 15, icon: <DynamicIcon name="FaBookOpen" />, label: "Documentation", link: '/doc'},
+  { id: 15, icon: <DynamicIcon name="FaBookOpen" />, label: "Documentation", link: '/doc' },
   {
     id: 1,
     icon: <DynamicIcon name="FaBookOpen" />,
@@ -21,7 +21,7 @@ export const DocSidebarMenuData: MenuNode[] = [
     children: [
       { id: 101, label: "Sales", link: "sale-dashboard" },
       { id: 102, label: "Analytics", link: "analytics-dashboard" },
-      { id: 103, label: "Ecommerce", link: "ecommerce-dashboard" },
+      { id: 103, label: "Ecommerce", link: "ecommerce" },
       { id: 104, label: "CRM", link: "crm" },
       { id: 105, label: "Crypto", link: "crypto-dashboard" },
       { id: 106, label: "NFT", link: "nft-dashboard" },
@@ -191,6 +191,7 @@ export const DocSidebarMenuData: MenuNode[] = [
       { id: 804, label: "Breadcrumb & Spinner", link: "breadcrumb" },
       { id: 805, label: "Switch", link: "switch" },
       { id: 806, label: "Progressbar", link: "progressbar" },
+      { id: 807, label: "Input Types", link: "input-types" },
     ],
   },
   {
@@ -242,7 +243,7 @@ export const DocHorizontalMenuData: MenuNode[] = [
     children: [
       { id: 101, label: "Sales", link: "sale-dashboard" },
       { id: 102, label: "Analytics", link: "analytics-dashboard" },
-      { id: 103, label: "Ecommerce", link: "ecommerce-dashboard" },
+      { id: 103, label: "Ecommerce", link: "ecommerce" },
       { id: 104, label: "CRM", link: "crm" },
       { id: 105, label: "Crypto", link: "crypto-dashboard" },
       { id: 106, label: "NFT", link: "nft-dashboard" },
@@ -412,6 +413,7 @@ export const DocHorizontalMenuData: MenuNode[] = [
       { id: 804, label: "Breadcrumb & Spinner", link: "breadcrumb" },
       { id: 805, label: "Switch", link: "switch" },
       { id: 806, label: "Progressbar", link: "progressbar" },
+      { id: 807, label: "Input Types", link: "input-types" },
     ],
   },
   {
@@ -496,6 +498,323 @@ export const ThemeSettingData: SettingGroup[] = [
   },
 ];
 
+
+export const CRMMenuCategories = [
+  { id: 1, label: "Main", lebel1id: ['1', '2'] },
+  { id: 2, label: "WEB APPS", lebel1id: ['3', '4', '5'] },
+  { id: 3, label: "Reports & Settings", lebel1id: ['6', '7', '8', '9'] },
+];
+
+export const CRMSidebarMenuData = [
+  {
+    id: 1,
+    icon: <DynamicIcon name="FaTachometerAlt" />,
+    label: "Dashboard",
+    children: [
+      { id: 101, label: "Sales", link: "/crm/dashboard/sales" },
+      { id: 102, label: "Marketing", link: "/crm/dashboard/marketing" },
+    ],
+  },
+  {
+    id: 2,
+    icon: <DynamicIcon name="FaUsers" />,
+    label: "Contacts",
+    children: [
+      { id: 201, label: "All Contacts", link: "/crm/contacts/all" },
+      { id: 202, label: "New Contact", link: "/crm/contacts/new" },
+    ],
+  },
+  {
+    id: 3,
+    icon: <DynamicIcon name="FaUserTie" />,
+    label: "Leads",
+    children: [
+      { id: 301, label: "All Leads", link: "/crm/leads/all" },
+      { id: 302, label: "Add Lead", link: "/crm/leads/new" },
+    ],
+  },
+  {
+    id: 4,
+    icon: <DynamicIcon name="FaHandshake" />,
+    label: "Opportunities",
+    children: [
+      { id: 401, label: "All Opportunities", link: "/crm/opportunities/all" },
+      { id: 402, label: "Add Opportunity", link: "/crm/opportunities/new" },
+    ],
+  },
+  {
+    id: 5,
+    icon: <DynamicIcon name="FaBuilding" />,
+    label: "Accounts",
+    children: [
+      { id: 501, label: "All Accounts", link: "/crm/accounts/all" },
+      { id: 502, label: "Add Account", link: "/crm/accounts/new" },
+    ],
+  },
+  {
+    id: 6,
+    icon: <DynamicIcon name="FaChartLine" />,
+    label: "Sales",
+    children: [
+      { id: 601, label: "Quotes", link: "/crm/sales/quotes" },
+      { id: 602, label: "Orders", link: "/crm/sales/orders" },
+      { id: 603, label: "Invoices", link: "/crm/sales/invoices" },
+    ],
+  },
+  {
+    id: 7,
+    icon: <DynamicIcon name="FaBullhorn" />,
+    label: "Marketing",
+    children: [
+      { id: 701, label: "Campaigns", link: "/crm/marketing/campaigns" },
+      { id: 702, label: "Emails", link: "/crm/marketing/emails" },
+    ],
+  },
+  {
+    id: 8,
+    icon: <DynamicIcon name="FaFileAlt" />,
+    label: "Reports",
+    link: "/crm/reports",
+  },
+  {
+    id: 9,
+    icon: <DynamicIcon name="FaCog" />,
+    label: "Settings",
+    link: "/crm/settings",
+  },
+];
+
+export const CRMHorizontalMenuData = [
+  {
+    id: 1,
+    icon: <DynamicIcon name="FaTachometerAlt" />,
+    label: "Dashboard",
+    children: [
+      { id: 101, label: "Sales", link: "/crm/dashboard/sales" },
+      { id: 102, label: "Marketing", link: "/crm/dashboard/marketing" },
+    ],
+  },
+  {
+    id: 2,
+    icon: <DynamicIcon name="FaUsers" />,
+    label: "Contacts",
+    children: [
+      { id: 201, label: "All Contacts", link: "/crm/contacts/all" },
+      { id: 202, label: "New Contact", link: "/crm/contacts/new" },
+    ],
+  },
+  {
+    id: 3,
+    icon: <DynamicIcon name="FaUserTie" />,
+    label: "Leads",
+    children: [
+      { id: 301, label: "All Leads", link: "/crm/leads/all" },
+      { id: 302, label: "Add Lead", link: "/crm/leads/new" },
+    ],
+  },
+  {
+    id: 4,
+    icon: <DynamicIcon name="FaHandshake" />,
+    label: "Opportunities",
+    children: [
+      { id: 401, label: "All Opportunities", link: "/crm/opportunities/all" },
+      { id: 402, label: "Add Opportunity", link: "/crm/opportunities/new" },
+    ],
+  },
+  {
+    id: 5,
+    icon: <DynamicIcon name="FaBuilding" />,
+    label: "Accounts",
+    children: [
+      { id: 501, label: "All Accounts", link: "/crm/accounts/all" },
+      { id: 502, label: "Add Account", link: "/crm/accounts/new" },
+    ],
+  },
+  {
+    id: 6,
+    icon: <DynamicIcon name="FaChartLine" />,
+    label: "Sales",
+    children: [
+      { id: 601, label: "Quotes", link: "/crm/sales/quotes" },
+      { id: 602, label: "Orders", link: "/crm/sales/orders" },
+      { id: 603, label: "Invoices", link: "/crm/sales/invoices" },
+    ],
+  },
+  {
+    id: 7,
+    icon: <DynamicIcon name="FaBullhorn" />,
+    label: "Marketing",
+    children: [
+      { id: 701, label: "Campaigns", link: "/crm/marketing/campaigns" },
+      { id: 702, label: "Emails", link: "/crm/marketing/emails" },
+    ],
+  },
+  {
+    id: 8,
+    icon: <DynamicIcon name="FaFileAlt" />,
+    label: "Reports",
+    link: "/crm/reports",
+  },
+  {
+    id: 9,
+    icon: <DynamicIcon name="FaCog" />,
+    label: "Settings",
+    link: "/crm/settings",
+  },
+];
+
+
+// E-commerce adapted menu categories (similar structure)
+export const ECommerceMenuCategories: CategoryNode[] = [
+  { id: 1, label: "Main", lebel1id: ['1', '2'] },
+  { id: 2, label: "Store Management", lebel1id: ['3', '4', '5', '6'] },
+  { id: 3, label: "Analytics & Settings", lebel1id: ['7', '8'] },
+];
+
+// E-commerce sidebar menu data (adapted from CRM example)
+export const ECommerceSidebarMenuData: MenuNode[] = [
+  {
+    id: 1,
+    icon: <DynamicIcon name="FaTachometerAlt"/>,
+    label: "Dashboard",
+    children: [
+      { id: 101, label: "Overview", link: "/ecommerce/dashboard/overview" },
+      { id: 102, label: "Analytics", link: "/ecommerce/dashboard/analytics" },
+    ],
+  },
+  {
+    id: 2,
+    icon: <DynamicIcon name="FaBox"/>,
+    label: "Products",
+    children: [
+      { id: 201, label: "All Products", link: "/ecommerce/products/all" },
+      { id: 202, label: "Add Product", link: "/ecommerce/products/new" },
+      { id: 203, label: "Categories", link: "/ecommerce/products/categories" },
+    ],
+  },
+  {
+    id: 3,
+    icon: <DynamicIcon name="FaShoppingCart"/>, 
+    label: "Orders",
+    children: [
+      { id: 301, label: "All Orders", link: "/ecommerce/orders/all" },
+      { id: 302, label: "New Order", link: "/ecommerce/orders/new" },
+      { id: 303, label: "Processing", link: "/ecommerce/orders/processing" },
+    ],
+  },
+  {
+    id: 4,
+    icon: <DynamicIcon name="FaUsers"/>,
+    label: "Customers",
+    children: [
+      { id: 401, label: "All Customers", link: "/ecommerce/customers/all" },
+      { id: 402, label: "Add Customer", link: "/ecommerce/customers/new" },
+      { id: 403, label: "Segments", link: "/ecommerce/customers/segments" },
+    ],
+  },
+  {
+    id: 5,
+    icon: <DynamicIcon name="FaWarehouse"/>,
+    label: "Inventory",
+    children: [
+      { id: 501, label: "Stock Levels", link: "/ecommerce/inventory/stock" },
+      { id: 502, label: "Suppliers", link: "/ecommerce/inventory/suppliers" },
+    ],
+  },
+  {
+    id: 6,
+    icon: <DynamicIcon name="FaCreditCard"/>,
+    label: "Payments",
+    children: [
+      { id: 601, label: "Transactions", link: "/ecommerce/payments/transactions" },
+      { id: 602, label: "Refunds", link: "/ecommerce/payments/refunds" },
+    ],
+  },
+  {
+    id: 7,
+    icon: <DynamicIcon name="FaChartBar"/>,
+    label: "Reports",
+    link: "/ecommerce/reports",
+  },
+  {
+    id: 8,
+    icon: <DynamicIcon name="FaCog"/>,
+    label: "Settings",
+    link: "/ecommerce/settings",
+  },
+];
+
+export const ECommerceHorizontalMenuData: MenuNode[] = [
+  {
+    id: 1,
+    icon: <DynamicIcon name="FaTachometerAlt"/>,
+    label: "Dashboard",
+    children: [
+      { id: 101, label: "Overview", link: "/ecommerce/dashboard/overview" },
+      { id: 102, label: "Analytics", link: "/ecommerce/dashboard/analytics" },
+    ],
+  },
+  {
+    id: 2,
+    icon: <DynamicIcon name="FaBox"/>,
+    label: "Products",
+    children: [
+      { id: 201, label: "All Products", link: "/ecommerce/products/all" },
+      { id: 202, label: "Add Product", link: "/ecommerce/products/new" },
+      { id: 203, label: "Categories", link: "/ecommerce/products/categories" },
+    ],
+  },
+  {
+    id: 3,
+    icon: <DynamicIcon name="FaShoppingCart"/>, 
+    label: "Orders",
+    children: [
+      { id: 301, label: "All Orders", link: "/ecommerce/orders/all" },
+      { id: 302, label: "New Order", link: "/ecommerce/orders/new" },
+      { id: 303, label: "Processing", link: "/ecommerce/orders/processing" },
+    ],
+  },
+  {
+    id: 4,
+    icon: <DynamicIcon name="FaUsers"/>,
+    label: "Customers",
+    children: [
+      { id: 401, label: "All Customers", link: "/ecommerce/customers/all" },
+      { id: 402, label: "Add Customer", link: "/ecommerce/customers/new" },
+      { id: 403, label: "Segments", link: "/ecommerce/customers/segments" },
+    ],
+  },
+  {
+    id: 5,
+    icon: <DynamicIcon name="FaWarehouse"/>,
+    label: "Inventory",
+    children: [
+      { id: 501, label: "Stock Levels", link: "/ecommerce/inventory/stock" },
+      { id: 502, label: "Suppliers", link: "/ecommerce/inventory/suppliers" },
+    ],
+  },
+  {
+    id: 6,
+    icon: <DynamicIcon name="FaCreditCard"/>,
+    label: "Payments",
+    children: [
+      { id: 601, label: "Transactions", link: "/ecommerce/payments/transactions" },
+      { id: 602, label: "Refunds", link: "/ecommerce/payments/refunds" },
+    ],
+  },
+  {
+    id: 7,
+    icon: <DynamicIcon name="FaChartBar"/>,
+    label: "Reports",
+    link: "/ecommerce/reports",
+  },
+  {
+    id: 8,
+    icon: <DynamicIcon name="FaCog"/>,
+    label: "Settings",
+    link: "/ecommerce/settings",
+  },
+];
 
 
 

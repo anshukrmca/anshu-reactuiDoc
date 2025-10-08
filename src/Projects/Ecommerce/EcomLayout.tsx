@@ -6,11 +6,11 @@ import { useAppSelector } from "../../CustomeHooks/Hooks";
 import App_Header from "../../Layouts/App_Header";
 import App_Footer from "../../Layouts/App_Footer";
 import HorizontalMenuBar from "../../Components/Menu/HorizontalMenuBar";
-import { CRMHorizontalMenuData, CRMSidebarMenuData} from "../../Data/MenuData";
-import CrmDashBoardLayout from "./CrmDashBoardLayout";
+import { ECommerceHorizontalMenuData} from "../../Data/MenuData";
+import CrmDashBoardLayout from "./EcomDashBoardLayout";
 import BreadcrumbContainer from "../../Layouts/BreadcrumbContainer";
 
-const CrmLayout: React.FC = () => {
+const EcomLayout: React.FC = () => {
   const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
   const isHorizontal = CommonSave_GlobalValStore?.NavigationStyles === "Horizontal";
   const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9) || "white";
@@ -31,7 +31,7 @@ const CrmLayout: React.FC = () => {
               } w-full`}
           >
             <App_Header />
-            <HorizontalMenuBar Data={CRMHorizontalMenuData} />
+            <HorizontalMenuBar Data={ECommerceHorizontalMenuData} />
           </div>
 
           {/* Main content (flex-grow pushes footer down) */}
@@ -39,7 +39,7 @@ const CrmLayout: React.FC = () => {
             className="max-w-screen p-2 w-full "
             style={{ paddingTop: padding, minHeight: "100vh" }}
           >
-            <div className="my-2"><BreadcrumbContainer Data={CRMSidebarMenuData} /></div>
+            <div className="my-2"><BreadcrumbContainer Data={ECommerceHorizontalMenuData} /></div>
            <Suspense fallback={<Loading />}>
               <Outlet />
            </Suspense>
@@ -56,4 +56,4 @@ const CrmLayout: React.FC = () => {
   );
 };
 
-export default CrmLayout;
+export default EcomLayout;

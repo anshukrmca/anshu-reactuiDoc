@@ -6,6 +6,7 @@ interface CheatsheetCardProps {
   htmlCode: string;
   cssCode: string;
   jsxCode: string;
+  tsxCode: string;
 }
 
 
@@ -13,6 +14,7 @@ const CheatsheetCard: React.FC<CheatsheetCardProps> = ({
   htmlCode,
   cssCode,
   jsxCode,
+  tsxCode,
 }) => {
 
 
@@ -34,6 +36,11 @@ const CheatsheetCard: React.FC<CheatsheetCardProps> = ({
             id: "jsx",
             label: "JSX",
             content: (<CodeViewer code={jsxCode}/>),
+          },
+          {
+            id: "tsx",
+            label: "TSX",
+            content: (<CodeViewer code={tsxCode}/>),
           },
         ]}
         initialTab="html"

@@ -1,13 +1,14 @@
-import React from "react"
+import React, { Suspense } from "react"
 import { Outlet } from "react-router-dom"
 import ThemeSetting from "./ThemeSetting"
-import { OffCanvace, ToastContainer, ModalStack, toggleOffCanvace, hexToRgba } from "anshu-reactui"
+import { OffCanvace, ToastContainer, ModalStack, toggleOffCanvace, hexToRgba, Loading } from "anshu-reactui"
 import DynamicIcon from "../Components/Icons/DynamicIcon"
 import { useAppSelector } from "../CustomeHooks/Hooks"
 
 const ProjectLayout: React.FC = () => {
   const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
   const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9);
+
   return (
     <>
       <ToastContainer />
@@ -27,7 +28,7 @@ const ProjectLayout: React.FC = () => {
 
       <ModalStack
         ThemeColor={CommonSave_GlobalValStore?.ThemePrimary}
-        className="rounded-md bg-white dark:bg-gray-400 text-black dark:text-white"
+        className="rounded-md my-Background"
         style={{
           background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
         }}
@@ -36,18 +37,22 @@ const ProjectLayout: React.FC = () => {
       {/* Settings Floating Button */}
       <div
         className="fixed my-Background top-1/2 right-0 z-50 flex items-center justify-center w-12 h-12 shadow-lg rounded-l-xl cursor-pointer transform -translate-y-1/2 transition-all hover:scale-105"
-        style={{ background: CommonSave_GlobalValStore.ThemeBackground }}
+        style={{ background: CommonSave_GlobalValStore.ThemeBackground && bgColor }}
         onClick={() => toggleOffCanvace("ThemeSettingOffCanvace")}
       >
-        <span className="animate-spin">
+        <span className="animate-spin my-Background"
+          style={{ background: CommonSave_GlobalValStore.ThemeBackground && bgColor }}
+        >
           <DynamicIcon
             name="CiSettings"
-            color={CommonSave_GlobalValStore?.ThemePrimary}
+            color={CommonSave_GlobalValStore?.ThemePrimary || "#000"}
             size={20}
           />
         </span>
       </div>
-      <Outlet />
+      <Suspense fallback={<Loading />}>
+        <Outlet />
+      </Suspense>
     </>
   )
 }

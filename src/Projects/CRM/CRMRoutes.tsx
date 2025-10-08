@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import CrmLayout from "./CrmLayout";
 
-const CrmDashboard = lazy(() => import("./CrmDashboard"));
+const CrmDashboard = lazy(() => import("./pages/CrmDashboard"));
 const Contacts = lazy(() => import("./pages/Contacts"));
 const Leads = lazy(() => import("./pages/Leads"));
 
@@ -13,8 +13,8 @@ export const CRMRoutes = [
     //  element: <MaintenancePage />,
     children: [
       { index: true, element: <CrmDashboard />, label: "Dashboard" }, // 👈 default route
-      { path: "contacts", label: "Contacts", element: <Contacts /> },
-      { path: "leads", label: "Leads", element: <Leads /> },
+      { path: "contacts/all", label: "Contacts", element: <Contacts /> },
+      { path: "leads/all", label: "Leads", element: <Leads /> },
     ],
   },
 ];

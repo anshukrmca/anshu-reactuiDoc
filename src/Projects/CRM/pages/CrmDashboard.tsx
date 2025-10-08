@@ -1,4 +1,4 @@
-import MaintenancePage from "../../pages/MaintenancePage"
+import MaintenancePage from "../../../pages/MaintenancePage"
 
 type Props = {}
 

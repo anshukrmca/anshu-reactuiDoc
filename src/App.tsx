@@ -11,9 +11,10 @@ import ProjectLayout from "./Layouts/ProjectLayout";
 import { CRMRoutes } from "./Projects/CRM/CRMRoutes";
 import { DocumentationRoutes } from "./Projects/Documentation/DocumentationRoutes";
 import SessionExpire from "./pages/SessionExpire";
+import { EcomRoutes } from "./Projects/Ecommerce/EcomRoutes";
 
 //  Combine all routes
-const allRoutes = [...DocumentationRoutes, ...CRMRoutes];
+const allRoutes = [...DocumentationRoutes, ...CRMRoutes,...EcomRoutes]; // Add other project routes here
 
 //  Setup router
 const router = createBrowserRouter([

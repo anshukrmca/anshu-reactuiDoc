@@ -1,11 +1,18 @@
 @import "tailwindcss";
-@variant dark (&:where(.dark, .dark *)); /* <body class="dark"> */ 
+@variant dark (&:where(.dark, .dark *));
+/* <body class="dark"> */
 
 @layer {
     .my-Background {
         @apply bg-white dark:bg-slate-900 text-black dark:text-white transition-all duration-500 ease-in-out
     }
+
     .my-Border {
         @apply border border-slate-200 dark:border-slate-600
     }
+}
+
+
+@layer components {
+
 }

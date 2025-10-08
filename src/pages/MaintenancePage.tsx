@@ -1,12 +1,14 @@
 import React from "react";
 import '../assets/CSS/UnknownPage.css'
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../CustomeHooks/Hooks";
 
 const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
   return (
     <>
-    <main className="h-full flex flex-col justify-center">
+      <main className="h-full flex flex-col justify-center my-Background">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex items-center justify-center h-full">
             <svg
@@ -32,7 +34,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                 <g id="planet">
                   <circle
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeMiterlimit="10"
                     cx="572.859"
@@ -43,7 +45,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                   <circle
                     id="craterBig"
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeMiterlimit="10"
                     cx="548.891"
@@ -54,7 +56,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                   <circle
                     id="craterSmall"
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeMiterlimit="10"
                     cx="591.743"
@@ -64,7 +66,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                   <path
                     id="ring"
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeMiterlimit="10"
@@ -77,7 +79,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                     id="ringShadow"
                     opacity="0.5"
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeMiterlimit="10"
@@ -90,7 +92,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -102,7 +104,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -115,7 +117,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -127,7 +129,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -140,7 +142,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -152,7 +154,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -165,7 +167,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -177,7 +179,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -192,7 +194,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -204,7 +206,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -217,7 +219,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -229,7 +231,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -242,7 +244,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -254,7 +256,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -267,7 +269,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -279,7 +281,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -292,7 +294,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -304,7 +306,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -317,7 +319,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -329,7 +331,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -343,7 +345,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                   <g id="circlesBig">
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -354,7 +356,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -365,7 +367,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -376,7 +378,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -387,7 +389,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -398,7 +400,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -409,7 +411,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -420,7 +422,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -478,7 +480,7 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
                   <path
                     id="cord"
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -714,22 +716,22 @@ const MaintenancePage: React.FC<{ projectName?: string }> = ({ projectName }) =>
             <h1 className="text-5xl font-bold">🚧 Under Maintenance</h1>
             <h2 className="text-2xl mt-4">UH OH! You're lost.</h2>
             <p className="mt-2 text-gray-600">
-             {projectName
-            ? `The ${projectName} module is currently under maintenance or production. Please check back later.`
-            : `This page is currently under maintenance or production.`}
+              {projectName
+                ? `The ${projectName} module is currently under maintenance or production. Please check back later.`
+                : `This page is currently under maintenance or production.`}
             </p>
             <span className="flex gap-4 my-4">
-              <button onClick={() => navigate(-1)} className="green flex mt-4 w-[220px]">
+              <button onClick={() => navigate(-1)} className="btn-animate btn-animate-gray">
                 ← Go Back
               </button>
-               <button onClick={() => { window.location.href = "/" }} className="w-full md:w-auto green rounded-lg text-center whitespace-nowrap">
+              <button onClick={() => { window.location.href = "/" }} className="btn-animate btn-animate-secondary">
                 HOME
               </button>
             </span>
           </div>
         </div>
       </main>
-     </>
+    </>
   );
 };
 

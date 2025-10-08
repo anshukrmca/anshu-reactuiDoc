@@ -1,0 +1,100 @@
+import { hexToRgba, Loading, useWindowSize } from 'anshu-reactui/lib';
+import { Suspense, useEffect } from 'react'
+import { Outlet, useLocation } from 'react-router-dom';
+import { useAppSelector } from '../../CustomeHooks/Hooks';
+import { setisSidebarOpen } from '../../Store/CommonStore/CommonGlobalValSlice';
+import { useDispatch } from 'react-redux';
+import App_Footer from '../../Layouts/App_Footer';
+import App_Header from '../../Layouts/App_Header';
+import SideBarMenu from '../../Components/Menu/SideBarMenu';
+import { CRMMenuCategories, CRMSidebarMenuData } from '../../Data/MenuData';
+import BreadcrumbContainer from '../../Layouts/BreadcrumbContainer';
+import "../../assets/CSS/DashBoardLayout.css";
+
+type Props = {}
+
+export default function CrmDashBoardLayout({ }: Props) {
+    const size = useWindowSize();
+    const location = useLocation();
+    const dispatch = useDispatch();
+    const { CommonSave_GlobalValStore, CommonGlobalValStore } = useAppSelector((state) => state);
+    const { isSidebarExpand, isSidebarOpen } = CommonGlobalValStore;
+    const isHeaderFixed = CommonSave_GlobalValStore?.HeaderPositions === "Fixed";
+    const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9) || "white";
+    // Responsive sidebar open/close
+    useEffect(() => {
+        if ((size.width ?? window.innerWidth) < 769) {
+            dispatch(setisSidebarOpen(false));
+        } else {
+            dispatch(setisSidebarOpen(true));
+        }
+    }, [size.width, dispatch]);
+
+    return (
+        <>
+            <div
+                className="overflow-x-hidden my-Background"
+                style={{ background: CommonSave_GlobalValStore?.ThemeBackground && bgColor }}
+            >
+                {/* Sidebar */}
+                <div
+                    className="sidebar relative border-r border-slate-200 dark:border-slate-600"
+                    style={{
+                        zIndex: 999,
+                        marginLeft: (size.width ?? window.innerWidth) < 769 ? (isSidebarOpen ? "0px" : "-100%") : "0px",
+                        width: (size.width ?? window.innerWidth) >= 769 ? (isSidebarExpand ? "270px" : "70px") : "270px",
+                        transition: "all 0.3s ease-in-out",
+                    }}
+                >
+                    <SideBarMenu MenuData={CRMSidebarMenuData} CategoriesData={CRMMenuCategories} />
+                </div>
+
+                {/* Main content area */}
+                <div
+                    className="main-container flex flex-col min-h-screen"
+                    style={{
+                        marginLeft: (size.width ?? window.innerWidth) >= 769 ? (isSidebarExpand ? "270px" : "70px") : "0px",
+                        width:
+                            (size.width ?? window.innerWidth) >= 769
+                                ? `calc(100% - ${isSidebarExpand ? "270px" : "70px"})`
+                                : "100%",
+                        transition: "all 0.3s ease-in-out",
+                    }}
+                >
+                    {/* Header */}
+                    <div
+                        className={isHeaderFixed ? "fixed top-0" : "relative"}
+                        style={{
+                            zIndex: 99,
+                            width:
+                                isHeaderFixed && (size.width ?? window.innerWidth) >= 769
+                                    ? `calc(100% - ${isSidebarExpand ? "270px" : "70px"})`
+                                    : "100%",
+                            transition: "all 0.3s ease-in-out",
+                            background: bgColor,
+                        }}
+                    >
+                        <App_Header />
+                    </div>
+
+                    {/* Content */}
+                    <div
+                        className="flex flex-col flex-1"
+                        key={location.pathname}
+                        style={{
+                            paddingTop: isHeaderFixed ? "64px" : "0px",
+                        }}
+                    >
+                        <div className="flex-1 p-2" style={{ minHeight: "100vh" }}>
+                            <div className="my-2"><BreadcrumbContainer Data={CRMSidebarMenuData} /></div>
+                            <Suspense fallback={<Loading />}>
+                                <Outlet />
+                            </Suspense>
+                        </div>
+                        <App_Footer />
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}

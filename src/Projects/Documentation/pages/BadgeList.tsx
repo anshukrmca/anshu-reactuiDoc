@@ -520,6 +520,7 @@ className="badge badge-outline-purple badge-pill"`,
               htmlCode={items.htmlCode}
               cssCode={items.cssCode}
               jsxCode={items.jsxCode}
+              tsxCode="No Code"
             />
           )}
         </Card>

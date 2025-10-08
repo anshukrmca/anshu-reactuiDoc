@@ -1,8 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import '../assets/CSS/UnknownPage.css'
+import { useAppSelector } from "../CustomeHooks/Hooks";
 
 const UnknownPage = () => {
   const navigate = useNavigate();
+  const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
   return (
     <>
       <main className="flex justify-center">
@@ -31,7 +33,7 @@ const UnknownPage = () => {
                 <g id="planet">
                   <circle
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeMiterlimit="10"
                     cx="572.859"
@@ -42,7 +44,7 @@ const UnknownPage = () => {
                   <circle
                     id="craterBig"
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeMiterlimit="10"
                     cx="548.891"
@@ -53,7 +55,7 @@ const UnknownPage = () => {
                   <circle
                     id="craterSmall"
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeMiterlimit="10"
                     cx="591.743"
@@ -63,7 +65,7 @@ const UnknownPage = () => {
                   <path
                     id="ring"
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeMiterlimit="10"
@@ -76,7 +78,7 @@ const UnknownPage = () => {
                     id="ringShadow"
                     opacity="0.5"
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeMiterlimit="10"
@@ -89,7 +91,7 @@ const UnknownPage = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -101,7 +103,7 @@ const UnknownPage = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -114,7 +116,7 @@ const UnknownPage = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -126,7 +128,7 @@ const UnknownPage = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -139,7 +141,7 @@ const UnknownPage = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -151,7 +153,7 @@ const UnknownPage = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -164,7 +166,7 @@ const UnknownPage = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -176,7 +178,7 @@ const UnknownPage = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -191,7 +193,7 @@ const UnknownPage = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -203,7 +205,7 @@ const UnknownPage = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -216,7 +218,7 @@ const UnknownPage = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -228,7 +230,7 @@ const UnknownPage = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -241,7 +243,7 @@ const UnknownPage = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -253,7 +255,7 @@ const UnknownPage = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -266,7 +268,7 @@ const UnknownPage = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -278,7 +280,7 @@ const UnknownPage = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -291,7 +293,7 @@ const UnknownPage = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -303,7 +305,7 @@ const UnknownPage = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -316,7 +318,7 @@ const UnknownPage = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -328,7 +330,7 @@ const UnknownPage = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -342,7 +344,7 @@ const UnknownPage = () => {
                   <g id="circlesBig">
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -353,7 +355,7 @@ const UnknownPage = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -364,7 +366,7 @@ const UnknownPage = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -375,7 +377,7 @@ const UnknownPage = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -386,7 +388,7 @@ const UnknownPage = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -397,7 +399,7 @@ const UnknownPage = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -408,7 +410,7 @@ const UnknownPage = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -419,7 +421,7 @@ const UnknownPage = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -477,7 +479,7 @@ const UnknownPage = () => {
                   <path
                     id="cord"
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -729,16 +731,12 @@ const UnknownPage = () => {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-2 mt-2 w-full max-w-sm sm:max-w-md">
-              <button
-                onClick={() => navigate(-1)}
-                className="w-full md:w-auto green rounded-lg text-center whitespace-nowrap"
-              >
+              <button onClick={() => navigate(-1)} className="btn-animate btn-animate-gray">
                 ← Go Back
               </button>
-
-              <Link to="/" className="w-full md:w-auto green rounded-lg text-center whitespace-nowrap"
-              >
-                HOME</Link>
+              <button onClick={() => { window.location.href = "/" }} className="btn-animate btn-animate-secondary">
+                HOME
+              </button>
             </div>
           </div>
         </div>

@@ -1,14 +1,18 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import '../assets/CSS/UnknownPage.css'
+import { useAppSelector } from "../CustomeHooks/Hooks";
+import { useThemeSync } from "../CustomeHooks/useThemeSync";
 
 const Unauthorised = () => {
   const navigate = useNavigate();
+  useThemeSync();
+  const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
   return (
     <>
-      <main className="h-[500px] flex justify-center">
+      <main className="h-[500px] flex justify-center my-Background">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex items-center justify-center">
-            <svg
+           <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -31,7 +35,7 @@ const Unauthorised = () => {
                 <g id="planet">
                   <circle
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeMiterlimit="10"
                     cx="572.859"
@@ -42,7 +46,7 @@ const Unauthorised = () => {
                   <circle
                     id="craterBig"
                     fill="none"
-                    stroke="#0E0620"
+                   stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeMiterlimit="10"
                     cx="548.891"
@@ -53,7 +57,7 @@ const Unauthorised = () => {
                   <circle
                     id="craterSmall"
                     fill="none"
-                    stroke="#0E0620"
+                   stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeMiterlimit="10"
                     cx="591.743"
@@ -63,7 +67,7 @@ const Unauthorised = () => {
                   <path
                     id="ring"
                     fill="none"
-                    stroke="#0E0620"
+                   stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeMiterlimit="10"
@@ -76,7 +80,7 @@ const Unauthorised = () => {
                     id="ringShadow"
                     opacity="0.5"
                     fill="none"
-                    stroke="#0E0620"
+                   stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeMiterlimit="10"
@@ -89,7 +93,7 @@ const Unauthorised = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -101,7 +105,7 @@ const Unauthorised = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -114,7 +118,7 @@ const Unauthorised = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -126,7 +130,7 @@ const Unauthorised = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -139,7 +143,7 @@ const Unauthorised = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -151,7 +155,7 @@ const Unauthorised = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -164,7 +168,7 @@ const Unauthorised = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -176,7 +180,7 @@ const Unauthorised = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -191,7 +195,7 @@ const Unauthorised = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -203,7 +207,7 @@ const Unauthorised = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -216,7 +220,7 @@ const Unauthorised = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -228,7 +232,7 @@ const Unauthorised = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -241,7 +245,7 @@ const Unauthorised = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -253,7 +257,7 @@ const Unauthorised = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -266,7 +270,7 @@ const Unauthorised = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -278,7 +282,7 @@ const Unauthorised = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -291,7 +295,7 @@ const Unauthorised = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -303,7 +307,7 @@ const Unauthorised = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -316,7 +320,7 @@ const Unauthorised = () => {
                     <g>
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -328,7 +332,7 @@ const Unauthorised = () => {
 
                       <line
                         fill="none"
-                        stroke="#0E0620"
+                        stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -342,7 +346,7 @@ const Unauthorised = () => {
                   <g id="circlesBig">
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -353,7 +357,7 @@ const Unauthorised = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -364,7 +368,7 @@ const Unauthorised = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -375,7 +379,7 @@ const Unauthorised = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -386,7 +390,7 @@ const Unauthorised = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -397,7 +401,7 @@ const Unauthorised = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -408,7 +412,7 @@ const Unauthorised = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -419,7 +423,7 @@ const Unauthorised = () => {
 
                     <circle
                       fill="none"
-                      stroke="#0E0620"
+                      stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
@@ -477,7 +481,7 @@ const Unauthorised = () => {
                   <path
                     id="cord"
                     fill="none"
-                    stroke="#0E0620"
+                    stroke={CommonSave_GlobalValStore?.ThemePrimary || "#0E0620"}
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -729,13 +733,10 @@ const Unauthorised = () => {
 
             {/* Buttons */}
             <div className="flex flex-col-reverse sm:flex-row gap-2 mt-2 w-full max-w-sm sm:max-w-md">
-              <button
-                onClick={() => navigate(-1)}
-                className="w-full md:w-auto green p-1 rounded-lg text-center whitespace-nowrap"
-              >
+               <button onClick={() => navigate(-1)} className="btn-animate btn-animate-gray">
                 ← Go Back
               </button>
-              <button onClick={() => { window.location.href = "/" }} className="w-full md:w-auto green rounded-lg text-center whitespace-nowrap">
+              <button onClick={() => { window.location.href = "/" }} className="btn-animate btn-animate-secondary">
                 HOME
               </button>
             </div>
