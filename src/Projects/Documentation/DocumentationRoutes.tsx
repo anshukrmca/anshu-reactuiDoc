@@ -1,4 +1,6 @@
 import { lazy } from "react";
+import FileInputDocsPage from "./pages/FileInputDocsPage";
+import ToastSweetAlert from "./pages/ToastSweetAlert";
 
 // 🔹 Lazy imports for all pages
 const DocLayout = lazy(() => import("./DocLayout"));
@@ -31,6 +33,8 @@ export const DocumentationRoutes = [
       { path: "table", element: <TableList />, label: "Table" },
       { path: "progressbar", element: <ProgressBar />, label: "ProgressBar" },
       { path: "input-types", element: <InputTypes />, label: "Input Types" },
+      { path: "input-file", element: <FileInputDocsPage />, label: "Input File" },
+      { path: "toast-alert", element: <ToastSweetAlert />, label: "Toast SweetAlert" },
     ],
   },
 ];

@@ -4,12 +4,11 @@ import type { SettingGroup } from "./MenuTypes";
 
 export const DocMenuCategories: CategoryNode[] = [
   { id: 1, label: "Main", lebel1id: ['15'] },
-  { id: 2, label: "Main", lebel1id: ['1'] },
-  { id: 3, label: "WEB APPS", lebel1id: ['2', '3'] },
-  { id: 4, label: "PAGES", lebel1id: ['4', '5', '6'] },
-  { id: 5, label: "GENERAL", lebel1id: ['7', '8', '9', '10',] },
-  { id: 6, label: "MAPS & ICONS", lebel1id: ['11', '12'] },
-  { id: 7, label: "TABLES & CHARTS", lebel1id: ['13', '14'] },
+  { id: 2, label: "WEB APPS", lebel1id: ["1",'2', '3'] },
+  { id: 3, label: "PAGES", lebel1id: ['4', '5', '6'] },
+  { id: 4, label: "GENERAL", lebel1id: ['7', '8', '9', '10',] },
+  { id: 5, label: "MAPS & ICONS", lebel1id: ['11', '12'] },
+  { id: 6, label: "TABLES & CHARTS", lebel1id: ['13', '14'] },
 ];
 
 export const DocSidebarMenuData: MenuNode[] = [
@@ -17,7 +16,7 @@ export const DocSidebarMenuData: MenuNode[] = [
   {
     id: 1,
     icon: <DynamicIcon name="FaBookOpen" />,
-    label: "Dashboard",
+    label: "Projects",
     children: [
       { id: 101, label: "Sales", link: "sale-dashboard" },
       { id: 102, label: "Analytics", link: "analytics-dashboard" },
@@ -25,16 +24,9 @@ export const DocSidebarMenuData: MenuNode[] = [
       { id: 104, label: "CRM", link: "crm" },
       { id: 105, label: "Crypto", link: "crypto-dashboard" },
       { id: 106, label: "NFT", link: "nft-dashboard" },
-      { id: 107, label: "Projects", link: "projects-dashboard" },
-      { id: 108, label: "Jobs Details", link: "jobs-Details" },
       { id: 109, label: "HRM", link: "hrm-dashboard" },
       { id: 110, label: "Courses", link: "courses-dashboard" },
-      { id: 111, label: "Stocks", link: "stocks-dashboard" },
-      { id: 112, label: "Medical", link: "medical-dashboard" },
-      { id: 113, label: "POS System", link: "pos-system-dashboard" },
-      { id: 114, label: "Podcast", link: "podcast-dashboard" },
-      { id: 115, label: "School", link: "school-dashboard" },
-      { id: 116, label: "Social Media", link: "social-media-dashboard" },
+      { id: 111, label: "Medical", link: "medical-dashboard" },
     ],
   },
   {
@@ -198,7 +190,10 @@ export const DocSidebarMenuData: MenuNode[] = [
     id: 9,
     icon: <DynamicIcon name="FaCarrot" />,
     label: "Advanced UI",
-    children: [],
+    children: [
+      {id:901,label:"Input File",link:'input-file'},
+      {id:902,label:"Toast / Sweet Alert",link:'toast-alert'}
+    ],
   },
   {
     id: 10,
@@ -236,10 +231,11 @@ export const DocSidebarMenuData: MenuNode[] = [
 ];
 
 export const DocHorizontalMenuData: MenuNode[] = [
-  {
+   { id: 15, icon: <DynamicIcon name="FaBookOpen" />, label: "Documentation", link: '/doc' },
+ {
     id: 1,
     icon: <DynamicIcon name="FaBookOpen" />,
-    label: "Dashboard",
+    label: "Projects",
     children: [
       { id: 101, label: "Sales", link: "sale-dashboard" },
       { id: 102, label: "Analytics", link: "analytics-dashboard" },
@@ -247,16 +243,9 @@ export const DocHorizontalMenuData: MenuNode[] = [
       { id: 104, label: "CRM", link: "crm" },
       { id: 105, label: "Crypto", link: "crypto-dashboard" },
       { id: 106, label: "NFT", link: "nft-dashboard" },
-      { id: 107, label: "Projects", link: "projects-dashboard" },
-      { id: 108, label: "Jobs Details", link: "jobs-Details" },
       { id: 109, label: "HRM", link: "hrm-dashboard" },
       { id: 110, label: "Courses", link: "courses-dashboard" },
-      { id: 111, label: "Stocks", link: "stocks-dashboard" },
-      { id: 112, label: "Medical", link: "medical-dashboard" },
-      { id: 113, label: "POS System", link: "pos-system-dashboard" },
-      { id: 114, label: "Podcast", link: "podcast-dashboard" },
-      { id: 115, label: "School", link: "school-dashboard" },
-      { id: 116, label: "Social Media", link: "social-media-dashboard" },
+      { id: 111, label: "Medical", link: "medical-dashboard" },
     ],
   },
   {
@@ -420,7 +409,10 @@ export const DocHorizontalMenuData: MenuNode[] = [
     id: 9,
     icon: <DynamicIcon name="FaCarrot" />,
     label: "Advanced UI",
-    children: [],
+    children: [
+       {id:901,label:"Input File",link:'input-file'},
+       {id:902,label:"Toast / Sweet Alert",link:'toast-alert'}
+    ],
   },
   {
     id: 10,

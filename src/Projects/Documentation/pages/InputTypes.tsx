@@ -1,11 +1,11 @@
 import { useAppSelector } from '../../../CustomeHooks/Hooks';
 import { hexToRgba, TabCard } from 'anshu-reactui';
-import DemoInputPage from './DemoInputPage';
+import DemoInputPage from '../Components/DemoInputPage';
 import DemoRadio from './DemoRadio';
-import DemoCheckboxPage from './DemoCheckboxPage';
-import DemoDropdownPage from './DemoDropdownPage';
-import FormExample from './FormFullTest';
-import DemoDatePicker from './DemoDatePicker';
+import DemoCheckboxPage from '../Components/DemoCheckboxPage';
+import DemoDropdownPage from '../Components/DemoDropdownPage';
+import FormFullTest from '../Components/FormFullTest';
+import DemoDatePicker from '../Components/DemoDatePicker';
 
 type Props = {}
 
@@ -27,7 +27,7 @@ export default function InputTypes({ }: Props) {
                     { id: "3", label: "CheckBox", content: (<DemoCheckboxPage />) },
                     { id: "4", label: "Dropdown", content: (<DemoDropdownPage />) },
                     { id: "5", label: "Date Picker", content: (<DemoDatePicker />) },
-                    { id: "6", label: "Form", content: (<FormExample />) },
+                    { id: "6", label: "Form", content: (<FormFullTest />) },
 
 
                 ]}

@@ -10,9 +10,8 @@
     .my-Border {
         @apply border border-slate-200 dark:border-slate-600
     }
-}
-
-
-@layer components {
 
 }
+
+
+@layer components {}

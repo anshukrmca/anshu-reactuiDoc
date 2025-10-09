@@ -11,7 +11,13 @@ const ProjectLayout: React.FC = () => {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        theme="light"
+        autoClose={3000}
+        newestOnTop
+        pauseOnHover
+      />
       {/* Settings OffCanvas */}
       <OffCanvace
         id={"ThemeSettingOffCanvace"}

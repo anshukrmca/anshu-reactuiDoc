@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import FileInput from "../../../pages/InputBox/FileInput";
-import { Switch, Input, Textarea, Checkbox, RadioGroup, hexToRgba, Card } from "anshu-reactui";
+import { Switch, Input, Textarea, Checkbox, RadioGroup, hexToRgba, Card, FileInput } from "anshu-reactui";
 import { useAppSelector } from "../../../CustomeHooks/Hooks";
 
-const FormExample: React.FC = () => {
+const FormFullTest: React.FC = () => {
   const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
   const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9);
   const [formData, setFormData] = useState({
@@ -85,9 +84,13 @@ const FormExample: React.FC = () => {
           </div>
 
           {/* File Input */}
-          <FileInput label="Upload file"
-          // value={formData.file} 
-          // onChange={handleFileChange}
+          <FileInput 
+            label="Upload your file"
+              allowTypes={['.jpg', '.jpeg', '.png', 'application/pdf', '.csv']}
+              view={true}
+              download={true}
+              // onChangeFile={handleFileChange}
+              className=''
           />
 
           {/* Switches */}
@@ -110,4 +113,4 @@ const FormExample: React.FC = () => {
   );
 };
 
-export default FormExample;
+export default FormFullTest;
