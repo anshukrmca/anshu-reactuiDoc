@@ -1,6 +1,5 @@
 import { lazy } from "react";
-import FileInputDocsPage from "./pages/FileInputDocsPage";
-import ToastSweetAlert from "./pages/ToastSweetAlert";
+
 
 // 🔹 Lazy imports for all pages
 const DocLayout = lazy(() => import("./DocLayout"));
@@ -14,6 +13,14 @@ const BreadandSpin = lazy(() => import("./pages/BreadandSpin"));
 const TableList = lazy(() => import("./pages/TableList"));
 const ProgressBar = lazy(() => import("./pages/ProgressBarList"));
 const InputTypes = lazy(() => import("./pages/InputTypes"));
+const FileInputDocsPage = lazy(() => import("./pages/FileInputDocsPage"));
+const ToastSweetAlert = lazy(() => import("./pages/ToastSweetAlert"));
+const DemoOffCanvace = lazy(() => import("./pages/DemoOffCanvace"));
+const UnknownPage = lazy(() => import("../../pages/UnknownPage"));
+const Unauthorised = lazy(() => import("../../pages/Unauthorised"));
+const MaintenancePage = lazy(() => import("../../pages/Unauthorised"));
+const DemoIconPage = lazy(() => import("./pages/DemoIconPage"));
+
 
 export const DocumentationRoutes = [
   {
@@ -30,11 +37,16 @@ export const DocumentationRoutes = [
       { path: "breadcrumb", element: <BreadandSpin />, label: "Breadcrumb" },
       { path: "switch", element: <SwitchList />, label: "Switch" },
       { path: "nested-2.2.2", element: <SpinnerList />, label: "Nested-2.2.2" },
-      { path: "table", element: <TableList />, label: "Table" },
+      { path: "basic-tables", element: <TableList />, label: "Table" },
       { path: "progressbar", element: <ProgressBar />, label: "ProgressBar" },
       { path: "input-types", element: <InputTypes />, label: "Input Types" },
       { path: "input-file", element: <FileInputDocsPage />, label: "Input File" },
       { path: "toast-alert", element: <ToastSweetAlert />, label: "Toast SweetAlert" },
+      { path: "offCanvace", element: <DemoOffCanvace />, label: "OffCanvace" },
+      { path: "Error-401", element: <Unauthorised />, label: "Error-401" },
+      { path: "Error-404", element: <UnknownPage />, label: "Error-404" },
+      { path: "under-maintenance", element: <MaintenancePage />, label: "Under Maintenance" },
+      { path: "react-icons", element: <DemoIconPage />, label: "React Icons" },
     ],
   },
 ];

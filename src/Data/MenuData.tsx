@@ -4,7 +4,7 @@ import type { SettingGroup } from "./MenuTypes";
 
 export const DocMenuCategories: CategoryNode[] = [
   { id: 1, label: "Main", lebel1id: ['15'] },
-  { id: 2, label: "WEB APPS", lebel1id: ["1",'2', '3'] },
+  { id: 2, label: "WEB APPS", lebel1id: ["1", '2', '3'] },
   { id: 3, label: "PAGES", lebel1id: ['4', '5', '6'] },
   { id: 4, label: "GENERAL", lebel1id: ['7', '8', '9', '10',] },
   { id: 5, label: "MAPS & ICONS", lebel1id: ['11', '12'] },
@@ -191,8 +191,9 @@ export const DocSidebarMenuData: MenuNode[] = [
     icon: <DynamicIcon name="FaCarrot" />,
     label: "Advanced UI",
     children: [
-      {id:901,label:"Input File",link:'input-file'},
-      {id:902,label:"Toast / Sweet Alert",link:'toast-alert'}
+      { id: 901, label: "Input File", link: 'input-file' },
+      { id: 902, label: "Toast / Sweet Alert", link: 'toast-alert' },
+      { id: 903, label: "OffCanvace", link: 'offCanvace' }
     ],
   },
   {
@@ -211,7 +212,7 @@ export const DocSidebarMenuData: MenuNode[] = [
     id: 12,
     icon: <DynamicIcon name="FaBoxOpen" />,
     label: "Icons",
-    children: [],
+    link:'react-icons'
   },
   {
     id: 13,
@@ -231,8 +232,8 @@ export const DocSidebarMenuData: MenuNode[] = [
 ];
 
 export const DocHorizontalMenuData: MenuNode[] = [
-   { id: 15, icon: <DynamicIcon name="FaBookOpen" />, label: "Documentation", link: '/doc' },
- {
+  { id: 15, icon: <DynamicIcon name="FaBookOpen" />, label: "Documentation", link: '/doc' },
+  {
     id: 1,
     icon: <DynamicIcon name="FaBookOpen" />,
     label: "Projects",
@@ -410,8 +411,9 @@ export const DocHorizontalMenuData: MenuNode[] = [
     icon: <DynamicIcon name="FaCarrot" />,
     label: "Advanced UI",
     children: [
-       {id:901,label:"Input File",link:'input-file'},
-       {id:902,label:"Toast / Sweet Alert",link:'toast-alert'}
+      { id: 901, label: "Input File", link: 'input-file' },
+      { id: 902, label: "Toast / Sweet Alert", link: 'toast-alert' },
+      { id: 903, label: "OffCanvace", link: 'offCanvace' }
     ],
   },
   {
@@ -430,7 +432,7 @@ export const DocHorizontalMenuData: MenuNode[] = [
     id: 12,
     icon: <DynamicIcon name="FaBoxOpen" />,
     label: "Icons",
-    children: [],
+    link:'react-icons'
   },
   {
     id: 13,
@@ -667,7 +669,7 @@ export const ECommerceMenuCategories: CategoryNode[] = [
 export const ECommerceSidebarMenuData: MenuNode[] = [
   {
     id: 1,
-    icon: <DynamicIcon name="FaTachometerAlt"/>,
+    icon: <DynamicIcon name="FaTachometerAlt" />,
     label: "Dashboard",
     children: [
       { id: 101, label: "Overview", link: "/ecommerce/dashboard/overview" },
@@ -676,7 +678,7 @@ export const ECommerceSidebarMenuData: MenuNode[] = [
   },
   {
     id: 2,
-    icon: <DynamicIcon name="FaBox"/>,
+    icon: <DynamicIcon name="FaBox" />,
     label: "Products",
     children: [
       { id: 201, label: "All Products", link: "/ecommerce/products/all" },
@@ -686,7 +688,7 @@ export const ECommerceSidebarMenuData: MenuNode[] = [
   },
   {
     id: 3,
-    icon: <DynamicIcon name="FaShoppingCart"/>, 
+    icon: <DynamicIcon name="FaShoppingCart" />,
     label: "Orders",
     children: [
       { id: 301, label: "All Orders", link: "/ecommerce/orders/all" },
@@ -696,7 +698,7 @@ export const ECommerceSidebarMenuData: MenuNode[] = [
   },
   {
     id: 4,
-    icon: <DynamicIcon name="FaUsers"/>,
+    icon: <DynamicIcon name="FaUsers" />,
     label: "Customers",
     children: [
       { id: 401, label: "All Customers", link: "/ecommerce/customers/all" },
@@ -706,7 +708,7 @@ export const ECommerceSidebarMenuData: MenuNode[] = [
   },
   {
     id: 5,
-    icon: <DynamicIcon name="FaWarehouse"/>,
+    icon: <DynamicIcon name="FaWarehouse" />,
     label: "Inventory",
     children: [
       { id: 501, label: "Stock Levels", link: "/ecommerce/inventory/stock" },
@@ -715,7 +717,7 @@ export const ECommerceSidebarMenuData: MenuNode[] = [
   },
   {
     id: 6,
-    icon: <DynamicIcon name="FaCreditCard"/>,
+    icon: <DynamicIcon name="FaCreditCard" />,
     label: "Payments",
     children: [
       { id: 601, label: "Transactions", link: "/ecommerce/payments/transactions" },
@@ -724,13 +726,13 @@ export const ECommerceSidebarMenuData: MenuNode[] = [
   },
   {
     id: 7,
-    icon: <DynamicIcon name="FaChartBar"/>,
+    icon: <DynamicIcon name="FaChartBar" />,
     label: "Reports",
     link: "/ecommerce/reports",
   },
   {
     id: 8,
-    icon: <DynamicIcon name="FaCog"/>,
+    icon: <DynamicIcon name="FaCog" />,
     label: "Settings",
     link: "/ecommerce/settings",
   },
@@ -739,7 +741,7 @@ export const ECommerceSidebarMenuData: MenuNode[] = [
 export const ECommerceHorizontalMenuData: MenuNode[] = [
   {
     id: 1,
-    icon: <DynamicIcon name="FaTachometerAlt"/>,
+    icon: <DynamicIcon name="FaTachometerAlt" />,
     label: "Dashboard",
     children: [
       { id: 101, label: "Overview", link: "/ecommerce/dashboard/overview" },
@@ -748,7 +750,7 @@ export const ECommerceHorizontalMenuData: MenuNode[] = [
   },
   {
     id: 2,
-    icon: <DynamicIcon name="FaBox"/>,
+    icon: <DynamicIcon name="FaBox" />,
     label: "Products",
     children: [
       { id: 201, label: "All Products", link: "/ecommerce/products/all" },
@@ -758,7 +760,7 @@ export const ECommerceHorizontalMenuData: MenuNode[] = [
   },
   {
     id: 3,
-    icon: <DynamicIcon name="FaShoppingCart"/>, 
+    icon: <DynamicIcon name="FaShoppingCart" />,
     label: "Orders",
     children: [
       { id: 301, label: "All Orders", link: "/ecommerce/orders/all" },
@@ -768,7 +770,7 @@ export const ECommerceHorizontalMenuData: MenuNode[] = [
   },
   {
     id: 4,
-    icon: <DynamicIcon name="FaUsers"/>,
+    icon: <DynamicIcon name="FaUsers" />,
     label: "Customers",
     children: [
       { id: 401, label: "All Customers", link: "/ecommerce/customers/all" },
@@ -778,7 +780,7 @@ export const ECommerceHorizontalMenuData: MenuNode[] = [
   },
   {
     id: 5,
-    icon: <DynamicIcon name="FaWarehouse"/>,
+    icon: <DynamicIcon name="FaWarehouse" />,
     label: "Inventory",
     children: [
       { id: 501, label: "Stock Levels", link: "/ecommerce/inventory/stock" },
@@ -787,7 +789,7 @@ export const ECommerceHorizontalMenuData: MenuNode[] = [
   },
   {
     id: 6,
-    icon: <DynamicIcon name="FaCreditCard"/>,
+    icon: <DynamicIcon name="FaCreditCard" />,
     label: "Payments",
     children: [
       { id: 601, label: "Transactions", link: "/ecommerce/payments/transactions" },
@@ -796,13 +798,13 @@ export const ECommerceHorizontalMenuData: MenuNode[] = [
   },
   {
     id: 7,
-    icon: <DynamicIcon name="FaChartBar"/>,
+    icon: <DynamicIcon name="FaChartBar" />,
     label: "Reports",
     link: "/ecommerce/reports",
   },
   {
     id: 8,
-    icon: <DynamicIcon name="FaCog"/>,
+    icon: <DynamicIcon name="FaCog" />,
     label: "Settings",
     link: "/ecommerce/settings",
   },

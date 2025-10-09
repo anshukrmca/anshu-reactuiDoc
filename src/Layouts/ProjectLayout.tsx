@@ -46,13 +46,11 @@ const ProjectLayout: React.FC = () => {
         style={{ background: CommonSave_GlobalValStore.ThemeBackground && bgColor }}
         onClick={() => toggleOffCanvace("ThemeSettingOffCanvace")}
       >
-        <span className="animate-spin my-Background"
-          style={{ background: CommonSave_GlobalValStore.ThemeBackground && bgColor }}
-        >
+        <span className="animate-spin">
           <DynamicIcon
             name="CiSettings"
             color={CommonSave_GlobalValStore?.ThemePrimary || "#000"}
-            size={20}
+            size={25}
           />
         </span>
       </div>

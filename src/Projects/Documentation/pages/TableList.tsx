@@ -1,5 +1,6 @@
 import { Card, hexToRgba,DataTable, type Column } from "anshu-reactui/lib";
 import { useAppSelector } from "../../../CustomeHooks/Hooks";
+import DemoTablePage from "./DemoTablePage";
 
 type Person = { id: string; name: string; email: string; email2: string; email3: string; email4: string; age: number; city?: string };
 
@@ -47,6 +48,9 @@ const TableList = () => {
                     background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
                 }}
             >
+                
+                <DemoTablePage/>
+
                 <div className="flex justify-between mb-4 items-center">
                     <h2 className="text-xl font-semibold underline uppercase">
                         Data Table
@@ -65,12 +69,12 @@ const TableList = () => {
                     PrintBtn={true}
                     CSVBtn={true}
                     rowKey={(r) => r.id}
-                    // onSelectionChange={(rowData) => {
-                    //     // console.log("Selected Rows:", rowData)
-                    // }}
-                    // onRowExpand={(rowData) => {
-                    //     //console.log("Plus clicked for:", rowData);
-                    // }}
+                    onSelectionChange={(rowData) => {
+                        console.log("Selected Rows:", rowData)
+                    }}
+                    onRowExpand={(rowData) => {
+                        console.log("Plus clicked for:", rowData);
+                    }}
                     ThemeColor={CommonSave_GlobalValStore?.ThemePrimary}
                     ClassName="bg-white dark:bg-slate-800 text-black dark:text-white"
                     style={{

@@ -35,10 +35,11 @@ const DocLayout = () => {
 
           {/* Main content (flex-grow pushes footer down) */}
           <main
-            className="max-w-screen p-2 w-full "
+            className="max-w-screen py-2 px-4 w-full "
             style={{ paddingTop: padding, minHeight: "100vh" }}
           >
-            <div className="my-2"><BreadcrumbContainer Data={DocSidebarMenuData} /></div>
+            <div className="my-2 ">
+              <BreadcrumbContainer Data={DocSidebarMenuData} /></div>
             <Suspense fallback={<Loading />}>
               <Outlet />
            </Suspense>
