@@ -1,6 +1,4 @@
 import { lazy } from "react";
-
-
 // 🔹 Lazy imports for all pages
 const DocLayout = lazy(() => import("./DocLayout"));
 const Home = lazy(() => import("./pages/Home"));
@@ -16,10 +14,10 @@ const InputTypes = lazy(() => import("./pages/InputTypes"));
 const FileInputDocsPage = lazy(() => import("./pages/FileInputDocsPage"));
 const ToastSweetAlert = lazy(() => import("./pages/ToastSweetAlert"));
 const DemoOffCanvace = lazy(() => import("./pages/DemoOffCanvace"));
-const UnknownPage = lazy(() => import("../../pages/UnknownPage"));
-const Unauthorised = lazy(() => import("../../pages/Unauthorised"));
-const MaintenancePage = lazy(() => import("../../pages/Unauthorised"));
 const DemoIconPage = lazy(() => import("./pages/DemoIconPage"));
+const Modal = lazy(() => import("./pages/Modal"));
+const FormFullTest = lazy(() => import("./Components/FormFullTest"));
+const DemoAccordion = lazy(() => import("./pages/DemoAccordion"));
 
 
 export const DocumentationRoutes = [
@@ -43,10 +41,11 @@ export const DocumentationRoutes = [
       { path: "input-file", element: <FileInputDocsPage />, label: "Input File" },
       { path: "toast-alert", element: <ToastSweetAlert />, label: "Toast SweetAlert" },
       { path: "offCanvace", element: <DemoOffCanvace />, label: "OffCanvace" },
-      { path: "Error-401", element: <Unauthorised />, label: "Error-401" },
-      { path: "Error-404", element: <UnknownPage />, label: "Error-404" },
-      { path: "under-maintenance", element: <MaintenancePage />, label: "Under Maintenance" },
-      { path: "react-icons", element: <DemoIconPage />, label: "React Icons" },
+      { path: "react-icons", element: <DemoIconPage />, label: "React Icons" }, 
+      { path: "modal-stack", element: <Modal />, label: "Modal Stack" },
+      { path: "basic-form", element: <FormFullTest />, label: "Basic Form" },
+      { path: "accordions-collapse", element: <DemoAccordion />, label: "Accordions/Collapse" },
+      
     ],
   },
 ];

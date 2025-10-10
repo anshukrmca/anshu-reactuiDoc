@@ -129,6 +129,7 @@ export const DocSidebarMenuData: MenuNode[] = [
     children: [
       { id: 401, label: "Comming Soon", link: "comming-soon" },
       { id: 402, label: "Under Maintenance", link: "under-maintenance" },
+      { id: 403, label: "Session Exipred", link: "session-exipred" },
     ],
   },
   {
@@ -170,7 +171,9 @@ export const DocSidebarMenuData: MenuNode[] = [
     id: 7,
     icon: <DynamicIcon name="FaWpforms" />,
     label: "Forms",
-    children: [],
+    children: [
+      { id: 701, label: "Basice From", link: "basic-form" },
+    ],
   },
   {
     id: 8,
@@ -193,7 +196,9 @@ export const DocSidebarMenuData: MenuNode[] = [
     children: [
       { id: 901, label: "Input File", link: 'input-file' },
       { id: 902, label: "Toast / Sweet Alert", link: 'toast-alert' },
-      { id: 903, label: "OffCanvace", link: 'offCanvace' }
+      { id: 903, label: "OffCanvace", link: 'offCanvace' },
+      { id: 904, label: "Modal Stack", link: 'modal-stack' },
+      { id: 905, label: "Accordions / Collapse", link: 'accordions-collapse' },
     ],
   },
   {
@@ -212,7 +217,7 @@ export const DocSidebarMenuData: MenuNode[] = [
     id: 12,
     icon: <DynamicIcon name="FaBoxOpen" />,
     label: "Icons",
-    link:'react-icons'
+    link: 'react-icons'
   },
   {
     id: 13,
@@ -349,6 +354,7 @@ export const DocHorizontalMenuData: MenuNode[] = [
     children: [
       { id: 401, label: "Comming Soon", link: "comming-soon" },
       { id: 402, label: "Under Maintenance", link: "under-maintenance" },
+      { id: 403, label: "Session Exipred", link: "session-exipred" },
     ],
   },
   {
@@ -390,7 +396,9 @@ export const DocHorizontalMenuData: MenuNode[] = [
     id: 7,
     icon: <DynamicIcon name="FaWpforms" />,
     label: "Forms",
-    children: [],
+    children: [
+      { id: 701, label: "Basice From", link: "basic-form" },
+    ],
   },
   {
     id: 8,
@@ -413,7 +421,9 @@ export const DocHorizontalMenuData: MenuNode[] = [
     children: [
       { id: 901, label: "Input File", link: 'input-file' },
       { id: 902, label: "Toast / Sweet Alert", link: 'toast-alert' },
-      { id: 903, label: "OffCanvace", link: 'offCanvace' }
+      { id: 903, label: "OffCanvace", link: 'offCanvace' },
+      { id: 904, label: "Modal Stack", link: 'modal-stack' },
+      { id: 905, label: "Accordions / Collapse", link: 'accordions-collapse' },
     ],
   },
   {
@@ -432,7 +442,7 @@ export const DocHorizontalMenuData: MenuNode[] = [
     id: 12,
     icon: <DynamicIcon name="FaBoxOpen" />,
     label: "Icons",
-    link:'react-icons'
+    link: 'react-icons'
   },
   {
     id: 13,
