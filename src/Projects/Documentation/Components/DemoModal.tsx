@@ -1,4 +1,4 @@
-import { Card, hexToRgba, Modal } from "anshu-reactui/lib";
+import { Card, hexToRgba, Modal } from "anshu-reactui";
 import React, { useState } from "react";
 import { useAppSelector } from "../../../CustomeHooks/Hooks";
 

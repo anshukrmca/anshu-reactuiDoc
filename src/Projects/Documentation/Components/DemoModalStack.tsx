@@ -91,10 +91,10 @@ const DemoModalStackPage: React.FC = () => {
                         </div>
 
                         {/* ✅ Themed ModalStack */}
-                        <ModalStack
+                        {/* <ModalStack
                             ThemeColor={theme}
                             className="rounded-md my-Background"
-                        />
+                        /> */}
                     </section>
 
                     {/* ========================= 📘 MODAL STACK DOC SECTION ========================= */}

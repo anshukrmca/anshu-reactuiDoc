@@ -1,4 +1,4 @@
-import { Input } from "anshu-reactui/lib";
+import { Input } from "anshu-reactui";
 import React, { useState, useEffect } from "react";
 
 const ComingSoonPage: React.FC = () => {

@@ -1,4 +1,4 @@
-import { Card, hexToRgba } from 'anshu-reactui/lib';
+import { Card, hexToRgba } from 'anshu-reactui';
 import { useAppSelector } from '../../CustomeHooks/Hooks';
 import { CodeViewer } from '../../Components/CodeViewer/CodeViewer';
 import DynamicIcon from '../../Components/Icons/DynamicIcon';

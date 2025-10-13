@@ -1,5 +1,5 @@
 import React, {useState } from "react";
-import { hexToRgba, Modal } from "anshu-reactui/lib";
+import { hexToRgba, Modal } from "anshu-reactui";
 import { useAppSelector } from "../CustomeHooks/Hooks";
 import Unauthorised from "./Unauthorised";
 

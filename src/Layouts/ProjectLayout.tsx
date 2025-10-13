@@ -17,14 +17,15 @@ const ProjectLayout: React.FC = () => {
         autoClose={3000}
         newestOnTop
         pauseOnHover
+        style={{ zIndex: 99999 }}
       />
-      {/* Settings OffCanvas */}
+
       <OffCanvace
         id={"ThemeSettingOffCanvace"}
         size="320px"
         ThemeColor={CommonSave_GlobalValStore?.ThemePrimary}
         style={{
-          zIndex: 999999,
+          zIndex: 999,
           background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
         }}
         ClassName="my-Background"
@@ -36,13 +37,14 @@ const ProjectLayout: React.FC = () => {
         ThemeColor={CommonSave_GlobalValStore?.ThemePrimary}
         className="rounded-md my-Background"
         style={{
+          zIndex: 9999,
           background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
         }}
       />
 
       {/* Settings Floating Button */}
       <div
-        className="fixed my-Background top-1/2 right-0 z-50 flex items-center justify-center w-12 h-12 shadow-lg rounded-l-xl cursor-pointer transform -translate-y-1/2 transition-all hover:scale-105"
+        className="fixed my-Background top-1/2 right-0 z-[10000] flex items-center justify-center w-12 h-12 shadow-lg rounded-l-xl cursor-pointer transform -translate-y-1/2 transition-all hover:scale-105"
         style={{ background: CommonSave_GlobalValStore.ThemeBackground && bgColor }}
         onClick={() => toggleOffCanvace("ThemeSettingOffCanvace")}
       >

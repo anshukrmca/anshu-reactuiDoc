@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { Input } from "anshu-reactui/lib";
+import { Input } from "anshu-reactui";
 import DynamicIcon from "../../Components/Icons/DynamicIcon";
 
 /** FAQ item type */

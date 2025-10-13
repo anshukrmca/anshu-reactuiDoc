@@ -47,8 +47,6 @@ const DocLayout = () => {
           {/* Footer (sticks to bottom) */}
           <App_Footer />
         </div>
-
-
       ) : (
         <DocDashBoardLayout/>
       )}

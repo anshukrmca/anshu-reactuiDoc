@@ -5,7 +5,7 @@ import App_Footer from "../../Layouts/App_Footer";
 import "../../assets/CSS/DashBoardLayout.css";
 import SideBarMenu from "../../Components/Menu/SideBarMenu";
 import { useAppDispatch, useAppSelector } from "../../CustomeHooks/Hooks";
-import { hexToRgba, Loading, useWindowSize } from "anshu-reactui/lib";
+import { hexToRgba, Loading, useWindowSize } from "anshu-reactui";
 import { setisSidebarOpen } from "../../Store/CommonStore/CommonGlobalValSlice";
 import { DocMenuCategories, DocSidebarMenuData } from "../../Data/MenuData";
 import BreadcrumbContainer from "../../Layouts/BreadcrumbContainer";

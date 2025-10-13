@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { ModalItem } from "../../Data/MenuTypes";
+import type { ModalItem } from "../../Data/DataTypes";
 
 
 

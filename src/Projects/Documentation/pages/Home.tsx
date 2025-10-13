@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../../CustomeHooks/Hooks";
-import { Card, hexToRgba } from "anshu-reactui/lib";
+import { Card, hexToRgba } from "anshu-reactui";
 
 type Step = {
     title: string;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CodeViewer } from "../../../Components/CodeViewer/CodeViewer";
-import { Card, Checkbox, hexToRgba } from "anshu-reactui/lib";
+import { Card, Checkbox, hexToRgba } from "anshu-reactui";
 import { useAppSelector } from "../../../CustomeHooks/Hooks";
 
 const DemoCheckboxPage: React.FC = () => {

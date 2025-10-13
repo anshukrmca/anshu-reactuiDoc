@@ -1,6 +1,6 @@
 import type { CategoryNode, MenuNode } from "anshu-reactui";
 import DynamicIcon from "../Components/Icons/DynamicIcon";
-import type { SettingGroup } from "./MenuTypes";
+import type { SettingGroup } from "./DataTypes";
 
 export const DocMenuCategories: CategoryNode[] = [
   { id: 1, label: "Main", lebel1id: ['15'] },
@@ -36,67 +36,15 @@ export const DocSidebarMenuData: MenuNode[] = [
     children: [
       { id: 201, label: "Full Calendar", link: "full-calendar" },
       { id: 202, label: "Gallery", link: "gallery" },
-      { id: 203, label: "Sweet Alert", link: "sweet-alert" },
       {
-        id: 204,
-        label: "Projects",
-        children: [
-          { id: 20401, label: "Projects List", link: "projects-list" },
-          { id: 20402, label: "Projects Overview", link: "project-overview" },
-          { id: 20403, label: "Create Project", link: "create-project" },
-        ],
-      },
-      {
-        id: 205,
+        id: 203,
         label: "Task",
         children: [
-          { id: 20501, label: "List View", link: "list-view" },
-          { id: 20502, label: "Task Details", link: "task-details" },
+          { id: 20301, label: "List View", link: "list-view" },
+          { id: 20302, label: "Task Details", link: "task-details" },
         ],
       },
-      {
-        id: 206,
-        label: "Jobs",
-        children: [
-          { id: 20601, label: "Jobs Details", link: "jobs-Details" },
-          { id: 20602, label: "Search Company", link: "Search-Company" },
-          { id: 20603, label: "Search Jobs", link: "Search-Jobs" },
-          { id: 20604, label: "Job Post", link: "Job-Post" },
-          { id: 20605, label: "Job List", link: "Job-List" },
-          { id: 20606, label: "Search Candidates", link: "Search-Candidates" },
-        ],
-      },
-      {
-        id: 207,
-        label: "NFT",
-        children: [
-          { id: 20701, label: "Market Place", link: "Market-Place" },
-          { id: 20702, label: "NFT Details", link: "NFT-Details" },
-          { id: 20703, label: "Create NFT", link: "Create-NFT" },
-          { id: 20704, label: "Wallet Integration", link: "Wallet-Integration" },
-          { id: 20705, label: "Live Auction", link: "Live-Auction" },
-        ],
-      },
-      {
-        id: 208,
-        label: "CRM",
-        children: [
-          { id: 20801, label: "Contacts", link: "Contacts" },
-          { id: 20802, label: "Companies", link: "Companies" },
-          { id: 20803, label: "Deals", link: "Deals" },
-          { id: 20804, label: "Leads", link: "Leads" },
-        ],
-      },
-      {
-        id: 209,
-        label: "Crypto",
-        children: [
-          { id: 20901, label: "Transactions", link: "Transactions" },
-          { id: 20902, label: "Currency Exchange", link: "Currency-Exchange" },
-          { id: 20903, label: "Buy & Sell", link: "Buy-Sell" },
-          { id: 20904, label: "Marketcap", link: "Marketcap" },
-        ],
-      },
+      { id: 204, label: "To-Do List", link: "to-do-list" },
     ],
   },
   {
@@ -261,67 +209,15 @@ export const DocHorizontalMenuData: MenuNode[] = [
     children: [
       { id: 201, label: "Full Calendar", link: "full-calendar" },
       { id: 202, label: "Gallery", link: "gallery" },
-      { id: 203, label: "Sweet Alert", link: "sweet-alert" },
       {
-        id: 204,
-        label: "Projects",
-        children: [
-          { id: 20401, label: "Projects List", link: "projects-list" },
-          { id: 20402, label: "Projects Overview", link: "project-overview" },
-          { id: 20403, label: "Create Project", link: "create-project" },
-        ],
-      },
-      {
-        id: 205,
+        id: 203,
         label: "Task",
         children: [
-          { id: 20501, label: "List View", link: "list-view" },
-          { id: 20502, label: "Task Details", link: "task-details" },
+          { id: 20301, label: "List View", link: "list-view" },
+          { id: 20302, label: "Task Details", link: "task-details" },
         ],
       },
-      {
-        id: 206,
-        label: "Jobs",
-        children: [
-          { id: 20601, label: "Jobs Details", link: "jobs-Details" },
-          { id: 20602, label: "Search Company", link: "Search-Company" },
-          { id: 20603, label: "Search Jobs", link: "Search-Jobs" },
-          { id: 20604, label: "Job Post", link: "Job-Post" },
-          { id: 20605, label: "Job List", link: "Job-List" },
-          { id: 20606, label: "Search Candidates", link: "Search-Candidates" },
-        ],
-      },
-      {
-        id: 207,
-        label: "NFT",
-        children: [
-          { id: 20701, label: "Market Place", link: "Market-Place" },
-          { id: 20702, label: "NFT Details", link: "NFT-Details" },
-          { id: 20703, label: "Create NFT", link: "Create-NFT" },
-          { id: 20704, label: "Wallet Integration", link: "Wallet-Integration" },
-          { id: 20705, label: "Live Auction", link: "Live-Auction" },
-        ],
-      },
-      {
-        id: 208,
-        label: "CRM",
-        children: [
-          { id: 20801, label: "Contacts", link: "Contacts" },
-          { id: 20802, label: "Companies", link: "Companies" },
-          { id: 20803, label: "Deals", link: "Deals" },
-          { id: 20804, label: "Leads", link: "Leads" },
-        ],
-      },
-      {
-        id: 209,
-        label: "Crypto",
-        children: [
-          { id: 20901, label: "Transactions", link: "Transactions" },
-          { id: 20902, label: "Currency Exchange", link: "Currency-Exchange" },
-          { id: 20903, label: "Buy & Sell", link: "Buy-Sell" },
-          { id: 20904, label: "Marketcap", link: "Marketcap" },
-        ],
-      },
+      { id: 204, label: "To-Do List", link: "to-do-list" },
     ],
   },
   {

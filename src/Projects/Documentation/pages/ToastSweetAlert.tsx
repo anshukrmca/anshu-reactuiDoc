@@ -1,5 +1,5 @@
 import { useAppSelector } from '../../../CustomeHooks/Hooks';
-import { hexToRgba, TabCard } from 'anshu-reactui/lib';
+import { hexToRgba, TabCard } from 'anshu-reactui';
 import DemoSweetAlert from '../Components/DemoSweetAlert';
 import DemoToast from '../Components/DemoToast';
 

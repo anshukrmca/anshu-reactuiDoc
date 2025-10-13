@@ -1,5 +1,5 @@
 
-import { DataTable, type Column } from "anshu-reactui/lib";
+import { DataTable, type Column } from "anshu-reactui";
 import React, { useState } from "react";
 import { CodeViewer } from "../../../Components/CodeViewer/CodeViewer";
 

@@ -1,4 +1,4 @@
-import { hexToRgba, Loading, useWindowSize } from 'anshu-reactui/lib';
+import { hexToRgba, Loading, useWindowSize } from 'anshu-reactui';
 import { Suspense, useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom';
 import { useAppSelector } from '../../CustomeHooks/Hooks';

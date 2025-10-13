@@ -1,4 +1,4 @@
-import HorizontalMenuComponent from "anshu-reactui/lib/components/Menus/HorizontalMenuComponent";
+import HorizontalMenuComponent from "anshu-reactui/components/Menus/HorizontalMenuComponent";
 import { useAppSelector } from "../../../CustomeHooks/Hooks";
 import { CompHorizontalMenuData } from "../../../Data/MenuData";
 

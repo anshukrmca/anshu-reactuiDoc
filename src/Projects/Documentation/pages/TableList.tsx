@@ -1,4 +1,4 @@
-import { Card, hexToRgba,DataTable, type Column } from "anshu-reactui/lib";
+import { Card, hexToRgba,DataTable, type Column } from "anshu-reactui";
 import { useAppSelector } from "../../../CustomeHooks/Hooks";
 import DemoTablePage from "./DemoTablePage";
 

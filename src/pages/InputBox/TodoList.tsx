@@ -1,4 +1,4 @@
-import { Button, Card, DataTable, Dropdown, hexToRgba, ProgressBar, type Column } from "anshu-reactui/lib";
+import { Button, Card, DataTable, Dropdown, hexToRgba, ProgressBar, type Column } from "anshu-reactui";
 import React, { useState } from "react";
 import mediaLogo from '../../assets/images/media-66.png'
 import { useAppSelector } from "../../CustomeHooks/Hooks";
