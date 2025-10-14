@@ -11,8 +11,10 @@ import {
 import { setisSidebarExpand, setisSidebarOpen } from "../Store/CommonStore/CommonGlobalValSlice";
 import DynamicIcon from "../Components/Icons/DynamicIcon";
 import GlobalSearch from "../pages/GlobalSearch";
-import { toggleOffCanvace, ModalStackManager, useWindowSize } from "anshu-reactui";
+import { toggleOffCanvace, ModalStackManager, useWindowSize, Avatar } from "anshu-reactui";
 import { useThemeSync } from "../CustomeHooks/useThemeSync";
+import anshu_reactui from '../assets/images/anshu-reactuiLogo.png'
+
 
 const App_Header: React.FC = () => {
   const size = useWindowSize();
@@ -84,7 +86,7 @@ const App_Header: React.FC = () => {
       {/* Sidebar / Logo */}
       {CommonSave_GlobalValStore?.NavigationStyles === "Horizontal" ? (
         <Link to={"/"} className="flex gap-2 items-center p-2">
-          <DynamicIcon name="FaCat" size={22} color={iconColor} />
+          <Avatar src={anshu_reactui} className="shadow-md"/>
           <span className="font-bold text-[clamp(0.75rem,2vw,1.25rem)] whitespace-nowrap">
              Anshu React UI
           </span>
@@ -96,7 +98,7 @@ const App_Header: React.FC = () => {
           </div>
           <span className="md:hidden">
             <Link to={"/"} className="flex gap-2 items-center p-2">
-              <DynamicIcon name="FaCat" size={22} color={iconColor} />
+              <Avatar src={anshu_reactui} className="shadow-md"/>
               <span className="font-bold text-[clamp(0.75rem,2vw,1.25rem)] whitespace-nowrap">
                 Anshu React UI
               </span>

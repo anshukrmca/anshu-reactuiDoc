@@ -147,6 +147,7 @@ export const DocSidebarMenuData: MenuNode[] = [
       { id: 903, label: "OffCanvace", link: 'offCanvace' },
       { id: 904, label: "Modal Stack", link: 'modal-stack' },
       { id: 905, label: "Accordions / Collapse", link: 'accordions-collapse' },
+       { id: 906, label: "Timeline", link: 'timeline' },
     ],
   },
   {
@@ -320,6 +321,7 @@ export const DocHorizontalMenuData: MenuNode[] = [
       { id: 903, label: "OffCanvace", link: 'offCanvace' },
       { id: 904, label: "Modal Stack", link: 'modal-stack' },
       { id: 905, label: "Accordions / Collapse", link: 'accordions-collapse' },
+      { id: 906, label: "Timeline", link: 'timeline' },
     ],
   },
   {

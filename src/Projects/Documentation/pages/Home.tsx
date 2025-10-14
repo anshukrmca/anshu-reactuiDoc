@@ -1,5 +1,6 @@
 import { useAppSelector } from "../../../CustomeHooks/Hooks";
-import { Card, hexToRgba } from "anshu-reactui";
+import { Avatar, Card, hexToRgba } from "anshu-reactui";
+import anshu_reactui from '../../../assets/images/anshu-reactuiLogo.png'
 
 type Step = {
     title: string;
@@ -100,28 +101,44 @@ import "anshu-reactui/dist/styles.css";`,
             }}
         >
             {/* Intro */}
-            <div className="px-6 py-6 md:py-8 lg:py-10">
-                <p
-                    data-section="true"
-                    className="font-mono text-xs tracking-widest uppercase text-gray-600 dark:text-gray-400"
-                >
-                    Installation
-                </p>
-                <h1 className="mt-2 text-2xl font-semibold tracking-tight text-gray-950 dark:text-white">
-                    Get started with{" "}
-                    <strong className="uppercase">anshu-reactui</strong> with Tailwind CSS
-                </h1>
-                <div className="mt-4 max-w-prose">
-                    <p className="text-base text-gray-700 dark:text-gray-300">
-                        Tailwind CSS works by scanning all of your HTML files, JavaScript
-                        components, and other templates for class names, generating the
-                        corresponding styles, and writing them to a static CSS file.
+            <div className="px-4 py-6 md:px-6 md:py-8 lg:py-10 flex flex-col-reverse md:flex-row items-center justify-between gap-6">
+                <div className="flex-1 text-center md:text-left">
+                    <p
+                        data-section="true"
+                        className="font-mono text-xs tracking-widest uppercase text-gray-600 dark:text-gray-400"
+                    >
+                        Installation
                     </p>
-                    <p className="mt-4 text-base text-gray-700 dark:text-gray-300">
-                        It’s fast, flexible, and reliable — with zero-runtime.
-                    </p>
+
+                    <div className="flex justify-center md:justify-start gap-4 items-center my-4">
+                        <h1 className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight text-gray-950 dark:text-white">
+                            Get started with{" "}
+                            <strong className="uppercase">anshu-reactui</strong> with Tailwind CSS
+                        </h1>
+                    </div>
+
+                    <div className="mt-4 max-w-prose mx-auto md:mx-0">
+                        <p className="text-base text-gray-700 dark:text-gray-300">
+                            Tailwind CSS works by scanning all of your HTML files, JavaScript
+                            components, and other templates for class names, generating the
+                            corresponding styles, and writing them to a static CSS file.
+                        </p>
+                        <p className="mt-4 text-base text-gray-700 dark:text-gray-300">
+                            It’s fast, flexible, and reliable — with zero-runtime.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Image Section */}
+                <div className="flex-1 flex justify-center md:justify-end">
+                    <img
+                        src={anshu_reactui}
+                        alt="anshu-reactui logo"
+                        className="w-48 sm:w-64 md:w-72 h-auto rounded-md object-contain transition-transform duration-300 hover:scale-105"
+                    />
                 </div>
             </div>
+
 
             <div className="px-6 pb-8 md:pb-10 lg:pb-12">
                 <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">

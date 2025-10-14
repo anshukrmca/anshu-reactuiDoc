@@ -1,6 +1,5 @@
-import TodoList from "../../../pages/InputBox/TodoList"
 import MaintenancePage from "../../../pages/MaintenancePage"
-import DemoFaqPage from "../../../pages/Test/DemoFaqPage"
+import DemoTimeline from "../../Documentation/pages/DemoTimeline"
 
 type Props = {}
 
@@ -9,8 +8,7 @@ const EcomDashboard = ({ }: Props) => {
     <>
       {/* <div>EcomDashboard</div> */}
       {/* <MaintenancePage projectName="CRM Dashboard"/> */}
-      {/* <DemoFaqPage/> */}
-      <TodoList/>
+      <DemoTimeline/>
     </>
   )
 }

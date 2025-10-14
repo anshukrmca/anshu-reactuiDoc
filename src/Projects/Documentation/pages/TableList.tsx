@@ -67,6 +67,7 @@ const TableList = () => {
                     selectable={true}
                     showSerialNo={true}
                     PrintBtn={true}
+                    isPagination={true}
                     CSVBtn={true}
                     rowKey={(r) => r.id}
                     onSelectionChange={(rowData) => {

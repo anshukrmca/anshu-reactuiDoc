@@ -30,14 +30,14 @@ const TodoList: React.FC = () => {
     const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
     const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9);
 
-const [tasks, setTasks] = useState<Task[]>([
-    { id: 1, title: "Complete Project Proposal", status: "In Progress", dueDate: "2025-12-10", priority: "Medium", progress: 40, checked: false, assignedTo: "Alice", assignedDate: "2025-12-01" },
-    { id: 2, title: "Client Meeting", status: "Not Started", dueDate: "2025-10-12", priority: "High", progress: 70, checked: true, assignedTo: "Bob", assignedDate: "2025-10-05" },
-    { id: 3, title: "Research Market Trends", status: "Completed", dueDate: "2025-03-12", priority: "Low", progress: 62, checked: false, assignedTo: "Carol", assignedDate: "2025-03-05" },
-    { id: 4, title: "Update Website Content", status: "Not Started", dueDate: "2025-04-18", priority: "Low", progress: 85, checked: false, assignedTo: "David", assignedDate: "2025-04-10" },
-    { id: 5, title: "Team Meeting", status: "Pending", dueDate: "2025-05-22", priority: "Medium", progress: 55, checked: true, assignedTo: "Eve", assignedDate: "2025-05-15" },
-    { id: 6, title: "Prepare Monthly Report", status: "Not Started", dueDate: "2025-06-28", priority: "High", progress: 96, checked: true, assignedTo: "Frank", assignedDate: "2025-06-20" },
-]);
+    const [tasks, setTasks] = useState<Task[]>([
+        { id: 1, title: "Complete Project Proposal", status: "In Progress", dueDate: "2025-12-10", priority: "Medium", progress: 40, checked: false, assignedTo: "Alice", assignedDate: "2025-12-01" },
+        { id: 2, title: "Client Meeting", status: "Not Started", dueDate: "2025-10-12", priority: "High", progress: 70, checked: true, assignedTo: "Bob", assignedDate: "2025-10-05" },
+        { id: 3, title: "Research Market Trends", status: "Completed", dueDate: "2025-03-12", priority: "Low", progress: 62, checked: false, assignedTo: "Carol", assignedDate: "2025-03-05" },
+        { id: 4, title: "Update Website Content", status: "Not Started", dueDate: "2025-04-18", priority: "Low", progress: 85, checked: false, assignedTo: "David", assignedDate: "2025-04-10" },
+        { id: 5, title: "Team Meeting", status: "Pending", dueDate: "2025-05-22", priority: "Medium", progress: 55, checked: true, assignedTo: "Eve", assignedDate: "2025-05-15" },
+        { id: 6, title: "Prepare Monthly Report", status: "Not Started", dueDate: "2025-06-28", priority: "High", progress: 96, checked: true, assignedTo: "Frank", assignedDate: "2025-06-20" },
+    ]);
 
 
     const dropdownData = [
@@ -233,12 +233,12 @@ const [tasks, setTasks] = useState<Task[]>([
                 />
             )}
 
-            <div className="flex gap-2">
-                {/* Left - Main Table */}
-                <div className="flex-1 py-3">
-                    <div className="flex justify-between items-center mb-4">
+            <div className="flex flex-col lg:flex-row w-full gap-4">
+                {/* Main Content */}
+                <div className="flex-1 min-w-0 py-3">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-2">
                         <h2 className="text-lg font-semibold">To Do List</h2>
-                        <div className="w-32">
+                        <div className="w-full md:w-32">
                             <Dropdown
                                 valueName="id"
                                 valueLabel="name"
@@ -251,7 +251,7 @@ const [tasks, setTasks] = useState<Task[]>([
                         </div>
                     </div>
 
-                    <Card className="my-4 items-center shadow-sm p-0 overflow-hidden my-Border my-Background" style={{ background: bgColor }}>
+                    <Card className="my-4 items-center shadow-sm p-0 border rounded-lg my-Background my-Border" style={{ background: bgColor }}>
                         <DataTable
                             columns={columns}
                             data={filteredTasks}
@@ -263,49 +263,54 @@ const [tasks, setTasks] = useState<Task[]>([
                             CSVBtn
                             isPagination
                             ThemeColor="teal"
-                            ClassName="bg-white dark:bg-slate-800 text-black dark:text-white"
                             style={{ background: bgColor }}
                         />
                     </Card>
                 </div>
 
-                {/* Right Sidebar */}
-                <Card className="my-4 lg:w-[300px] h-fit shadow-sm items-center overflow-hidden my-Border p-2 my-Background" style={{ background: bgColor }}>
-                    <div className="p-4 flex flex-col gap-4">
-                        <Button variant="primary" onClick={handleAddToDo}>
-                            <DynamicIcon name="IoIosAddCircleOutline" size={20} /> Create New Task
-                        </Button>
+                {/* Sidebar */}
+                <div className="flex-shrink-0 w-full lg:w-[300px]">
+                    <Card className="my-4 shadow-sm p-2 border rounded-lg my-Background my-Border" style={{ background: bgColor }}>
+                        <div className="p-4 flex flex-col gap-4">
+                            <Button variant="primary" onClick={handleAddToDo}>
+                                <DynamicIcon name="IoIosAddCircleOutline" size={20} /> Create New Task
+                            </Button>
 
-                        <div>
-                            <p className="text-xs font-semibold text-gray-400 mb-2">TASKS</p>
-                            <ul className="space-y-2 text-sm">
-                                <li className="flex justify-between text-gray-700 dark:text-gray-300">
-                                    <span>All Tasks</span>
-                                    <span className="text-xs bg-gray-100 dark:bg-slate-600 text-black dark:text-white px-2 py-0.5 rounded-full">{tasks.length}</span>
-                                </li>
-                                <li>⭐ Starred</li>
-                                <li>⏸️ On Hold</li>
-                                <li>🗑️ Trash</li>
-                            </ul>
-                        </div>
+                            <div>
+                                <p className="text-xs font-semibold text-gray-400 mb-2">TASKS</p>
+                                <ul className="space-y-2 text-sm">
+                                    <li className="flex justify-between text-gray-700 dark:text-gray-300">
+                                        <span>All Tasks</span>
+                                        <span className="text-xs bg-gray-100 dark:bg-slate-600 text-black dark:text-white px-2 py-0.5 rounded-full">
+                                            {tasks.length}
+                                        </span>
+                                    </li>
+                                    <li>⭐ Starred</li>
+                                    <li>⏸️ On Hold</li>
+                                    <li>🗑️ Trash</li>
+                                </ul>
+                            </div>
 
-                        <div>
-                            <p className="text-xs font-semibold text-gray-400 mt-3 mb-2">CATEGORIES</p>
-                            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                                <li>🏠 Personal</li>
-                                <li>💼 Work</li>
-                                <li>💪 Health & Fitness</li>
-                                <li>🎯 Daily Goals</li>
-                                <li>💰 Financial Management</li>
-                            </ul>
-                        </div>
+                            <div>
+                                <p className="text-xs font-semibold text-gray-400 mt-3 mb-2">CATEGORIES</p>
+                                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                                    <li>🏠 Personal</li>
+                                    <li>💼 Work</li>
+                                    <li>💪 Health & Fitness</li>
+                                    <li>🎯 Daily Goals</li>
+                                    <li>💰 Financial Management</li>
+                                </ul>
+                            </div>
 
-                        <div className="mt-2">
-                            <img src={mediaLogo} alt="Task Illustration" className="w-full" height={10} />
+                            <div className="mt-2">
+                                <img src={mediaLogo} alt="Task Illustration" className="w-full h-auto" />
+                            </div>
                         </div>
-                    </div>
-                </Card>
+                    </Card>
+                </div>
             </div>
+
+
         </>
     );
 };

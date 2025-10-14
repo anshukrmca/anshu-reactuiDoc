@@ -1,5 +1,6 @@
 import { lazy } from "react";
-import TodoList from "./pages/To-Do/TodoList";
+
+
 // 🔹 Lazy imports for all pages
 const DocLayout = lazy(() => import("./DocLayout"));
 const Home = lazy(() => import("./pages/Home"));
@@ -19,6 +20,9 @@ const DemoIconPage = lazy(() => import("./pages/DemoIconPage"));
 const Modal = lazy(() => import("./pages/Modal"));
 const FormFullTest = lazy(() => import("./Components/FormFullTest"));
 const DemoAccordion = lazy(() => import("./pages/DemoAccordion"));
+const TodoList = lazy(() => import("./pages/To-Do/TodoList"));
+const FaqPage = lazy(() => import("./pages/FaqPage"));
+const DemoTimeline = lazy(() => import("./pages/DemoTimeline"));
 
 
 export const DocumentationRoutes = [
@@ -47,6 +51,8 @@ export const DocumentationRoutes = [
       { path: "basic-form", element: <FormFullTest />, label: "Basic Form" },
       { path: "accordions-collapse", element: <DemoAccordion />, label: "Accordions/Collapse" },
       { path: "to-do-list", element: <TodoList />, label: "To-Do List" },
+      { path: "FAQs", element: <FaqPage />, label: "FAQs" },
+      { path: "timeline", element: <DemoTimeline />, label: "Timeline" },
       
     ],
   },

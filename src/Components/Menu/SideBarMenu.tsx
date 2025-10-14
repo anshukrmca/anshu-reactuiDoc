@@ -1,8 +1,9 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../CustomeHooks/Hooks";
 import { setisSidebarExpand, setisSidebarOpen } from "../../Store/CommonStore/CommonGlobalValSlice";
-import { SidebarMenu, type CategoryNode, type MenuNode,useWindowSize } from "anshu-reactui";
+import { SidebarMenu, type CategoryNode, type MenuNode,useWindowSize, Avatar } from "anshu-reactui";
 import DynamicIcon from "../Icons/DynamicIcon";
+import anshu_reactui from '../../assets/images/anshu-reactuiLogo.png'
 
 
 interface SidebarMenuBarProps {
@@ -40,7 +41,7 @@ const SideBarMenu: React.FC<SidebarMenuBarProps> = ({ MenuData, CategoriesData }
           height: '100vh'
         }}
         ClassName="my-Background"
-        SideBarDetails={["Anshu React UI", <DynamicIcon name="FaCat" size={22} />, "/"]}
+        SideBarDetails={["Anshu React UI",<Avatar src={anshu_reactui} className="shadow-md"/>, "/"]}
       />
 
     </>
