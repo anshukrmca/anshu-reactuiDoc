@@ -55,7 +55,7 @@ npm install`,
                 </p>
             ),
             code: `/* your CSS (e.g. src/index.css) */
-import "anshu-reactui/dist/styles.css";`,
+import "anshu-reactui/styles.css";`,
         },
 
         {

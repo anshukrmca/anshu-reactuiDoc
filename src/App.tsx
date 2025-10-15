@@ -1,4 +1,4 @@
-import "anshu-reactui/dist/styles.css";
+import "anshu-reactui/styles.css";
 import { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
