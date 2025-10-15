@@ -1,6 +1,5 @@
 import { lazy } from "react";
 
-
 // 🔹 Lazy imports for all pages
 const DocLayout = lazy(() => import("./DocLayout"));
 const Home = lazy(() => import("./pages/Home"));
@@ -23,7 +22,10 @@ const DemoAccordion = lazy(() => import("./pages/DemoAccordion"));
 const TodoList = lazy(() => import("./pages/To-Do/TodoList"));
 const FaqPage = lazy(() => import("./pages/FaqPage"));
 const DemoTimeline = lazy(() => import("./pages/DemoTimeline"));
+const DemoCardTab = lazy(() => import("./pages/DemoCardTab"));
 
+// 🔹 Coming Soon placeholder
+const ComingSoon = lazy(() => import("../../pages/ComingSoonPage"));
 
 export const DocumentationRoutes = [
   {
@@ -53,7 +55,19 @@ export const DocumentationRoutes = [
       { path: "to-do-list", element: <TodoList />, label: "To-Do List" },
       { path: "FAQs", element: <FaqPage />, label: "FAQs" },
       { path: "timeline", element: <DemoTimeline />, label: "Timeline" },
-      
+      { path: "tabcard", element: <DemoCardTab />, label: "TabCard" },
+
+      // 🔹 Coming Soon Pages
+      { path: "chat", element: <ComingSoon />, label: "Chat" },
+      { path: "empty", element: <ComingSoon />, label: "Empty" },
+      { path: "faqS", element: <ComingSoon />, label: "FAQ's" },
+      { path: "file-manager", element: <ComingSoon />, label: "File Manager" },
+      { path: "landing", element: <ComingSoon />, label: "Landing" },
+      { path: "pricing", element: <ComingSoon />, label: "Pricing" },
+      { path: "profile", element: <ComingSoon />, label: "Profile" },
+      { path: "profile-settings", element: <ComingSoon />, label: "Profile Settings" },
+      { path: "reviews", element: <ComingSoon />, label: "Reviews" },
+      { path: "data-tables", element: <ComingSoon />, label: "Data Tables" },
     ],
   },
 ];

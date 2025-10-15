@@ -1,7 +1,8 @@
 import { Card, hexToRgba } from 'anshu-reactui';
-import { useAppSelector } from '../../CustomeHooks/Hooks';
-import { CodeViewer } from '../../Components/CodeViewer/CodeViewer';
-import DynamicIcon from '../../Components/Icons/DynamicIcon';
+import { useAppSelector } from '../../../CustomeHooks/Hooks';
+import DynamicIcon from '../../../Components/Icons/DynamicIcon';
+import { CodeViewer } from '../../../Components/CodeViewer/CodeViewer';
+
 
 interface IconItem {
     name: string;

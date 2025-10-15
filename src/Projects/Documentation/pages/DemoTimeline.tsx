@@ -9,7 +9,10 @@ const DemoTimeline: React.FC = () => {
 
     const TimeLineCard = () => (
         <div
-            className="my-Border my-Background p-2  rounded-lg shadow-md transition-all duration-300 hover:shadow-lg "
+            className="my-Border my-Background p-2 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg"
+            style={{
+                background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
+            }}
         >
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start sm:items-center">
                 {/* Avatar Section */}
@@ -138,12 +141,15 @@ const DemoTimeline: React.FC = () => {
                 {/* ===== VERTICAL TIMELINE DEMO ===== */}
                 <section className="space-y-4">
                     <h2 className="text-2xl font-semibold">Vertical Timeline</h2>
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-sm">
                         Displays events vertically with alternating cards. Auto-scrolls up & down when content overflows.
                     </p>
 
                     {/* LIVE DEMO */}
-                    <div className="my-Border p-4 rounded-md my-Background">
+                    <div className="my-Border p-4 rounded-md my-Background"
+                        style={{
+                            background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
+                        }}>
                         <TimelineVerticalHang
                             items={items}
                             lineColor="bg-blue-500"
@@ -219,12 +225,15 @@ const DemoTimeline: React.FC = () => {
                 {/* ===== HORIZONTAL TIMELINE DEMO ===== */}
                 <section className="space-y-4 mt-10">
                     <h2 className="text-2xl font-semibold">Horizontal Timeline</h2>
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-sm">
                         Displays events horizontally. Auto-scrolls left & right when content overflows.
                     </p>
 
                     {/* LIVE DEMO */}
-                    <div className="my-Border  p-4 rounded-md my-Background">
+                    <div className="my-Border  p-4 rounded-md my-Background"
+                        style={{
+                            background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
+                        }}>
                         <TimelineHorizontalHang
                             items={items}
                             lineColor="bg-green-500"

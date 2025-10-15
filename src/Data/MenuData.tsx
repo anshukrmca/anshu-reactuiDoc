@@ -36,15 +36,7 @@ export const DocSidebarMenuData: MenuNode[] = [
     children: [
       { id: 201, label: "Full Calendar", link: "full-calendar" },
       { id: 202, label: "Gallery", link: "gallery" },
-      {
-        id: 203,
-        label: "Task",
-        children: [
-          { id: 20301, label: "List View", link: "list-view" },
-          { id: 20302, label: "Task Details", link: "task-details" },
-        ],
-      },
-      { id: 204, label: "To-Do List", link: "to-do-list" },
+      { id: 203, label: "To-Do List", link: "to-do-list" },
     ],
   },
   {
@@ -52,18 +44,18 @@ export const DocSidebarMenuData: MenuNode[] = [
     icon: <DynamicIcon name="GoStack" />,
     label: "Nested Menu",
     children: [
-      { id: 301, label: "Nested-1", link: "nested-1" },
+      { id: 301, label: "Nested-1", link: "#" },
       {
         id: 302,
         label: "Nested-2",
         children: [
-          { id: 30201, label: "Nested-2.1", link: "nested-2.1" },
+          { id: 30201, label: "Nested-2.1", link: "#" },
           {
             id: 30202,
             label: "Nested-2.2",
             children: [
-              { id: 3020201, label: "Nested-2.2.1", link: "nested-2.2.1" },
-              { id: 3020202, label: "Nested-2.2.2", link: "nested-2.2.2" },
+              { id: 3020201, label: "Nested-2.2.1", link: "#" },
+              { id: 3020202, label: "Nested-2.2.2", link: "#" },
             ],
           },
         ],
@@ -96,23 +88,14 @@ export const DocSidebarMenuData: MenuNode[] = [
     label: "Pages",
     children: [
       { id: 601, label: "Chat", link: "chat" },
-      { id: 602, label: "Empty", link: "Empty" },
+      { id: 602, label: "Empty", link: "empty" },
       { id: 603, label: "FAQ'S", link: "FAQs" },
-      { id: 604, label: "File Manager", link: "File-Manager" },
+      { id: 604, label: "File Manager", link: "file-Manager" },
       { id: 605, label: "Landing", link: "Landing" },
-      { id: 606, label: "Pricing", link: "Pricing" },
-      { id: 607, label: "Profile", link: "Profile" },
-      { id: 608, label: "Profile Settings", link: "Profile-Settings" },
-      { id: 609, label: "Reviews", link: "Reviews" },
-      { id: 610, label: "Search", link: "Search" },
-      { id: 611, label: "Team", link: "Team" },
-      { id: 612, label: "Terms Conditions", link: "TermsConditions" },
-      { id: 613, label: "Timeline", link: "Timeline" },
-      { id: 614, label: "To Do List", link: "ToDoList" },
-      { id: 615, label: "Blog", children: [] },
-      { id: 616, label: "Email", children: [] },
-      { id: 617, label: "Invoice", children: [] },
-      { id: 618, label: "Ecommerce", children: [] },
+      { id: 606, label: "Pricing", link: "pricing" },
+      { id: 607, label: "Profile", link: "profile" },
+      { id: 608, label: "Profile Settings", link: "profile-Settings" },
+      { id: 609, label: "Reviews", link: "reviews" },
     ],
   },
   {
@@ -150,37 +133,31 @@ export const DocSidebarMenuData: MenuNode[] = [
        { id: 906, label: "Timeline", link: 'timeline' },
     ],
   },
-  {
+ {
     id: 10,
-    icon: <DynamicIcon name="FaCat" />,
-    label: "Utilities",
-    children: [],
-  },
-  {
-    id: 11,
     icon: <DynamicIcon name="FaMapLocationDot" />,
     label: "Map",
     children: [],
   },
   {
-    id: 12,
+    id: 11,
     icon: <DynamicIcon name="FaBoxOpen" />,
     label: "Icons",
     link: 'react-icons'
   },
   {
-    id: 13,
+    id: 12,
     icon: <DynamicIcon name="FaChartPie" />,
     label: "Charts & Carts",
     children: [],
   },
   {
-    id: 14,
+    id: 13,
     icon: <DynamicIcon name="FaTableList" />,
     label: "Tables",
     children: [
-      { id: 1401, label: "Basic Tables", link: "basic-tables" },
-      { id: 1402, label: "Data Tables", link: "data-tables" },
+      { id: 1301, label: "Basic Tables", link: "basic-tables" },
+      { id: 1302, label: "Data Tables", link: "data-tables" },
     ],
   },
 ];
@@ -210,15 +187,7 @@ export const DocHorizontalMenuData: MenuNode[] = [
     children: [
       { id: 201, label: "Full Calendar", link: "full-calendar" },
       { id: 202, label: "Gallery", link: "gallery" },
-      {
-        id: 203,
-        label: "Task",
-        children: [
-          { id: 20301, label: "List View", link: "list-view" },
-          { id: 20302, label: "Task Details", link: "task-details" },
-        ],
-      },
-      { id: 204, label: "To-Do List", link: "to-do-list" },
+      { id: 203, label: "To-Do List", link: "to-do-list" },
     ],
   },
   {
@@ -226,18 +195,18 @@ export const DocHorizontalMenuData: MenuNode[] = [
     icon: <DynamicIcon name="GoStack" />,
     label: "Nested Menu",
     children: [
-      { id: 301, label: "Nested-1", link: "nested-1" },
+      { id: 301, label: "Nested-1", link: "#" },
       {
         id: 302,
         label: "Nested-2",
         children: [
-          { id: 30201, label: "Nested-2.1", link: "nested-2.1" },
+          { id: 30201, label: "Nested-2.1", link: "#" },
           {
             id: 30202,
             label: "Nested-2.2",
             children: [
-              { id: 3020201, label: "Nested-2.2.1", link: "nested-2.2.1" },
-              { id: 3020202, label: "Nested-2.2.2", link: "nested-2.2.2" },
+              { id: 3020201, label: "Nested-2.2.1", link: "#" },
+              { id: 3020202, label: "Nested-2.2.2", link: "#" },
             ],
           },
         ],
@@ -270,23 +239,14 @@ export const DocHorizontalMenuData: MenuNode[] = [
     label: "Pages",
     children: [
       { id: 601, label: "Chat", link: "chat" },
-      { id: 602, label: "Empty", link: "Empty" },
+      { id: 602, label: "Empty", link: "empty" },
       { id: 603, label: "FAQ'S", link: "FAQs" },
-      { id: 604, label: "File Manager", link: "File-Manager" },
+      { id: 604, label: "File Manager", link: "file-Manager" },
       { id: 605, label: "Landing", link: "Landing" },
-      { id: 606, label: "Pricing", link: "Pricing" },
-      { id: 607, label: "Profile", link: "Profile" },
-      { id: 608, label: "Profile Settings", link: "Profile-Settings" },
-      { id: 609, label: "Reviews", link: "Reviews" },
-      { id: 610, label: "Search", link: "Search" },
-      { id: 611, label: "Team", link: "Team" },
-      { id: 612, label: "Terms Conditions", link: "TermsConditions" },
-      { id: 613, label: "Timeline", link: "Timeline" },
-      { id: 614, label: "To Do List", link: "ToDoList" },
-      { id: 615, label: "Blog", children: [] },
-      { id: 616, label: "Email", children: [] },
-      { id: 617, label: "Invoice", children: [] },
-      { id: 618, label: "Ecommerce", children: [] },
+      { id: 606, label: "Pricing", link: "pricing" },
+      { id: 607, label: "Profile", link: "profile" },
+      { id: 608, label: "Profile Settings", link: "profile-Settings" },
+      { id: 609, label: "Reviews", link: "reviews" },
     ],
   },
   {
@@ -326,35 +286,29 @@ export const DocHorizontalMenuData: MenuNode[] = [
   },
   {
     id: 10,
-    icon: <DynamicIcon name="FaCat" />,
-    label: "Utilities",
-    children: [],
-  },
-  {
-    id: 11,
     icon: <DynamicIcon name="FaMapLocationDot" />,
     label: "Map",
     children: [],
   },
   {
-    id: 12,
+    id: 11,
     icon: <DynamicIcon name="FaBoxOpen" />,
     label: "Icons",
     link: 'react-icons'
   },
   {
-    id: 13,
+    id: 12,
     icon: <DynamicIcon name="FaChartPie" />,
     label: "Charts & Carts",
     children: [],
   },
   {
-    id: 14,
+    id: 13,
     icon: <DynamicIcon name="FaTableList" />,
     label: "Tables",
     children: [
-      { id: 1401, label: "Basic Tables", link: "basic-tables" },
-      { id: 1402, label: "Data Tables", link: "data-tables" },
+      { id: 1301, label: "Basic Tables", link: "basic-tables" },
+      { id: 1302, label: "Data Tables", link: "data-tables" },
     ],
   },
 ];
