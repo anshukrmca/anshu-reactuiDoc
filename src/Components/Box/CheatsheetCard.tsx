@@ -3,10 +3,10 @@ import React from "react";
 import { CodeViewer } from "../CodeViewer/CodeViewer";
 
 interface CheatsheetCardProps {
-  htmlCode: string;
-  cssCode: string;
-  jsxCode: string;
-  tsxCode: string;
+  htmlCode?: string;
+  cssCode?: string;
+  jsxCode?: string;
+  tsxCode?: string;
 }
 
 
@@ -25,22 +25,22 @@ const CheatsheetCard: React.FC<CheatsheetCardProps> = ({
           {
             id: "html",
             label: "HTML",
-            content: (<CodeViewer code={htmlCode}/>),
+            content: (<CodeViewer code={htmlCode || ""}/>),
           },
           {
             id: "css",
             label: "CSS",
-            content: (<CodeViewer code={cssCode}/>),
+            content: (<CodeViewer code={cssCode || ""}/>),
           },
           {
             id: "jsx",
             label: "JSX",
-            content: (<CodeViewer code={jsxCode}/>),
+            content: (<CodeViewer code={jsxCode || ""}/>),
           },
           {
             id: "tsx",
             label: "TSX",
-            content: (<CodeViewer code={tsxCode}/>),
+            content: (<CodeViewer code={tsxCode || ""}/>),
           },
         ]}
         initialTab="html"

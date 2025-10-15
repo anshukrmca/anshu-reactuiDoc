@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Card, hexToRgba, type RadioOption,RadioGroup } from "anshu-reactui";
+import { Card, hexToRgba,RadioGroup } from "anshu-reactui";
 import { CodeViewer } from "../../../Components/CodeViewer/CodeViewer";
 import { useAppSelector } from "../../../CustomeHooks/Hooks";
+import type { RadioOption } from "anshu-reactui";
 
 const DemoRadio: React.FC = () => {
     const [selected, setSelected] = useState("option 2");

@@ -1,6 +1,6 @@
 import { TabCard } from "anshu-reactui";
 import { FaHome, FaUser, FaCog } from "react-icons/fa";
-import { CodeViewer } from "../../Components/CodeViewer/CodeViewer";
+import { CodeViewer } from "../../../Components/CodeViewer/CodeViewer";
 
 export default function DemoCardTab() {
     const tabs = [
