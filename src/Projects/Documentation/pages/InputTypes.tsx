@@ -1,15 +1,16 @@
 import { useAppSelector } from '../../../CustomeHooks/Hooks';
-import { hexToRgba, TabCard } from 'anshu-reactui';
-import DemoInputPage from '../Components/DemoInputPage';
-import DemoRadio from './DemoRadio';
-import DemoCheckboxPage from '../Components/DemoCheckboxPage';
-import DemoDropdownPage from '../Components/DemoDropdownPage';
-import FormFullTest from '../Components/FormFullTest';
-import DemoDatePicker from '../Components/DemoDatePicker';
+import { hexToRgba, TabCard,Loading } from 'anshu-reactui';
+import { lazy, Suspense } from 'react';
 
-type Props = {}
+const DemoInputPage = lazy(() => import("../Components/DemoInputPage"));
+const DemoRadio = lazy(() => import("./DemoRadio"));
+const DemoCheckboxPage = lazy(() => import("../Components/DemoCheckboxPage"));
+const DemoDropdownPage = lazy(() => import("../Components/DemoDropdownPage"));
+const FormFullTest = lazy(() => import("../Components/FormFullTest"));
+const DemoDatePicker = lazy(() => import("../Components/DemoDatePicker"));
 
-export default function InputTypes({ }: Props) {
+
+export default function InputTypes() {
     const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
     const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9);
     return (
@@ -22,12 +23,12 @@ export default function InputTypes({ }: Props) {
                     background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
                 }}
                 tabs={[
-                    { id: "1", label: "Input", content: (<DemoInputPage />) },
-                    { id: "2", label: "Radio", content: (<DemoRadio />) },
-                    { id: "3", label: "CheckBox", content: (<DemoCheckboxPage />) },
-                    { id: "4", label: "Dropdown", content: (<DemoDropdownPage />) },
-                    { id: "5", label: "Date Picker", content: (<DemoDatePicker />) },
-                    { id: "6", label: "Form", content: (<FormFullTest />) },
+                    { id: "1", label: "Input", content: (<Suspense fallback={<Loading />}><DemoInputPage /></Suspense>) },
+                    { id: "2", label: "Radio", content: (<Suspense fallback={<Loading />}><DemoRadio /></Suspense>) },
+                    { id: "3", label: "CheckBox", content: (<Suspense fallback={<Loading />}><DemoCheckboxPage /></Suspense>) },
+                    { id: "4", label: "Dropdown", content: (<Suspense fallback={<Loading />}><DemoDropdownPage /></Suspense>) },
+                    { id: "5", label: "Date Picker", content: (<Suspense fallback={<Loading />}><DemoDatePicker /></Suspense>) },
+                    { id: "6", label: "Form", content: (<Suspense fallback={<Loading />}><FormFullTest /></Suspense>) },
 
 
                 ]}

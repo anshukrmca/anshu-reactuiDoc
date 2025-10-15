@@ -10,5 +10,19 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, 'src')
     }
-  }
+  },
+  build: {
+  rollupOptions: {
+    output: {
+      manualChunks(id) {
+        if (id.includes("node_modules")) return "vendor";
+        if (id.includes("/Projects/CRM/")) return "crm";
+        if (id.includes("/Projects/Documentation/")) return "docs";
+        if (id.includes("/Projects/Ecommerce/")) return "ecom";
+      },
+    },
+  },
+  chunkSizeWarningLimit: 1500,
+}
+
 })

@@ -1,6 +1,6 @@
 import { lazy } from "react";
 
-// 🔹 Lazy imports for all pages
+// 🔹 Lazy imports for all documentation pages
 const DocLayout = lazy(() => import("./DocLayout"));
 const Home = lazy(() => import("./pages/Home"));
 const ButtonList = lazy(() => import("./pages/ButtonList"));
@@ -23,10 +23,9 @@ const TodoList = lazy(() => import("./pages/To-Do/TodoList"));
 const FaqPage = lazy(() => import("./pages/FaqPage"));
 const DemoTimeline = lazy(() => import("./pages/DemoTimeline"));
 const DemoCardTab = lazy(() => import("./pages/DemoCardTab"));
-
-// 🔹 Coming Soon placeholder
 const ComingSoon = lazy(() => import("../../pages/ComingSoonPage"));
 
+// 🔹 Export lazy-loaded route config
 export const DocumentationRoutes = [
   {
     path: "/",

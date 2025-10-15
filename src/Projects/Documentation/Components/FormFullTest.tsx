@@ -2,10 +2,32 @@ import React, { useState } from "react";
 import { Switch, Input, Textarea, Checkbox, RadioGroup, hexToRgba, Card, FileInput } from "anshu-reactui";
 import { useAppSelector } from "../../../CustomeHooks/Hooks";
 
+type FormDataType = {
+  text: string;
+  email: string;
+  password: string;
+  number: string;
+  color: string;
+  date: string;
+  time: string;
+  range: number;
+  message: string;
+  selectOption: string;
+  acceptTerms: boolean;
+  subscribe: boolean;
+  notifications: boolean;
+  radioOption: string;
+  file: File | null;
+  switch1: boolean;
+  switch2: boolean;
+  switch3: boolean;
+};
+
 const FormFullTest: React.FC = () => {
   const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
   const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9);
-  const [formData, setFormData] = useState({
+
+  const [formData, setFormData] = useState<FormDataType>({
     text: "",
     email: "",
     password: "",
@@ -20,17 +42,37 @@ const FormFullTest: React.FC = () => {
     subscribe: false,
     notifications: true,
     radioOption: "option2",
-    file: null as File | null,
+    file: null,
     switch1: true,
     switch2: false,
     switch3: false,
   });
 
-  const handleFormChange =
-    (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement> | any) => {
-      const value = e.target?.type === "checkbox" ? e.target.checked : e.target?.value ?? e;
-      setFormData((prev) => ({ ...prev, [field]: value }));
-    };
+  // ✅ Universal change handler
+const handleFormChange =
+  (field: keyof typeof formData) =>
+  (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement> | boolean | File | null
+  ) => {
+    if (e === null) return;
+
+    let value: any;
+
+    if (typeof e === "boolean" || e instanceof File) {
+      value = e;
+    } else {
+      const target = e.target;
+      if (target instanceof HTMLInputElement) {
+        value = target.type === "checkbox" ? target.checked : target.value;
+      } else if (target instanceof HTMLTextAreaElement || target instanceof HTMLSelectElement) {
+        value = target.value;
+      } else {
+        value = e; // fallback
+      }
+    }
+
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
 
   const radioOptions = [
@@ -39,77 +81,109 @@ const FormFullTest: React.FC = () => {
   ];
 
   return (
-    <>
-      <Card
-        className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background"
-        style={{
-          background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
-        }}
-      >
-        <h1 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Form Example</h1>
-        <p className="mb-6 text-gray-700 dark:text-gray-300">
-          This is a comprehensive form example demonstrating various input types including text inputs, textareas, checkboxes, radio buttons, file inputs, and switches.
-        </p>
+    <Card
+      className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background"
+      style={{ background: CommonSave_GlobalValStore.ThemeBackground && bgColor }}
+    >
+      <h1 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Form Example</h1>
+      <p className="mb-6 text-gray-700 dark:text-gray-300">
+        This is a comprehensive form example demonstrating various input types including text inputs, textareas,
+        checkboxes, radio buttons, file inputs, and switches.
+      </p>
 
+      <form className="p-6 space-y-6 rounded-lg">
+        {/* Text Inputs */}
+        <Input label="Text" value={formData.text} onChange={handleFormChange("text")} placeholder="Enter text" />
+        <Input
+          label="Email"
+          type="email"
+          value={formData.email}
+          onChange={handleFormChange("email")}
+          placeholder="Enter email"
+        />
+        <Input
+          label="Password"
+          type="password"
+          value={formData.password}
+          onChange={handleFormChange("password")}
+          placeholder="Enter password"
+        />
+        <Input
+          label="Number"
+          type="number"
+          value={formData.number}
+          onChange={handleFormChange("number")}
+          placeholder="Enter number"
+        />
+        <Input label="Color" type="color" value={formData.color} onChange={handleFormChange("color")} />
+        <Input label="Date" type="date" value={formData.date} onChange={handleFormChange("date")} />
+        <Input label="Time" type="time" value={formData.time} onChange={handleFormChange("time")} />
+        <Input label="Range" type="range" value={formData.range} onChange={handleFormChange("range")} />
 
-        <form className="p-6 space-y-6 rounded-lg">
-          {/* Text Inputs */}
-          <Input label="Text" value={formData.text} onChange={handleFormChange("text")} placeholder="Enter text" />
-          <Input label="Email" type="email" value={formData.email} onChange={handleFormChange("email")} placeholder="Enter email" />
-          <Input label="Password" type="password" value={formData.password} onChange={handleFormChange("password")} placeholder="Enter password" />
-          <Input label="Number" type="number" value={formData.number} onChange={handleFormChange("number")} placeholder="Enter number" />
-          <Input label="Color" type="color" value={formData.color} onChange={handleFormChange("color")} />
-          <Input label="Date" type="date" value={formData.date} onChange={handleFormChange("date")} />
-          <Input label="Time" type="time" value={formData.time} onChange={handleFormChange("time")} />
-          <Input label="Range" type="range" value={formData.range} onChange={handleFormChange("range")} />
+        {/* Textarea */}
+        <Textarea
+          label="Message"
+          value={formData.message}
+          onChange={handleFormChange("message")}
+          placeholder="Type your message"
+          rows={3}
+        />
 
-          {/* Textarea */}
-          <Textarea label="Message" value={formData.message} onChange={handleFormChange("message")} placeholder="Type your message" rows={3} />
-
-          {/* Checkboxes */}
-          <div className="flex space-x-4">
-            <Checkbox label="Accept Terms" checked={formData.acceptTerms} onChange={handleFormChange("acceptTerms")} />
-            <Checkbox label="Subscribe" checked={formData.subscribe} onChange={handleFormChange("subscribe")} />
-          </div>
-
-          {/* Radio Group */}
-          <div className="flex space-x-4">
-            <RadioGroup
-              label="Pick an Option"
-              options={radioOptions}
-              selectedValue={formData.radioOption}
-              onChange={(value) => setFormData((prev) => ({ ...prev, radioOption: value }))}
-              variant="primary"
-            />
-          </div>
-
-          {/* File Input */}
-          <FileInput 
-            label="Upload your file"
-              allowTypes={['.jpg', '.jpeg', '.png', 'application/pdf', '.csv']}
-              view={true}
-              download={true}
-              // onChangeFile={handleFileChange}
-              className=''
+        {/* Checkboxes */}
+        <div className="flex space-x-4">
+          <Checkbox
+            label="Accept Terms"
+            checked={formData.acceptTerms}
+            onChange={handleFormChange("acceptTerms")}
           />
+          <Checkbox label="Subscribe" checked={formData.subscribe} onChange={handleFormChange("subscribe")} />
+        </div>
 
-          {/* Switches */}
-          <div className="flex flex-col space-y-2">
-            <Switch label="Tailwind Teal" SwitchColor="teal" checked={formData.switch1} onChange={handleFormChange("switch1")} />
-            <Switch label="Disabled On" checked disabled />
-            <Switch label="Disabled Off" checked={false} disabled />
-            <Switch label="Notifications" checked={formData.notifications} onChange={handleFormChange("notifications")} />
-          </div>
+        {/* Radio Group */}
+        <div className="flex space-x-4">
+          <RadioGroup
+            label="Pick an Option"
+            options={radioOptions}
+            selectedValue={formData.radioOption}
+            onChange={(value) => setFormData((prev) => ({ ...prev, radioOption: value }))}
+            variant="primary"
+          />
+        </div>
 
-          <button
-            type="submit"
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
-          >
-            Submit
-          </button>
-        </form>
-      </Card>
-    </>
+        {/* File Input */}
+        <FileInput
+          label="Upload your file"
+          allowTypes={[".jpg", ".jpeg", ".png", "application/pdf", ".csv"]}
+          view
+          download
+          onChangeFile={(file) => handleFormChange("file")(file)}
+        />
+
+        {/* Switches */}
+        <div className="flex flex-col space-y-2">
+          <Switch
+            label="Tailwind Teal"
+            SwitchColor="teal"
+            checked={formData.switch1}
+            onChange={(checked) => handleFormChange("switch1")(checked)}
+          />
+          <Switch label="Disabled On" checked disabled />
+          <Switch label="Disabled Off" checked={false} disabled />
+          <Switch
+            label="Notifications"
+            checked={formData.notifications}
+            onChange={(checked) => handleFormChange("notifications")(checked)}
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
+        >
+          Submit
+        </button>
+      </form>
+    </Card>
   );
 };
 
