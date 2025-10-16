@@ -122,7 +122,7 @@ const ThemeSetting: React.FC = () => {
             key={item.id}
             onClick={() => setActiveTab(item.id)}
             className={`text-[12px] md:text-sm w-full p-2 px-6 cursor-pointer font-semibold flex gap-2 items-center justify-center
-            ${activeTab === item.id ? "my-Border  text-red-400" : ""}`}
+            ${activeTab === item.id ? "border my-Border  text-red-400" : ""}`}
           >
             {item.name}
           </button>
@@ -134,13 +134,13 @@ const ThemeSetting: React.FC = () => {
         {ThemeSettingData.filter((g) => g.ThameSettingTypeId === activeTab).map((group) => (
           <div key={group.id} className="mb-2">
             <p className="text-[12px] md:text-sm font-semibold mb-2">{group.title} :</p>
-            <div className="flex flex-wrap gap-4 px-4 py-3 rounded-md my-Border">
+            <div className="flex flex-wrap gap-4 px-4 py-3 rounded-md border my-Border">
               {group.type === "color"
                 ? group.items.map((color, idx) => (
                   <div
                     key={idx}
                     onClick={() => handleColorChange(group.title, color)}
-                    className={`flex items-center justify-center rounded-full w-8 h-8 my-Border cursor-pointer transition-all ${isChecked(group.title, color)
+                    className={`flex items-center justify-center rounded-full w-8 h-8 border my-Border cursor-pointer transition-all ${isChecked(group.title, color)
                       ? "ring-2 ring-offset-1 ring-green-500 scale-100"
                       : "hover:scale-105 hover:shadow"
                       }`}
@@ -170,7 +170,7 @@ const ThemeSetting: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="p-2 shadow-2xl my-Border flex justify-center items-center gap-4 shrink-0">
+      <footer className="p-2 shadow-2xl border my-Border flex justify-center items-center gap-4 shrink-0">
         <a href="https://anshuportfolioo.netlify.app/" target="_blank" className="py-1 px-8 bg-green-500 text-white rounded-md cursor-pointer">Portfolio</a>
         <button
           onClick={() => dispatch(resetCommonSaveGlobalVal())}

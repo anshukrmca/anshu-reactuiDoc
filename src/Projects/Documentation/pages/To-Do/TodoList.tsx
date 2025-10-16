@@ -251,7 +251,7 @@ const TodoList: React.FC = () => {
                         </div>
                     </div>
 
-                    <Card className="my-4 items-center shadow-sm p-0 border rounded-lg my-Background my-Border" style={{ background: bgColor }}>
+                    <Card className="my-4 items-center shadow-sm p-0 border rounded-lg my-Background border my-Border" style={{ background: bgColor }}>
                         <DataTable
                             columns={columns}
                             data={filteredTasks}
@@ -270,7 +270,7 @@ const TodoList: React.FC = () => {
 
                 {/* Sidebar */}
                 <div className="flex-shrink-0 w-full lg:w-[300px]">
-                    <Card className="my-4 shadow-sm p-2 border rounded-lg my-Background my-Border" style={{ background: bgColor }}>
+                    <Card className="my-4 shadow-sm p-2 border rounded-lg my-Background border my-Border" style={{ background: bgColor }}>
                         <div className="p-4 flex flex-col gap-4">
                             <Button variant="primary" onClick={handleAddToDo}>
                                 <DynamicIcon name="IoIosAddCircleOutline" size={20} /> Create New Task

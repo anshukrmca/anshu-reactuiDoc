@@ -1,0 +1,59 @@
+import React, { Suspense } from "react";
+import {Outlet } from "react-router-dom";
+import { hexToRgba, Loading } from "anshu-reactui";
+import UrlReferrerCheck from "../../CustomeHooks/UrlReferrerCheck";
+import { useAppSelector } from "../../CustomeHooks/Hooks";
+import App_Header from "../../Layouts/App_Header";
+import App_Footer from "../../Layouts/App_Footer";
+import HorizontalMenuBar from "../../Components/Menu/HorizontalMenuBar";
+import { ECommerceHorizontalMenuData} from "../../Data/MenuData";
+import CrmDashBoardLayout from "./HRMDashBoardLayout";
+import BreadcrumbContainer from "../../Layouts/BreadcrumbContainer";
+
+const HRMLayout: React.FC = () => {
+  const { CommonSave_GlobalValStore } = useAppSelector((state) => state);
+  const isHorizontal = CommonSave_GlobalValStore?.NavigationStyles === "Horizontal";
+  const bgColor = hexToRgba(CommonSave_GlobalValStore?.ThemeBackground, 0.9) || "white";
+  const padding = CommonSave_GlobalValStore?.HeaderPositions === 'Scrollable' ? '10px' : '110px';
+  return (
+    <UrlReferrerCheck>
+      {/* Layout Wrapper */}
+      {isHorizontal ? (
+        <div
+          className="my-Background"
+          style={{ background: CommonSave_GlobalValStore?.ThemeBackground && bgColor}}
+        >
+          <div
+            className={`${CommonSave_GlobalValStore?.MenuPositions === "Scrollable" ||
+              CommonSave_GlobalValStore?.HeaderPositions === "Scrollable"
+              ? "z-10"
+              : "fixed z-20"
+              } w-full`}
+          >
+            <App_Header />
+            <HorizontalMenuBar Data={ECommerceHorizontalMenuData} />
+          </div>
+
+          {/* Main content (flex-grow pushes footer down) */}
+          <main
+            className="max-w-screen p-2 w-full "
+            style={{ paddingTop: padding, minHeight: "100vh" }}
+          >
+            <div className="my-2"><BreadcrumbContainer Data={ECommerceHorizontalMenuData} /></div>
+           <Suspense fallback={<Loading />}>
+              <Outlet />
+           </Suspense>
+          </main>
+          {/* Footer (sticks to bottom) */}
+          <App_Footer />
+        </div>
+
+
+      ) : (
+        <CrmDashBoardLayout/>
+      )}
+    </UrlReferrerCheck>
+  );
+};
+
+export default HRMLayout;

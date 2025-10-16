@@ -450,7 +450,7 @@ className="badge badge-outline-purple badge-pill"`,
   return (
     <>
       <Card
-        className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background"
+        className="my-4 items-center shadow-none hover:shadow-none overflow-hidden border my-Border p-4 my-Background"
         style={{
           background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
         }}
@@ -490,7 +490,7 @@ className="badge badge-outline-purple badge-pill"`,
       {BadgedataArray.map((items) => (
         <Card
           key={items.ID}
-          className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Background my-Border p-4"
+          className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Background border my-Border p-4"
           style={{
             background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
           }}

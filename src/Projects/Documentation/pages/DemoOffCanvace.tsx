@@ -47,7 +47,7 @@ export default App;
 
     return (
         <Card
-            className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background"
+            className="my-4 items-center shadow-none hover:shadow-none overflow-hidden border my-Border p-4 my-Background"
             style={{
                 background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
             }}

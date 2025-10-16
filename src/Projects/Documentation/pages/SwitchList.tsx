@@ -12,7 +12,7 @@ const SwitchList: React.FC = () => {
     return (
         <>
             <Card
-                className="my-2 p-2 md:p-4 my-Border my-Background"
+                className="my-2 p-2 md:p-4 border my-Border my-Background"
                 style={{
                     background: CommonSave_GlobalValStore.ThemeBackground,
                 }}

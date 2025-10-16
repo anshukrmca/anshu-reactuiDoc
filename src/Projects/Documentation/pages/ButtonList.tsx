@@ -542,7 +542,7 @@ className="btn-animate btn-animate-gray"`,
             <div className='my-Background'
                 style={{ background: CommonSave_GlobalValStore.ThemeBackground && bgColor }}>
                 <Card
-                    className="my-2 p-2 md:p-4 my-Border my-Background"
+                    className="my-2 p-2 md:p-4 border my-Border my-Background"
                     style={{
                         background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
                     }}
@@ -581,7 +581,7 @@ className="btn-animate btn-animate-gray"`,
                 {ButtondataArray.map((items) => (
                     <Card
                         key={items.ID}
-                        className="my-2 p-2 md:p-4 my-Border my-Background"
+                        className="my-2 p-2 md:p-4 border my-Border my-Background"
                         style={{
                             background: CommonSave_GlobalValStore.ThemeBackground,
                         }}

@@ -34,7 +34,7 @@ const ProgressBarList: React.FC = () => {
   return (
     <>
       <Card
-        className="my-2 p-2 md:p-4 my-Border my-Background"
+        className="my-2 p-2 md:p-4 border my-Border my-Background"
         style={{
           background: CommonSave_GlobalValStore.ThemeBackground,
         }}
@@ -44,7 +44,7 @@ const ProgressBarList: React.FC = () => {
 
        <div className="space-y-6 p-4">
       {testCases.map((tc, index) => (
-        <div key={index} className="space-y-2 my-Border p-3 rounded-md bg-gray-50 dark:bg-gray-800">
+        <div key={index} className="space-y-2 border my-Border p-3 rounded-md bg-gray-50 dark:bg-gray-800">
           <div className="space-y-1 flex sm:gap-8 flex-wrap text-sm text-gray-700 dark:text-gray-300">
             <p><strong>Progress:</strong> {tc.progress}%</p>
             <p><strong>Fill Color:</strong> {tc.fillColor || "default"}</p>

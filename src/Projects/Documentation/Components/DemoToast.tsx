@@ -61,7 +61,7 @@ const getButtonClass = (type?: string) => {
         type: string,
         code: string
     ) => (
-        <div className="my-Border rounded-2xl p-6 bg-white/5 dark:bg-slate-900/40 backdrop-blur">
+        <div className="border my-Border rounded-2xl p-6 bg-white/5 dark:bg-slate-900/40 backdrop-blur">
             <h3 className="text-xl font-semibold mb-2">{title}</h3>
             <p className="text-gray-600 dark:text-gray-400 mb-4">{desc}</p>
             <p>{type}</p>
@@ -83,7 +83,7 @@ const getButtonClass = (type?: string) => {
     return (
         <>
             <Card
-                className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background space-y-4"
+                className="my-4 items-center shadow-none hover:shadow-none overflow-hidden border my-Border p-4 my-Background space-y-4"
                 style={{
                     background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
                 }}

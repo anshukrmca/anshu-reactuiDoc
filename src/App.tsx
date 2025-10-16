@@ -17,10 +17,11 @@ import { DocumentationRoutes } from "./Projects/Documentation/DocumentationRoute
 import { EcomRoutes } from "./Projects/Ecommerce/EcomRoutes";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
+import { HRMRoutes } from "./Projects/HRM/HRMRoutes";
 
 
 //  Combine all routes
-const allRoutes = [...DocumentationRoutes, ...CRMRoutes, ...EcomRoutes];
+const allRoutes = [...DocumentationRoutes, ...CRMRoutes, ...EcomRoutes,...HRMRoutes];
 
 //  Setup router
 const router = createBrowserRouter([

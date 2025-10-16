@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @variant dark (&:where(.dark, .dark *));
-/* <body class="dark"> */
 
 @layer {
     .my-Background {
@@ -8,7 +7,7 @@
     }
 
     .my-Border {
-        @apply border border-slate-200 dark:border-slate-600
+        @apply border-slate-200 dark:border-slate-600
     }
 
 }

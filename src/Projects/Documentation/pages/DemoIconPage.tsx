@@ -330,7 +330,7 @@ export default DynamicIcon;
 
     return (
         <Card
-            className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background"
+            className="my-4 items-center shadow-none hover:shadow-none overflow-hidden border my-Border p-4 my-Background"
             style={{
                 background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
             }}
@@ -344,7 +344,7 @@ export default DynamicIcon;
                 <div key={cat.title}>
                     <h3 className="my-3 text-xl font-semibold">{cat.title}</h3>
                     <Card
-                        className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background"
+                        className="my-4 items-center shadow-none hover:shadow-none overflow-hidden border my-Border p-4 my-Background"
                         style={{ background: CommonSave_GlobalValStore.ThemeBackground && bgColor }}
                     >
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">

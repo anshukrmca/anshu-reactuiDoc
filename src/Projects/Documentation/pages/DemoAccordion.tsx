@@ -89,7 +89,7 @@ const DemoAccordion: React.FC = () => {
     return (
         <>
             <Card
-                className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background"
+                className="my-4 items-center shadow-none hover:shadow-none overflow-hidden border my-Border p-4 my-Background"
                 style={{
                     background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
                 }}
@@ -119,7 +119,7 @@ const DemoAccordion: React.FC = () => {
                     </section>
 
                     {/* BASIC ACCORDION DEMO */}
-                    <section className="space-y-4 my-Border p-4 rounded-md">
+                    <section className="space-y-4 border my-Border p-4 rounded-md">
                         <h2 className="text-2xl font-semibold">Basic Accordion</h2>
                         <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
                             A simple accordion with single-item expansion. Each section toggles open and closed when clicked.
@@ -139,7 +139,7 @@ const items = [
                     </section>
 
                     {/* MULTIPLE OPEN ACCORDION */}
-                    <section className="space-y-4 my-Border p-4 rounded-md">
+                    <section className="space-y-4 border my-Border p-4 rounded-md">
                         <h2 className="text-2xl font-semibold">Allow Multiple Open</h2>
                         <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
                             Enable the <code>allowMultipleOpen</code> prop to let users expand multiple panels at once.
@@ -158,7 +158,7 @@ const items = [
                     </section>
 
                     {/* ACCORDION WITH ICONS */}
-                    <section className="space-y-4 my-Border p-4 rounded-md">
+                    <section className="space-y-4 border my-Border p-4 rounded-md">
                         <h2 className="text-2xl font-semibold">Accordion with Icons</h2>
                         <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
                             Add icons to each header using the <code>titleIcon</code> prop.

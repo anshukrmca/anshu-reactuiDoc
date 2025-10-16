@@ -12,7 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",
     "@tailwindcss/vite": "^4.1.13",
-    "anshu-reactui": "^1.1.7",
+    "anshu-reactui": "^1.1.8",
     "crypto-js": "^4.2.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -20,6 +20,7 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.9.1",
     "react-syntax-highlighter": "^15.6.6",
+    "recharts": "^3.2.1",
     "redux-persist": "^6.0.0",
     "tailwindcss": "^4.1.13"
   },

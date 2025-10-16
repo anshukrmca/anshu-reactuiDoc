@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, TimelineVerticalHang, TimelineHorizontalHang, hexToRgba, Card } from "anshu-reactui";
+import { Avatar, hexToRgba, Card, TimelineHorizontalHang, TimelineVerticalHang } from "anshu-reactui";
 import { useAppSelector } from "../../../CustomeHooks/Hooks";
 import { CodeViewer } from "../../../Components/CodeViewer/CodeViewer";
 
@@ -9,7 +9,7 @@ const DemoTimeline: React.FC = () => {
 
     const TimeLineCard = () => (
         <div
-            className="my-Border my-Background p-2 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg"
+            className="border my-Border my-Background w-full p-2 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg"
             style={{
                 background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
             }}
@@ -22,10 +22,10 @@ const DemoTimeline: React.FC = () => {
 
                 {/* Text Section */}
                 <div className="flex-1 text-center sm:text-left">
-                    <p className="text-base sm:text-lg md:text-xl font-semibold my-1 text-gray-800 dark:text-gray-100">
+                    <p className="text-xs sm:text-sm font-semibold my-1 text-gray-800 dark:text-gray-100">
                         Achievement: 10,000 Followers
                     </p>
-                    <p className="text-sm sm:text-base opacity-80 leading-relaxed text-gray-600 dark:text-gray-300">
+                    <p className="text-xs opacity-80 leading-relaxed text-gray-600 dark:text-gray-300">
                         We’ve hit a milestone! Thanks to each and every one of our followers for being part of our community.
                         Here’s to the next 10,000!
                     </p>
@@ -68,7 +68,7 @@ const DemoTimeline: React.FC = () => {
     ];
 
     const codeSnipt = `const TimeLineCard = () => (
-        <div className="my-Border my-Background p-2  rounded-lg shadow-md transition-all duration-300 hover:shadow-lg ">
+        <div className="border my-Border my-Background p-2  rounded-lg shadow-md transition-all duration-300 hover:shadow-lg ">
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start sm:items-center">
                 {/* Avatar Section */}
                 <div className="flex-shrink-0 self-center sm:self-auto">
@@ -126,7 +126,7 @@ const DemoTimeline: React.FC = () => {
     return (
         <>
             <Card
-                className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background space-y-10"
+                className="my-4 items-center shadow-none hover:shadow-none overflow-hidden border my-Border p-4 my-Background space-y-10"
                 style={{
                     background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
                 }}
@@ -146,7 +146,7 @@ const DemoTimeline: React.FC = () => {
                     </p>
 
                     {/* LIVE DEMO */}
-                    <div className="my-Border p-4 rounded-md my-Background"
+                    <div className="border my-Border p-4 rounded-md my-Background"
                         style={{
                             background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
                         }}>
@@ -155,7 +155,8 @@ const DemoTimeline: React.FC = () => {
                             lineColor="bg-blue-500"
                             dotColor="bg-white border-4 border-blue-600"
                             scrollSpeed={0.8}
-                            parentClassName=""
+                            cardClassName="min-w-[201px]"
+                            parentClassName="h-[250px] sm:h-[300px] md:h-[400] lg:h-[500px]"
                         />
                     </div>
 
@@ -230,7 +231,7 @@ const DemoTimeline: React.FC = () => {
                     </p>
 
                     {/* LIVE DEMO */}
-                    <div className="my-Border  p-4 rounded-md my-Background"
+                    <div className="border my-Border  p-4 rounded-md my-Background"
                         style={{
                             background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
                         }}>
@@ -239,6 +240,8 @@ const DemoTimeline: React.FC = () => {
                             lineColor="bg-green-500"
                             dotColor="bg-white border-4 border-green-600"
                             scrollSpeed={0.8}
+                            parentClassName="h-[200px] sm:h-[400px]"
+                            cardClassName=" sm:w-[90%]"
                         />
                     </div>
 

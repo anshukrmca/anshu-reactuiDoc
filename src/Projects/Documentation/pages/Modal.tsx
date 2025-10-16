@@ -11,7 +11,7 @@ export default function Modal({ }: Props) {
     return (
         <>
             <TabCard
-                className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background"
+                className="my-4 items-center shadow-none hover:shadow-none overflow-hidden border my-Border p-4 my-Background"
                 activeClass="btn-animate btn-animate-success px-6 py-1 border-1"
                 inactiveClass="btn-animate btn-animate-info border-1  px-6 py-1"
                 style={{

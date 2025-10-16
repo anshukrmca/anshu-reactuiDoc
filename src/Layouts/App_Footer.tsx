@@ -6,7 +6,7 @@ const App_Footer: React.FC = () => {
 
   return (
     <footer
-      className="w-full p-4 text-center shadow-lg my-Border my-Background"
+      className="w-full p-4 text-center shadow-lg border my-Border my-Background"
       style={{
         background: CommonSave_GlobalValStore?.HeaderColors,
       }}

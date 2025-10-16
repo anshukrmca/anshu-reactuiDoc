@@ -29,7 +29,7 @@ export default function DemoSweetAlert() {
         type: AlertType,
         code: string
     ) => (
-        <div className="my-Border rounded-2xl p-4 backdrop-blur">
+        <div className="border my-Border rounded-2xl p-4 backdrop-blur">
             <h3 className="text-xl font-semibold mb-2">{title}</h3>
             <p className="text-gray-600 dark:text-gray-400 mb-4">{description}</p>
             <button onClick={() => show(type)} className="px-4 py-2 btn btn-success">
@@ -44,7 +44,7 @@ export default function DemoSweetAlert() {
     return (
         <>
             <Card
-                className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background space-y-6"
+                className="my-4 items-center shadow-none hover:shadow-none overflow-hidden border my-Border p-4 my-Background space-y-6"
                 style={{
                     background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
                 }}

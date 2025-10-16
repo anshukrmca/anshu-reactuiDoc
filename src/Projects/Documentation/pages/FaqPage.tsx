@@ -98,7 +98,7 @@ const FaqPage: React.FC = () => {
   return (
     <div className="w-full min-h-screen p-4 bg-gray-50 dark:bg-slate-900">
       {/* ---------- Header ---------- */}
-      <Card className="my-4 items-center shadow-none  hover:shadow-none overflow-hidden my-Border p-6 my-Background" style={{ background: bgColor }}>
+      <Card className="my-4 items-center shadow-none  hover:shadow-none overflow-hidden border my-Border p-6 my-Background" style={{ background: bgColor }}>
         <div className="w-full bg-indigo-500 rounded-lg text-center py-6 px-4 md:px-6 lg:px-0">
           <div className="max-w-2xl mx-auto">
             <h3 className="text-3xl md:text-4xl font-bold mb-3 text-white">FAQs</h3>
@@ -116,7 +116,7 @@ const FaqPage: React.FC = () => {
           <SearchBox
             value={search}
             onChange={(e) => setSearch(e)}
-            className="my-Border p-2"
+            className="border my-Border p-2"
             placeholder="Search FAQ..."
             />
         </div>
@@ -140,7 +140,7 @@ const FaqPage: React.FC = () => {
       </Card>
 
       {/* ---------- Contact Form ---------- */}
-      <Card className="my-4 shadow-sm overflow-hidden my-Border p-6 my-Background" style={{ background: bgColor }}>
+      <Card className="my-4 shadow-sm overflow-hidden border my-Border p-6 my-Background" style={{ background: bgColor }}>
         <h5 className="font-semibold mb-2">Still Have Questions? We're Here to Help!</h5>
         <span className="opacity-90">
           Contact our support team for personalized assistance. Your satisfaction is our priority! Write your question below and we'll get back to you shortly.

@@ -95,7 +95,7 @@ import "anshu-reactui/styles.css";`,
 
     return (
         <Card
-            className="shadow-md overflow-hidden my-Border my-Background"
+            className="shadow-md overflow-hidden border my-Border my-Background"
             style={{
                 background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
             }}

@@ -30,7 +30,7 @@ const BreadcrumbList: React.FC = () => {
   return (
     <>
       <Card
-        className="my-4 items-center shadow-none hover:shadow-none overflow-hidden my-Border p-4 my-Background"
+        className="my-4 items-center shadow-none hover:shadow-none overflow-hidden border my-Border p-4 my-Background"
         style={{
           background: CommonSave_GlobalValStore.ThemeBackground && bgColor,
         }}
@@ -38,22 +38,22 @@ const BreadcrumbList: React.FC = () => {
 
         <h1 className="text:sm md:text-xl font-semibold">Breadcrumb</h1>
 
-        <div className='p-4 my-Border my-2'>
+        <div className='p-4 border my-Border my-2'>
           <h2 className="text-sm font-semibol my-4">Default Links</h2>
           <Breadcrumb items={items1} />
         </div>
 
-        <div className='p-4 my-Border my-2'>
+        <div className='p-4 border my-Border my-2'>
           <h2 className="text-sm font-semibold my-4">Clickable Buttons</h2>
           <Breadcrumb items={items2}/>
         </div>
 
-        <div className='p-4 my-Border my-2'>
+        <div className='p-4 border my-Border my-2'>
           <h2 className="text-sm font-semibold my-4">Multiple Levels</h2>
           <Breadcrumb items={items3} />
         </div>
 
-        <div className='p-4 my-Border my-2'>
+        <div className='p-4 border my-Border my-2'>
           <h2 className="text-sm font-semibold my-4">Custom Separator</h2>
           <Breadcrumb
             items={items1}
