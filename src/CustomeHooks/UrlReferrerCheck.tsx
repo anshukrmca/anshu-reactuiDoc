@@ -1,5 +1,5 @@
-// UrlReferrerCheck.tsx
 import React, { useEffect, useState, type ReactNode } from "react";
+import { useLocation } from "react-router-dom";
 import DirectAccessURLGuard from "../pages/DirectAccessURLGuard";
 
 interface UrlReferrerCheckProps {
@@ -7,34 +7,37 @@ interface UrlReferrerCheckProps {
 }
 
 const UrlReferrerCheck: React.FC<UrlReferrerCheckProps> = ({ children }) => {
-  const [hasError, setHasError] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
+    const sessionKey = "app-internal-nav";
+
+    // 1️⃣ Check if user has previously navigated inside app
+    const hasVisited = sessionStorage.getItem(sessionKey);
+
+    // 2️⃣ Check referrer (may be empty in production)
     const ref = document.referrer;
     const currentHost = window.location.host;
-    const isInternalRef = ref.includes(currentHost);
+    const isInternalRef = ref && ref.includes(currentHost);
 
-    const navEntries = performance.getEntriesByType("navigation") as PerformanceNavigationTiming[];
-    const navType = navEntries[0]?.type; // "navigate", "reload", "back_forward"
-
-    // ✅ Logic:
-    // 1. Allow if internal navigation
-    // 2. Allow if page reload or back/forward
-    // 3. Block if new tab or first-time direct access
-    if (isInternalRef || navType === "reload" || navType === "back_forward") {
+    if (hasVisited || isInternalRef) {
       setHasError(false);
     } else {
       setHasError(true);
     }
 
+    // 3️⃣ Mark as visited for next internal navigation
+    sessionStorage.setItem(sessionKey, "true");
     setChecked(true);
-  }, []);
+  }, [location.pathname]);
 
-  if (!checked) return null; // wait until check completes
+  if (!checked) return null;
   if (hasError) return <DirectAccessURLGuard />;
 
   return <>{children}</>;
 };
 
 export default UrlReferrerCheck;
+  

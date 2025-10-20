@@ -25,6 +25,9 @@ const DemoTimeline = lazy(() => import("./pages/DemoTimeline"));
 const DemoCardTab = lazy(() => import("./pages/DemoCardTab"));
 const ComingSoon = lazy(() => import("../../pages/ComingSoonPage"));
 
+
+const HRMDashboard = lazy(() => import("../HRM/pages/HRMDashboard"));
+
 // 🔹 Export lazy-loaded route config
 export const DocumentationRoutes = [
   {
@@ -67,6 +70,14 @@ export const DocumentationRoutes = [
       { path: "profile-settings", element: <ComingSoon />, label: "Profile Settings" },
       { path: "reviews", element: <ComingSoon />, label: "Reviews" },
       { path: "data-tables", element: <ComingSoon />, label: "Data Tables" },
+
+      // test dashboard
+      { path: "sale", element: <HRMDashboard />, label: "Data Tables" },
+      { path: "analytics", element: <HRMDashboard />, label: "Data Tables" },
+      { path: "crypto", element: <HRMDashboard />, label: "Data Tables" },
+      { path: "nft", element: <HRMDashboard />, label: "Data Tables" },
+      { path: "courses", element: <HRMDashboard />, label: "Data Tables" },
+      { path: "medical", element: <HRMDashboard />, label: "Data Tables" },
     ],
   },
 ];
