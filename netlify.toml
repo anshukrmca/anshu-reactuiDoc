@@ -5,3 +5,9 @@
 [build.environment]
   NODE_OPTIONS = "--max_old_space_size=8192"
   NODE_VERSION = "22"
+
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
